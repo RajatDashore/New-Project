@@ -33,10 +33,9 @@ import com.uoons.india.ui.base.BaseActivity
 import com.uoons.india.ui.login_module.login_mobile_no.LoginMobileNoBottomSheet
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
+
 import java.lang.RuntimeException
 
-@Obfuscate
 class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityVM>(), HomeActivityNavigator{
     override val bindingVariable: Int = BR.homeActivityVM
     override val layoutId: Int = R.layout.activity_home
@@ -53,7 +52,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityVM>(), HomeAc
     override fun init() {
         mViewModel.navigator = this
         // Start shimmer animation
-        viewDataBinding?.shimmerLayout?.startShimmerAnimation()
+        viewDataBinding?.shimmerLayout?.startShimmer()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,7 +86,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityVM>(), HomeAc
             }
         }
 
-        viewDataBinding?.shimmerLayout?.stopShimmerAnimation()
+        viewDataBinding?.shimmerLayout?.stopShimmer()
         viewDataBinding?.shimmerLayout?.visibility = View.GONE
 
         Firebase.dynamicLinks

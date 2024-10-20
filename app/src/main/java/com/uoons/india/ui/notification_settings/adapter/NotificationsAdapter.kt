@@ -8,9 +8,7 @@ import com.uoons.india.R
 import com.uoons.india.databinding.RowAllNotificationBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.filter.model.FilterItemsDataModel
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class NotificationsAdapter :
     BaseRecyclerAdapter<RowAllNotificationBinding, Any, NotificationsAdapter.ViewHolder>() {
 

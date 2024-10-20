@@ -14,10 +14,8 @@ import com.uoons.india.ui.base.BaseViewModel
 import com.uoons.india.ui.profile.editprofile.model.SaveUserDetailsResponse
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import kotlinx.coroutines.launch
 
-@Obfuscate
 class MyBankDeatilsFragmentVM : BaseViewModel<MyBankDeatilsFrgamentNavigator>(){
     private var saveBankDetailResponse: MutableLiveData<SaveBankDetailsModel> = MutableLiveData()
     var fetchBankDetailResponse: MutableLiveData<FetchBankDetailsModel> = MutableLiveData()

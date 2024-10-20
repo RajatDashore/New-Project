@@ -1,10 +1,10 @@
 package com.uoons.india.utils
 
-import io.michaelrocks.paranoid.Obfuscate
+
 import org.json.JSONArray
 import org.json.JSONObject
 
-@Obfuscate
+
 object ParserUtils {
 
     fun getErrorMsgAndData(e : retrofit2.HttpException) : Pair<String, JSONObject?> {

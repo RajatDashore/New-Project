@@ -7,9 +7,7 @@ import com.uoons.india.R
 import com.uoons.india.databinding.RowProductDetailsReviewImageBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class ProductDetailRatingImagesAdapter() :
     BaseRecyclerAdapter<RowProductDetailsReviewImageBinding, Any, ProductDetailRatingImagesAdapter.ViewHolder>(){
     var raviewImagesList: ArrayList<String> = ArrayList()

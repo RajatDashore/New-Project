@@ -7,10 +7,8 @@ import com.uoons.india.ui.base.BaseViewModel
 import com.uoons.india.ui.my_cart.model.RemoveCartItemResponse
 import com.uoons.india.ui.wishlist.model.GetWishListDataModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
 import kotlinx.coroutines.launch
 
-@Obfuscate
 class WishListFragmentVM : BaseViewModel<WishListFragmentNavigator>() {
 
     // GET WISH LIST ITEMS

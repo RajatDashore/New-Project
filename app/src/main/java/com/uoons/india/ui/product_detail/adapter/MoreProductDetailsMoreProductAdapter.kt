@@ -13,13 +13,12 @@ import com.uoons.india.databinding.RowProductDetailsMoreProductsBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.product_detail.model.SimilarProductsModel
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
+
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-@Obfuscate
 class MoreProductDetailsMoreProductAdapter(var similarProducts: ArrayList<SimilarProductsModel>, var context: Context, var onclick:(value : String)->Unit) :
     BaseRecyclerAdapter<RowProductDetailsMoreProductsBinding, Any, MoreProductDetailsMoreProductAdapter.ViewHolder>(){
 

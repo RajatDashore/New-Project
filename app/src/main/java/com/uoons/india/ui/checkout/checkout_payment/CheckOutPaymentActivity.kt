@@ -16,7 +16,6 @@ import com.uoons.india.ui.checkout.checkout_payment.model.online_payment_status.
 import com.uoons.india.ui.checkout.confirm_pay.ConfirmPaymentStatusActivity
 import com.uoons.india.utils.ActivityNavigator
 import com.uoons.india.utils.AppConstants
-import maes.tech.intentanim.CustomIntent
 import org.json.JSONObject
 import java.util.*
 import kotlin.math.roundToInt
@@ -36,13 +35,13 @@ class CheckOutPaymentActivity : BaseActivity<ActivityCheckOutPaymentBinding, Che
     override   fun init() {
         mViewModel.navigator = this
         // Start shimmer animation
-        viewDataBinding?.shimmerCheckOutPaymentLayout?.startShimmerAnimation()
+        viewDataBinding?.shimmerCheckOutPaymentLayout?.startShimmer()
 
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        viewDataBinding?.shimmerCheckOutPaymentLayout?.stopShimmerAnimation()
+        viewDataBinding?.shimmerCheckOutPaymentLayout?.stopShimmer()
         viewDataBinding?.shimmerCheckOutPaymentLayout?.visibility = View.GONE
         /*val autoReadOtpHelper = AutoReadOtpHelper(this@CheckOutPaymentActivity)
         unregisterReceiver(autoReadOtpHelper)*/
@@ -105,7 +104,7 @@ class CheckOutPaymentActivity : BaseActivity<ActivityCheckOutPaymentBinding, Che
         mBundle.putString(AppConstants.DESCRIPTION, AppConstants.DESCRIPTION)
         mBundle.putString(AppConstants.REASON, AppConstants.REASON)
         ActivityNavigator.clearAllActivityWithData(this@CheckOutPaymentActivity, ConfirmPaymentStatusActivity::class.java,mBundle)
-        CustomIntent.customType(this@CheckOutPaymentActivity, AppConstants.LEFT_TO_RIGHT)
+       // CustomIntent.customType(this@CheckOutPaymentActivity, AppConstants.LEFT_TO_RIGHT) //Rajat dashore
     }
 
     override fun onPaymentError(p0: Int, p1: String?, p2: PaymentData?) {
@@ -140,7 +139,7 @@ class CheckOutPaymentActivity : BaseActivity<ActivityCheckOutPaymentBinding, Che
         mBundle.putString(AppConstants.DESCRIPTION, "Payment Processing Cancelled")
         mBundle.putString(AppConstants.REASON, "Payment Cancelled")
         ActivityNavigator.clearAllActivityWithData(this@CheckOutPaymentActivity, ConfirmPaymentStatusActivity::class.java,mBundle)
-        CustomIntent.customType(this@CheckOutPaymentActivity, AppConstants.LEFT_TO_RIGHT)
+      //  CustomIntent.customType(this@CheckOutPaymentActivity, AppConstants.LEFT_TO_RIGHT) //rajat dashore
      //   Checkout.clearUserData(this@CheckOutPaymentActivity)
     }
 

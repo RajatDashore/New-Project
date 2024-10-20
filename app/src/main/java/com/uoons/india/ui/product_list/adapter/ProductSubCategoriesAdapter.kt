@@ -11,9 +11,7 @@ import com.uoons.india.databinding.RowSubCategoriesListBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.product_list.model.SubCatIdModel
 import com.uoons.india.ui.product_list.model.SubCategoriesModel
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class ProductSubCategoriesAdapter(var onclick:(value: SubCatIdModel)->Unit) : BaseRecyclerAdapter<RowSubCategoriesListBinding, Any, ProductSubCategoriesAdapter.ViewHolder>(){
 
     var subProductList: ArrayList<SubCategoriesModel>? = null

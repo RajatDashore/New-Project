@@ -9,10 +9,6 @@ import com.uoons.india.databinding.RowHomeTrendingNowBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.home.fragment.model.DeshBoardItems
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
-
-
-@Obfuscate
 class TrendingNowItemRecyclerAdapter : BaseRecyclerAdapter<RowHomeTrendingNowBinding, Any, TrendingNowItemRecyclerAdapter.ViewHolder>(){
 
     private var customProductIdClickListener: OnProductIdClickListener? = null

@@ -6,10 +6,9 @@ import com.uoons.india.data.remote.Repository
 import com.uoons.india.ui.base.BaseViewModel
 import com.uoons.india.ui.question_answers.post_question.model.PostYourQuestionModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
+
 import kotlinx.coroutines.launch
 
-@Obfuscate
 class PostYourQuestionFragmentVM : BaseViewModel<PostYourQuestionFragmentNavigator>(){
 
     var getResponsePostYourQuestion : MutableLiveData<PostYourQuestionModel> = MutableLiveData()

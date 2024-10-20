@@ -13,9 +13,8 @@ import com.uoons.india.ui.home.HomeActivity
 import com.uoons.india.utils.ActivityNavigator
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
+
 class ConfirmPayFragment : BaseFragment<FragmentConfirmPayBinding, ConfirmPayFragmentVM>(),
     ConfirmPayFragmentNavigator  {
     override val bindingVariable: Int = BR.confirmPayFragmentVM

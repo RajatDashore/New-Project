@@ -26,12 +26,11 @@ import com.uoons.india.ui.checkout.checkout_payment.model.online_payment_status.
 import com.uoons.india.ui.my_cart.model.GetMyCartDataModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import org.json.JSONObject
 import java.text.NumberFormat
 import java.util.*
 
-@Obfuscate
+
 class CheckOutPaymentFragment : BaseFragment<FragmentCheckOutPaymentBinding, CheckOutPaymentFragmentVM>(), CheckOutPaymentFragmentNavigator{
     private var LOG_TAG = "CheckOutPaymentFragment"
     override val bindingVariable: Int = BR.checkOutPaymentFragmentVM
@@ -71,7 +70,7 @@ class CheckOutPaymentFragment : BaseFragment<FragmentCheckOutPaymentBinding, Che
 
                 })
         if (mViewModel.navigator!!.checkIfInternetOn()) {
-            viewDataBinding.shimmerCheckOutPaymentLayout.startShimmerAnimation()
+            viewDataBinding.shimmerCheckOutPaymentLayout.startShimmer()
             mViewModel.getMyCartItemsApiCall()
 
         } else {
@@ -161,7 +160,7 @@ class CheckOutPaymentFragment : BaseFragment<FragmentCheckOutPaymentBinding, Che
         viewDataBinding.txvPriceDetails.visibility = View.VISIBLE
         viewDataBinding.crdPriceDetails.visibility = View.VISIBLE
 
-        viewDataBinding.shimmerCheckOutPaymentLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerCheckOutPaymentLayout.stopShimmer()
         viewDataBinding.shimmerCheckOutPaymentLayout.visibility = View.GONE
 
         if (data.Data?.payMode == 0) {

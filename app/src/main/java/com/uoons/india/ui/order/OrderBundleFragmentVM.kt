@@ -9,10 +9,10 @@ import com.uoons.india.ui.my_cart.model.GetMyCartDataModel
 import com.uoons.india.ui.order.model.FecthAllBundleOrderModel
 import com.uoons.india.ui.wishlist.model.GetWishListDataModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
+
 import kotlinx.coroutines.launch
 
-@Obfuscate
+
 class OrderBundleFragmentVM : BaseViewModel<OrderBundleFragmentNavigator>(){
     var getAllFetchBundleOrdersListResponse : MutableLiveData<FecthAllBundleOrderModel> = MutableLiveData()
     var getAllFetchBundleOrdersListFailureResponse : MutableLiveData<FecthAllBundleOrderModel> = MutableLiveData()

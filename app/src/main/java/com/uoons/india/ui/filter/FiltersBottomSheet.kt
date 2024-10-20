@@ -17,9 +17,7 @@ import com.uoons.india.ui.filter.model.ChildFilter
 import com.uoons.india.ui.filter.model.ParentFilterModel
 import com.uoons.india.ui.product_list.model.FilterItemsListModel
 import com.uoons.india.ui.product_list.model.FilterModel
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class FiltersBottomSheet(var onclick: (obj: ArrayList<ParentFilterModel>) -> Unit) :
     BaseBottomSheetDialogFrag<FiltersBottomSheetBinding, FiltersBottomSheetVM>(),
     FiltersBottomSheetNavigator {

@@ -8,10 +8,10 @@ import com.uoons.india.ui.home.fragment.model.DeshBoardModel
 import com.uoons.india.ui.home.fragment.more_products.model.HomePageMoreItemsDataModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.DashBoardDataListSingleton
-import io.michaelrocks.paranoid.Obfuscate
+
 import kotlinx.coroutines.launch
 
-@Obfuscate
+
 class HomeFragmentRecyclerVM : BaseViewModel<HomeFragmentNavigator>() {
     // Get all home page data
     var deshBoardDataResponse: MutableLiveData<DeshBoardModel> = MutableLiveData()

@@ -14,12 +14,11 @@ import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.home.fragment.model.DeshBoardItems
 import com.uoons.india.utils.CommonUtils
 import android.view.animation.AlphaAnimation
+import coil.ComponentRegistry
 import coil.ImageLoader
 import coil.decode.SvgDecoder
 import coil.request.ImageRequest
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class HomeCategoryFragmentAdapter : BaseRecyclerAdapter<RowHomeCategoryAdapterBinding, Any, HomeCategoryFragmentAdapter.ViewHolder>(){
     private var categoryItemList: ArrayList<DeshBoardItems>? = null
     lateinit var context: Context
@@ -77,7 +76,9 @@ class HomeCategoryFragmentAdapter : BaseRecyclerAdapter<RowHomeCategoryAdapterBi
 
     fun ImageView.loadSvg(url: String) {
         val imageLoader = ImageLoader.Builder(this.context)
-            .componentRegistry { add(SvgDecoder(this@loadSvg.context)) }
+            .components(fun ComponentRegistry.Builder.() {
+              //  add(SvgDecoder(context))
+            })
             .build()
 
         val request = ImageRequest.Builder(this.context)

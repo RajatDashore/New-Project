@@ -4,9 +4,7 @@ import android.view.KeyEvent
 import android.view.View
 import android.widget.EditText
 import com.uoons.india.R
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class OtpGenericKeyEvent(var currentView: EditText, var previousView: EditText?) :
     View.OnKeyListener {
     override fun onKey(view: View, keyCode: Int, keyEvent: KeyEvent): Boolean {

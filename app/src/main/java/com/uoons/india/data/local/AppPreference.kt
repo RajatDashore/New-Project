@@ -1,21 +1,18 @@
 package com.uoons.india.data.local
 
 import android.content.Context
-import androidx.datastore.DataStore
-import androidx.datastore.preferences.Preferences
-import androidx.datastore.preferences.clear
-import androidx.datastore.preferences.createDataStore
-import androidx.datastore.preferences.edit
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import java.util.*
 
-@Obfuscate
+
 object AppPreference {
 
     var dataStore: DataStore<Preferences>? = null
@@ -24,7 +21,7 @@ object AppPreference {
      * Create DataStore with Shared Preference Migration
      * */
     fun getInstance(context: Context) {
-        dataStore = context.createDataStore(name = "uoons")
+        //dataStore = context.createDataStore(name = "uoons")
     }
 
     /**

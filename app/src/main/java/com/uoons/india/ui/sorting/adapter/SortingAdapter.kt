@@ -14,9 +14,7 @@ import com.uoons.india.data.local.AppPreference
 import com.uoons.india.data.local.PreferenceKeys
 import com.uoons.india.ui.product_list.model.SortByNameModel
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class SortingAdapter(var onclick:(sortId:String)->Unit) :
     BaseRecyclerAdapter<RowSortingAdapterBinding, Any, SortingAdapter.ViewHolder>() {
 

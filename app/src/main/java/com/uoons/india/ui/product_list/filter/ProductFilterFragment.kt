@@ -18,9 +18,7 @@ import com.uoons.india.ui.filter.model.ChildFilter
 import com.uoons.india.ui.filter.model.ParentFilterModel
 import com.uoons.india.ui.product_list.model.FilterItemsListModel
 import com.uoons.india.ui.product_list.model.FilterModel
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class ProductFilterFragment : BaseFragment<FragmentProductFilterBinding, ProductFilterFragmentVM>(), ProductFilterFragmentNavigator{
 
     override val bindingVariable: Int = BR.productFilterFragmentVM

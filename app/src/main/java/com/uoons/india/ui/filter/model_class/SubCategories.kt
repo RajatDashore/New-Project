@@ -1,9 +1,7 @@
 package com.uoons.india.ui.filter.model_class
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class SubCategories(@SerializedName("c_id"         ) var cId         : String? = null,
                          @SerializedName("category"     ) var category    : String? = null,
                          @SerializedName("show"         ) var show        : String? = null,

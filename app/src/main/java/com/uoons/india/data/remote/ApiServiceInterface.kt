@@ -88,7 +88,6 @@ import com.uoons.india.ui.sorting.model.SortingModel
 import com.uoons.india.ui.splash.model.ForceUpdatedModel
 import com.uoons.india.ui.wishlist.model.AddWishListResponseModel
 import com.uoons.india.ui.wishlist.model.GetWishListDataModel
-import io.michaelrocks.paranoid.Obfuscate
 import retrofit2.http.*
 import java.util.HashMap
 
@@ -101,7 +100,7 @@ import okhttp3.RequestBody
 
 import okhttp3.MultipartBody
 
-@Obfuscate
+
 interface ApiServiceInterface {
 
     @POST(SEND_OTP)

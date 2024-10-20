@@ -8,10 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.uoons.india.R
 import com.uoons.india.databinding.RowProductReviewPhotosBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
-import io.michaelrocks.paranoid.Obfuscate
-import java.util.*
 
-@Obfuscate
+import java.util.*
 class ProductReviewPhotosAdapter(val productReviewList: ArrayList<Uri>,var onclick:(value : Int)->Unit) : BaseRecyclerAdapter<RowProductReviewPhotosBinding, Any, ProductReviewPhotosAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(viewDataBinding: RowProductReviewPhotosBinding, parent: ViewGroup, viewType: Int): ViewHolder {

@@ -9,9 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.uoons.india.R
 import com.uoons.india.ui.product_detail.suggestion_for_enhance.model.PostSuggestionsQuestions
 import com.uoons.india.ui.product_detail.suggestion_for_enhance.model.QuestionModel
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
+
 class SuggestionForEnhanceAdapter(val questionList: ArrayList<QuestionModel>, val requireContext: Context, var onclick:(values: PostSuggestionsQuestions)->Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

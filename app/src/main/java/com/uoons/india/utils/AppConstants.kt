@@ -1,8 +1,6 @@
 package com.uoons.india.utils
 
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 object AppConstants {
 
     const val EMPTY = ""

@@ -10,9 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.uoons.india.databinding.RowProductDetailsImageSliderBinding
 import com.uoons.india.ui.product_detail.model.ImagesArrayListModel
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class MyImagesViewPagerAdapter(var productImageSliderList: ArrayList<ImagesArrayListModel>,var context: Context,var onClick:(value: String)->Unit) :
     RecyclerView.Adapter<MyImagesViewPagerAdapter.ViewHolder>() {
 

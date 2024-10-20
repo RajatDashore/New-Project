@@ -28,9 +28,7 @@ import com.uoons.india.data.remote.error.NoInternetError
 import com.uoons.india.data.remote.error.TimeoutError
 import com.uoons.india.data.remote.error.UnknownHostError
 import com.uoons.india.utils.*
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppCompatActivity(),
     CommonNavigator {
 

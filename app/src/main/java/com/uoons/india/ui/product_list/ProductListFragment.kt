@@ -31,9 +31,7 @@ import com.uoons.india.ui.product_list.model.*
 import com.uoons.india.ui.wishlist.model.GetWishListDataModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductListFragmentVM>(), ProductListFragmentNavigator {
 
     private var LOG_TAG = "ProductListFragment"
@@ -105,7 +103,7 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductList
                 viewDataBinding.rcvProductList.visibility = View.GONE
                 viewDataBinding.ivNoDataFound.visibility = View.GONE
                 viewDataBinding.shimmerProductListLayout.visibility = View.VISIBLE
-                viewDataBinding.shimmerProductListLayout.startShimmerAnimation()
+                viewDataBinding.shimmerProductListLayout.startShimmer()
                 if (searchKey == AppConstants.Null){
                     mViewModel.productListApiCall(homeItemId,homeSubItemId,currentPage.toString(),subCId,filterRequest,sortByName,"")
                 }else{
@@ -138,7 +136,7 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductList
 
     override fun onDestroy() {
         super.onDestroy()
-        viewDataBinding.shimmerProductListLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerProductListLayout.stopShimmer()
         viewDataBinding.shimmerProductListLayout.visibility = View.GONE
     }
 
@@ -153,7 +151,7 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductList
         viewDataBinding.ivNoDataFound.visibility = View.GONE
         // Start shimmer animation
         viewDataBinding.shimmerProductListLayout.visibility = View.VISIBLE
-        viewDataBinding.shimmerProductListLayout.startShimmerAnimation()
+        viewDataBinding.shimmerProductListLayout.startShimmer()
 
         PID =    AppPreference.getValue(PreferenceKeys.PROFILE_ID)
         if (PID.isNotEmpty()){
@@ -393,7 +391,7 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductList
             viewDataBinding.rcvSubCategories.visibility = View.GONE
             viewDataBinding.rcvProductList.visibility = View.GONE
             viewDataBinding.shimmerProductListLayout.visibility = View.VISIBLE
-            viewDataBinding.shimmerProductListLayout.startShimmerAnimation()
+            viewDataBinding.shimmerProductListLayout.startShimmer()
             if (searchKey == AppConstants.Null){
                 mViewModel.productListApiCall(homeItemId,homeSubItemId,currentPage.toString(),subCId,filterRequest,sortByName,"")
             }else{
@@ -429,7 +427,7 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductList
             viewDataBinding.rcvSubCategories.visibility = View.GONE
             viewDataBinding.rcvProductList.visibility = View.GONE
             viewDataBinding.shimmerProductListLayout.visibility = View.VISIBLE
-            viewDataBinding.shimmerProductListLayout.startShimmerAnimation()
+            viewDataBinding.shimmerProductListLayout.startShimmer()
             if (searchKey == AppConstants.Null){
                 mViewModel.productListApiCall(homeItemId,homeSubItemId,currentPage.toString(),subCId,filterRequest,sortByName,"")
             }else{

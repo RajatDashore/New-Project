@@ -8,10 +8,8 @@ import com.uoons.india.ui.base.BaseViewModel
 import com.uoons.india.ui.help.view_pager_fragment.model.ContactUsModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import kotlinx.coroutines.launch
 
-@Obfuscate
 class ContactUsFragmentVM : BaseViewModel<ContactUsFragmentNavigator>(){
 
     var contactHelpTopicResponse : MutableLiveData<ContactUsModel> = MutableLiveData()

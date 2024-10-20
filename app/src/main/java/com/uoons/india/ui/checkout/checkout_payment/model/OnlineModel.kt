@@ -2,10 +2,6 @@ package com.uoons.india.ui.checkout.checkout_payment.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
-
-
-@Obfuscate
 class OnlineModel {
     @SerializedName("head")
     @Expose

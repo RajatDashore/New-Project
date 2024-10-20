@@ -15,12 +15,11 @@ import com.uoons.india.ui.my_cart.OnListItemClicked
 import com.uoons.india.ui.my_cart.model.GetMyCartDataModel
 import com.uoons.india.ui.my_cart.model.GetMyCartItemsModel
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
 
-@Obfuscate
+
 class MyCartFragmentAdapter(data: GetMyCartDataModel, context: Context,onListItemClicked : OnListItemClicked) : BaseRecyclerAdapter<RowMyCartProductBinding, Any, MyCartFragmentAdapter.ViewHolder>() {
 
     private var myCartList: GetMyCartDataModel = GetMyCartDataModel()

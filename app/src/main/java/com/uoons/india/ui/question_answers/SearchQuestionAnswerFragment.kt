@@ -28,9 +28,7 @@ import com.uoons.india.ui.product_detail.model.QuestionLikeUnlikeModel
 import com.uoons.india.ui.product_detail.quetion_and_answer.model.QuestionAnswerModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class SearchQuestionAnswerFragment : BaseFragment<FragmentSearchQuestionAnswerBinding, SearchQuestionAnswerFragmentVM>(), SearchQuestionAnswerFragmentNavigator {
     private var LOG_TAG = SearchQuestionAnswerFragment::class.java.name
     override val bindingVariable: Int = BR.searchQuestionAnswerFragmentVM

@@ -2,11 +2,10 @@ package com.uoons.india.ui.splash
 
 import com.uoons.india.ui.splash.model.ForceUpdateData
 import com.uoons.india.ui.splash.model.ForceUpdatedModel
-import io.michaelrocks.paranoid.Obfuscate
+
 import retrofit2.Call
 import retrofit2.http.*
 
-@Obfuscate
 interface ApiInterface {
 
 

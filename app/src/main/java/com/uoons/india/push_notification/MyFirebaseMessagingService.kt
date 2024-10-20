@@ -14,13 +14,11 @@ import com.google.firebase.messaging.RemoteMessage
 import com.uoons.india.R
 import com.uoons.india.ui.splash.SplashActivity
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
 import java.io.IOException
 import java.net.URI
 import java.net.URISyntaxException
 
 
-@Obfuscate
 @SuppressLint("MissingFirebaseInstanceTokenRefresh")
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 

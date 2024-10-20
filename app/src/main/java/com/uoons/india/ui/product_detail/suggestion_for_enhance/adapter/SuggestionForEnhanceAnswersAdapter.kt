@@ -12,9 +12,7 @@ import com.uoons.india.ui.product_detail.suggestion_for_enhance.model.QuestionMo
 import android.widget.RadioButton
 
 import com.uoons.india.ui.product_detail.suggestion_for_enhance.model.PostSuggestionsQuestions
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class SuggestionForEnhanceAnswersAdapter(val options: QuestionModel, val requireContext: Context,var onclick:(values: PostSuggestionsQuestions)->Unit) : BaseRecyclerAdapter<RowSuggestionForEnhanceAnswersBinding, Any, SuggestionForEnhanceAnswersAdapter.ViewHolder>(){
 
     private var lastCheckedRB: RadioButton? = null

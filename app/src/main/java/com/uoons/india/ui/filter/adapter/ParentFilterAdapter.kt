@@ -10,9 +10,7 @@ import com.uoons.india.R
 import com.uoons.india.databinding.RowCategoryFiltersBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.product_list.model.FilterModel
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class ParentFilterAdapter(childFilterList: ArrayList<FilterModel>, context: Context) : BaseRecyclerAdapter<RowCategoryFiltersBinding, Any, ParentFilterAdapter.ViewHolder>() {
 
     private var parentFilterList: ArrayList<FilterModel> = ArrayList<FilterModel>()

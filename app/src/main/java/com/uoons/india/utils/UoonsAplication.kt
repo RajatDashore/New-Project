@@ -3,9 +3,7 @@ package com.uoons.india.utils
 import android.app.Application
 import androidx.lifecycle.LifecycleObserver
 import com.uoons.india.data.local.AppPreference
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class UoonsAplication: Application() ,LifecycleObserver{
     override fun onCreate() {
         super.onCreate()

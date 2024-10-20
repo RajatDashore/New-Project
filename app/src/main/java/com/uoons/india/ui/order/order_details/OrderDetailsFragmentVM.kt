@@ -10,10 +10,10 @@ import com.uoons.india.ui.order.order_details.model.OrderCancelModel
 import com.uoons.india.ui.order.order_details.model.OrderDetailModel
 import com.uoons.india.ui.wishlist.model.GetWishListDataModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
+
 import kotlinx.coroutines.launch
 
-@Obfuscate
+
 class OrderDetailsFragmentVM : BaseViewModel<OrderDetailsFragmentNavigator>(){
 
     var getOrderResponse : MutableLiveData<OrderDetailModel> = MutableLiveData()

@@ -16,9 +16,7 @@ import com.uoons.india.databinding.FragmentProfileBinding
 import com.uoons.india.ui.base.BaseFragment
 import com.uoons.india.ui.profile.model.UserDetailsModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileFragmentVM>(),
     ProfileFrgamentNavigator {
     private var LOG_TAG = ProfileFragment::class.java.name
@@ -32,7 +30,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileFragmentVM>(
         if (mViewModel.navigator!!.checkIfInternetOn()) {
             mViewModel.getUserDetailsApiCall()
             // Start shimmer animation
-            viewDataBinding.shimmerProfileLayout.startShimmerAnimation()
+            viewDataBinding.shimmerProfileLayout.startShimmer()
         } else {
             mViewModel.navigator!!.showAlertDialog1Button(
                 AppConstants.Uoons,
@@ -43,7 +41,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileFragmentVM>(
 
     override fun onDestroy() {
         super.onDestroy()
-        viewDataBinding.shimmerProfileLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerProfileLayout.stopShimmer()
         viewDataBinding.shimmerProfileLayout.visibility = View.GONE
     }
 

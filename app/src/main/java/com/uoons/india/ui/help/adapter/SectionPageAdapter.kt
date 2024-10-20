@@ -3,10 +3,9 @@ package com.uoons.india.ui.help.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import io.michaelrocks.paranoid.Obfuscate
+
 import java.util.ArrayList
 
-@Obfuscate
 class SectionPageAdapter(fm: FragmentManager) :
     FragmentPagerAdapter(fm) {
     private val fragmentList: MutableList<Fragment> = ArrayList()

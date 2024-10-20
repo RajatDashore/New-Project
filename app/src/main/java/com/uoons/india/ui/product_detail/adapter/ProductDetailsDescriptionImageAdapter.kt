@@ -10,9 +10,7 @@ import com.uoons.india.databinding.RowProductDetailsDescriptionImageBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.product_detail.model.ImagesArrayListModel
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class ProductDetailsDescriptionImageAdapter(private val imagesLst: ArrayList<ImagesArrayListModel>?, val requireContext: Context) :
     BaseRecyclerAdapter<RowProductDetailsDescriptionImageBinding, Any, ProductDetailsDescriptionImageAdapter.ViewHolder>(){
 

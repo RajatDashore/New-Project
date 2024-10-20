@@ -1,9 +1,7 @@
 package com.uoons.india.ui.product_list.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class ProductListDataModel (@SerializedName("items"          ) var items         : ArrayList<ProductListModel>         = arrayListOf(),
                                  @SerializedName("total_page"     ) var totalPage     : Int?                     = null,
                                  @SerializedName("total_items"    ) var totalItems    : Int?                     = null,

@@ -1,9 +1,7 @@
 package com.uoons.india.ui.product_detail.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class Advertisment(@SerializedName("id"           ) var id          : String? = null,
                         @SerializedName("brand_id"     ) var brandId     : String? = null,
                         @SerializedName("title"        ) var title       : String? = null,

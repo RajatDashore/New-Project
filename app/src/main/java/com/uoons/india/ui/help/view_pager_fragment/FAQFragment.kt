@@ -16,9 +16,7 @@ import com.uoons.india.ui.help.view_pager_fragment.adapet.FAQFragmentAdapter
 import com.uoons.india.ui.help.view_pager_fragment.model.FAQDataModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class FAQFragment : BaseFragment<FragmentFAQBinding, FAQFragmentVM>(),
     FAQFragmentNavigator {
 

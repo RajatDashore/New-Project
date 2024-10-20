@@ -8,10 +8,7 @@ import com.uoons.india.ui.category.category_items.model.*
 import kotlinx.coroutines.launch
 import com.google.gson.GsonBuilder
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
 
-
-@Obfuscate
 class CategoryItemsFragmentVM : BaseViewModel<CategoryItemsFragmentNavigator>(){
 
     // GET SUB CATEGORIES

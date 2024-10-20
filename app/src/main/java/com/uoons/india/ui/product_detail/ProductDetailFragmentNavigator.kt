@@ -1,9 +1,7 @@
 package com.uoons.india.ui.product_detail
 
 import com.uoons.india.ui.base.CommonNavigator
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 interface ProductDetailFragmentNavigator : CommonNavigator {
     fun getSingleProductData()
     fun addWishList()

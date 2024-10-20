@@ -4,9 +4,7 @@ import android.content.ContentValues
 import android.util.Log
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 object PushNotification {
 
     fun FirebaseMessaging(){

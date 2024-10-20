@@ -10,10 +10,10 @@ import com.uoons.india.R
 import com.uoons.india.databinding.RowProductDetailsAdditionalInfoBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.product_detail.model.ProductAddInfoModel
-import io.michaelrocks.paranoid.Obfuscate
+
 import kotlin.collections.ArrayList
 
-@Obfuscate
+
 class ProductDetailsAdditionalInfoAdapter(var addInformation: ArrayList<ProductAddInfoModel>, var context: Context) :
     BaseRecyclerAdapter<RowProductDetailsAdditionalInfoBinding, Any, ProductDetailsAdditionalInfoAdapter.ViewHolder>(){
 

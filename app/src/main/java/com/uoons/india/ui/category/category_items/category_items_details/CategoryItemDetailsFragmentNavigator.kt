@@ -1,9 +1,7 @@
 package com.uoons.india.ui.category.category_items.category_items_details
 
 import com.uoons.india.ui.base.CommonNavigator
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 interface CategoryItemDetailsFragmentNavigator : CommonNavigator{
     fun getSingleProductData()
     fun naviGateToMyCartFragment()

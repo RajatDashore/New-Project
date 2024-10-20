@@ -6,9 +6,6 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import io.michaelrocks.paranoid.Obfuscate
-
-@Obfuscate
 abstract class BaseRecyclerAdapter<T : ViewDataBinding, V : Any, VH : RecyclerView.ViewHolder> : RecyclerView.Adapter<VH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {

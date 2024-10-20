@@ -9,9 +9,7 @@ import com.uoons.india.BR
 import com.uoons.india.R
 import com.uoons.india.databinding.FragmentReviewAndRatingThankyouScreenBinding
 import com.uoons.india.ui.base.BaseFragment
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class ReviewAndRatingThankyouScreenFragment : BaseFragment<FragmentReviewAndRatingThankyouScreenBinding, ReviewAndRatingThankyouScreenFragmentVM>(),
     ReviewAndRatingThankyouScreenFragmentNavigator {
 

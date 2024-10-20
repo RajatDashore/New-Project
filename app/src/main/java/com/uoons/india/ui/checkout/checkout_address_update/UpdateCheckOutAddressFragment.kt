@@ -15,10 +15,7 @@ import com.uoons.india.databinding.FragmentUpdateDeliveryAddressBinding
 import com.uoons.india.ui.base.BaseFragment
 import com.uoons.india.ui.checkout.checkout_address.model.GetAllDeliverAddressModel
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-
-@Obfuscate
 class UpdateCheckOutAddressFragment :
     BaseFragment<FragmentUpdateDeliveryAddressBinding, UpdateCheckOutAddressFragmentVM>(),
     UpdateCheckOutAddressFragmentNavigator {

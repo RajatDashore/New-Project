@@ -16,9 +16,7 @@ import com.uoons.india.ui.base.BaseFragment
 import com.uoons.india.ui.category.category_items.adapter.CategoryItemsAdapter
 import com.uoons.india.ui.category.category_items.model.SubCategoriesModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class SearchItemsFragment : BaseFragment<FragmentSearchItemsBinding, SearchItemsFragmentVM>(),
     SearchItemsFragmentNavigator {
 

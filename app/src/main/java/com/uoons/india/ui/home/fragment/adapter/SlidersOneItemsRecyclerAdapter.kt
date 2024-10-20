@@ -13,9 +13,6 @@ import com.uoons.india.databinding.RowHomeSliderBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.home.fragment.model.DeshBoardItems
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
-
-@Obfuscate
 class SlidersOneItemsRecyclerAdapter : BaseRecyclerAdapter<RowHomeSliderBinding, Any, SlidersOneItemsRecyclerAdapter.ViewHolder>(){
 
     private var customClickListener: OnItemClickListener? = null

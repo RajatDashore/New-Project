@@ -2,9 +2,6 @@ package com.uoons.india.utils
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.michaelrocks.paranoid.Obfuscate
-
-@Obfuscate
 abstract class PaginationScrollListener
 
 (private val layoutManager: LinearLayoutManager) : RecyclerView.OnScrollListener() {

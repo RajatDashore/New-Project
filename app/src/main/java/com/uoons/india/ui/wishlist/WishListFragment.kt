@@ -16,9 +16,7 @@ import com.uoons.india.ui.base.BaseFragment
 import com.uoons.india.ui.wishlist.adapter.GetWishListAdapter
 import com.uoons.india.ui.wishlist.model.GetWishListDataModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class WishListFragment : BaseFragment<FragmentWishListBinding, WishListFragmentVM>(),
     WishListFragmentNavigator {
 
@@ -31,7 +29,7 @@ class WishListFragment : BaseFragment<FragmentWishListBinding, WishListFragmentV
     override   fun init() {
         mViewModel.navigator = this
         if (mViewModel.navigator!!.checkIfInternetOn()) {
-            viewDataBinding.shimmerWishListLayout.startShimmerAnimation()
+            viewDataBinding.shimmerWishListLayout.startShimmer()
             mViewModel.getWishListProductApiCall()
         }else{
             mViewModel.navigator!!.showAlertDialog1Button(AppConstants.Uoons,resources.getString(R.string.please_check_internet_connection), onClick = {})
@@ -109,7 +107,7 @@ class WishListFragment : BaseFragment<FragmentWishListBinding, WishListFragmentV
 
     @SuppressLint("NotifyDataSetChanged")
     fun setWishListAdapterData(data: GetWishListDataModel, context: Context){
-        viewDataBinding.shimmerWishListLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerWishListLayout.stopShimmer()
         viewDataBinding.shimmerWishListLayout.visibility = View.GONE
         if (data.Data.isEmpty()){
             viewDataBinding.wishListEmpty.visibility = View.VISIBLE

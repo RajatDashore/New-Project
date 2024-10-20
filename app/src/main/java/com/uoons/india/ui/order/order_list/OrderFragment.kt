@@ -24,9 +24,7 @@ import com.uoons.india.ui.order.order_list.model.OrderBundleListModel
 import com.uoons.india.ui.wishlist.model.GetWishListDataModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class OrderFragment : BaseFragment<FragmentOrderBinding, OrderFragmentVM>(),
     OrderFragmentNavigator {
 
@@ -45,7 +43,7 @@ class OrderFragment : BaseFragment<FragmentOrderBinding, OrderFragmentVM>(),
         if (mViewModel.navigator!!.checkIfInternetOn()) {
             mViewModel.getAllOrdersList(bundleId)
             // Start shimmer animation
-            viewDataBinding.shimmerOrderBundleLayout.startShimmerAnimation()
+            viewDataBinding.shimmerOrderBundleLayout.startShimmer()
         }else{
             mViewModel.navigator!!.showAlertDialog1Button(AppConstants.Uoons,resources.getString(R.string.please_check_internet_connection), onClick = {
                 onInternet()
@@ -55,7 +53,7 @@ class OrderFragment : BaseFragment<FragmentOrderBinding, OrderFragmentVM>(),
 
     override fun onDestroy() {
         super.onDestroy()
-        viewDataBinding.shimmerOrderBundleLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerOrderBundleLayout.stopShimmer()
         viewDataBinding.shimmerOrderBundleLayout.visibility = View.GONE
     }
 
@@ -75,7 +73,7 @@ class OrderFragment : BaseFragment<FragmentOrderBinding, OrderFragmentVM>(),
         viewDataBinding.toolbar.txvTitleName.text = resources.getString(R.string.order)
         viewDataBinding.toolbar.crdCountMyCart.visibility = View.GONE
         // Start shimmer animation
-        viewDataBinding.shimmerOrderBundleLayout.startShimmerAnimation()
+        viewDataBinding.shimmerOrderBundleLayout.startShimmer()
 
         PID =    AppPreference.getValue(PreferenceKeys.PROFILE_ID)
         if (PID.isNotEmpty()){

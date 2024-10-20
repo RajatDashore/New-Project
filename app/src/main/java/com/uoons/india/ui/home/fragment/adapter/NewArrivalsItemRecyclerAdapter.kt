@@ -12,9 +12,9 @@ import com.uoons.india.databinding.RowHomeCategoryBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.home.fragment.model.DeshBoardItems
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
+
+
 class NewArrivalsItemRecyclerAdapter:
     BaseRecyclerAdapter<RowHomeCategoryBinding, Any, NewArrivalsItemRecyclerAdapter.ViewHolder>(){
 

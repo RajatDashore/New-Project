@@ -1,9 +1,7 @@
 package com.uoons.india.ui.order.order_list.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class OrderListModel(@SerializedName("b_id"                ) var bId                : String? = null,
                           @SerializedName("bundle_id"           ) var bundleId           : String? = null,
                           @SerializedName("user_id"             ) var userId             : String? = null,

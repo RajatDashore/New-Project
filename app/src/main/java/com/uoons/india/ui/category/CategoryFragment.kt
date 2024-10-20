@@ -21,9 +21,7 @@ import com.uoons.india.ui.wishlist.model.GetWishListDataModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CategoryDataSingleton
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryFragmentVM>(),
     CategoryFragmentNavigator {
     private var LOG_TAG = "CategoryFragment"
@@ -57,7 +55,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryFragmentV
 
     override fun onDestroy() {
         super.onDestroy()
-        viewDataBinding.shimmerCategoriesLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerCategoriesLayout.stopShimmer()
         viewDataBinding.shimmerCategoriesLayout.visibility = View.GONE
     }
 
@@ -66,7 +64,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryFragmentV
         navController = Navigation.findNavController(view)
         viewDataBinding.toolbar.txvTitleName.text = resources.getString(R.string.category)
         // Start shimmer animation
-        viewDataBinding.shimmerCategoriesLayout.startShimmerAnimation()
+        viewDataBinding.shimmerCategoriesLayout.startShimmer()
 
         if (AppPreference.getValue(PreferenceKeys.PROFILE_ID).isNotEmpty()) {
             if (mViewModel.navigator!!.checkIfInternetOn()) {
@@ -156,7 +154,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryFragmentV
         categoryFragmentAdapter.setAllCategoriesList(data, requireActivity())
         viewDataBinding.rvCategories.adapter = categoryFragmentAdapter
         categoryFragmentAdapter.notifyDataSetChanged()
-        viewDataBinding.shimmerCategoriesLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerCategoriesLayout.stopShimmer()
         viewDataBinding.shimmerCategoriesLayout.visibility = View.GONE
     }
 

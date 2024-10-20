@@ -11,7 +11,6 @@ import com.uoons.india.ui.home.HomeActivity
 import com.uoons.india.utils.ActivityNavigator
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import maes.tech.intentanim.CustomIntent
 
 class ConfirmPaymentStatusActivity : BaseActivity<ActivityConfirmPaymentStatusBinding, ConfirmPayFragmentVM>(), ConfirmPayFragmentNavigator {
     override val bindingVariable: Int = BR.confirmPayFragmentVM
@@ -92,19 +91,19 @@ class ConfirmPaymentStatusActivity : BaseActivity<ActivityConfirmPaymentStatusBi
 
     override fun naviGateToHomeFragment() {
         ActivityNavigator.clearAllActivity(this@ConfirmPaymentStatusActivity, HomeActivity::class.java)
-        CustomIntent.customType(this@ConfirmPaymentStatusActivity, AppConstants.RIGHT_TO_LEFT)
+       // CustomIntent.customType(this@ConfirmPaymentStatusActivity, AppConstants.RIGHT_TO_LEFT)
     }
 
     override fun onBackClick() {
         super.onBackClick()
         ActivityNavigator.clearAllActivity(this@ConfirmPaymentStatusActivity, HomeActivity::class.java)
-        CustomIntent.customType(this@ConfirmPaymentStatusActivity, AppConstants.RIGHT_TO_LEFT)
+     //   CustomIntent.customType(this@ConfirmPaymentStatusActivity, AppConstants.RIGHT_TO_LEFT)
     }
 
     override fun onBackPressed() {
         super.onBackPressed()
         ActivityNavigator.clearAllActivity(this@ConfirmPaymentStatusActivity, HomeActivity::class.java)
-        CustomIntent.customType(this@ConfirmPaymentStatusActivity, AppConstants.RIGHT_TO_LEFT)
+      //  CustomIntent.customType(this@ConfirmPaymentStatusActivity, AppConstants.RIGHT_TO_LEFT)
     }
 
 }

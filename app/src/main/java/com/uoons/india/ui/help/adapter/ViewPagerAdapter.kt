@@ -5,9 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.uoons.india.ui.help.view_pager_fragment.ContactUsFragment
 import com.uoons.india.ui.help.view_pager_fragment.FAQFragment
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class ViewPagerAdapter( fm: FragmentManager, private var totalTabs: Int) : FragmentPagerAdapter(fm,FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     // this is for fragment tabs
 

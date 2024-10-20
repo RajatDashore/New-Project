@@ -12,9 +12,7 @@ import com.uoons.india.databinding.ActivitySelectLanguageBinding
 import com.uoons.india.ui.base.BaseActivity
 import com.uoons.india.ui.onboardingscreen.OnBoardingScreenActivity
 import com.uoons.india.utils.*
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class SelectLanguageActivity : BaseActivity<ActivitySelectLanguageBinding, SelectLanguageVM>(),
     SelectLanguageNavigator,
     PropertiChangeListener {

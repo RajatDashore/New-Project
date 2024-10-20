@@ -54,9 +54,7 @@ import com.uoons.india.ui.wishlist.model.GetWishListDataModel
 import com.google.gson.GsonBuilder
 import com.uoons.india.utils.*
 import com.uoons.india.utils.CommonUtils.getRealPathFromURI
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class OrderReviewRatingFragment : BaseFragment<FragmentOrderReviewRatingBinding, OrderReviewRatingFragmentVM>(),
     OrderReviewRatingFragmentNavigator {
 

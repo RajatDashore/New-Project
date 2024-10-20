@@ -14,12 +14,12 @@ import androidx.cardview.widget.CardView
 import com.uoons.india.R
 import com.uoons.india.data.local.AppPreference
 import com.uoons.india.data.local.PreferenceKeys
-import io.michaelrocks.paranoid.Obfuscate
+
 
 import java.util.*
 
 
-@Obfuscate
+
 object DialogConstant {
 
     fun showAlertDialog(

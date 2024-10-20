@@ -8,9 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.uoons.india.R
 import com.uoons.india.databinding.RowSearchProductHistoryBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class SearchItemHistoryListAdapter(var searchList: ArrayList<String>, var requireContext: Context, var onclick:(value: String)->Unit) : BaseRecyclerAdapter<RowSearchProductHistoryBinding, Any, SearchItemHistoryListAdapter.ViewHolder>(){
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int, type: Int) {

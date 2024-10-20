@@ -1,9 +1,7 @@
 package com.uoons.india.ui.product_detail.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class QuestionLikeUnlikeModel(@SerializedName("status"  ) var status  : String?  = null,
                                    @SerializedName("message" ) var message : String?  = null,
                                    @SerializedName("data"    ) var data    : Boolean? = null,

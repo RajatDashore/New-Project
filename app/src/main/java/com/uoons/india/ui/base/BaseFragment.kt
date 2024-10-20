@@ -13,10 +13,9 @@ import com.uoons.india.data.local.AppPreference
 import com.uoons.india.data.local.PreferenceKeys
 import com.tbruyelle.rxpermissions2.RxPermissions
 import com.uoons.india.data.remote.error.Failure
-import io.michaelrocks.paranoid.Obfuscate
 import io.reactivex.disposables.CompositeDisposable
 
-@Obfuscate
+
 abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel<*>> : Fragment(),
     CommonNavigator {
 

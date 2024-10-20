@@ -13,9 +13,7 @@ import com.uoons.india.databinding.FragmentFullScreenImageShowBinding
 import com.uoons.india.ui.base.BaseFragment
 import com.uoons.india.ui.product_detail.adapter.MyImagesViewPagerAdapter
 import com.uoons.india.ui.product_detail.model.ImagesArrayListModel
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class FullScreenImageShowFragment : BaseFragment<FragmentFullScreenImageShowBinding, FullScreenImageShowFragmentVM>(),
     FullScreenImageShowFragmentNavigator {
 

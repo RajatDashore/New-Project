@@ -9,10 +9,9 @@ import com.uoons.india.R
 import com.uoons.india.databinding.RowSimilerProductItemsBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.category.category_items.category_items_details.model.SimilarProducts
-import io.michaelrocks.paranoid.Obfuscate
+
 import java.text.DecimalFormat
 
-@Obfuscate
 class MoreLikeSimilerProductAdapter : BaseRecyclerAdapter<RowSimilerProductItemsBinding, Any, MoreLikeSimilerProductAdapter.ViewHolder>(){
 
     private var similerProductList : ArrayList<SimilarProducts> = ArrayList<SimilarProducts>()

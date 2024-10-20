@@ -6,9 +6,7 @@ import android.view.MotionEvent
 import android.view.animation.DecelerateInterpolator
 import android.widget.Scroller
 import androidx.viewpager.widget.ViewPager
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class NonSwipeAbleViewPager : ViewPager {
 
     constructor(context: Context?) : super(context!!) {

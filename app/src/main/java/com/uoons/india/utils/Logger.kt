@@ -1,10 +1,7 @@
 package com.uoons.india.utils
 
 import android.util.Log
-import io.michaelrocks.paranoid.Obfuscate
 
-
-@Obfuscate
 object Logger {
 
     private val YES_ENABLED = true

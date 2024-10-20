@@ -1,9 +1,7 @@
 package com.uoons.india.ui.checkout.checkout_payment.model.online_payment_status
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class PaymentStatusResponse(@SerializedName("BANKNAME"     ) var BANKNAME     : String? = null,
                                  @SerializedName("BANKTXNID"    ) var BANKTXNID    : String? = null,
                                  @SerializedName("CHECKSUMHASH" ) var CHECKSUMHASH : String? = null,

@@ -8,10 +8,9 @@ import com.uoons.india.ui.category.model.AllCategoryModel
 import com.uoons.india.ui.my_cart.model.GetMyCartDataModel
 import com.uoons.india.ui.wishlist.model.GetWishListDataModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
+
 import kotlinx.coroutines.launch
 
-@Obfuscate
 class CategoryFragmentVM : BaseViewModel<CategoryFragmentNavigator>(){
     var allCategoriesDataResponse : MutableLiveData<AllCategoryModel> = MutableLiveData()
     var getMyCartItemsDataResponse : MutableLiveData<GetMyCartDataModel> = MutableLiveData()

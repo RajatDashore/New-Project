@@ -10,9 +10,7 @@ import com.uoons.india.R
 import com.uoons.india.databinding.RowCategoryFiltersItemsBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.product_list.model.FilterItemsListModel
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class ChildFilterAdapter(childFilterList: ArrayList<FilterItemsListModel>,var parentId: String, context: Context,var onclick:(value: FilterItemsListModel)->Unit) :
     BaseRecyclerAdapter<RowCategoryFiltersItemsBinding, Any, ChildFilterAdapter.ViewHolder>() {
 

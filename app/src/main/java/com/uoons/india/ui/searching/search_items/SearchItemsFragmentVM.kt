@@ -6,10 +6,9 @@ import com.uoons.india.data.remote.Repository
 import com.uoons.india.ui.base.BaseViewModel
 import com.uoons.india.ui.category.category_items.model.SubCategoriesModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
+
 import kotlinx.coroutines.launch
 
-@Obfuscate
 class SearchItemsFragmentVM : BaseViewModel<SearchItemsFragmentNavigator>(){
 
     // GET SEARCH ITEMS

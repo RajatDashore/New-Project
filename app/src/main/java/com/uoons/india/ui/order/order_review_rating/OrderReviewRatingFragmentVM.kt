@@ -8,7 +8,7 @@ import com.uoons.india.ui.base.BaseViewModel
 import com.uoons.india.ui.my_cart.model.GetMyCartDataModel
 import com.uoons.india.ui.wishlist.model.GetWishListDataModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
+
 import kotlinx.coroutines.launch
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -19,7 +19,7 @@ import java.util.ArrayList
 
 
 
-@Obfuscate
+
 class OrderReviewRatingFragmentVM : BaseViewModel<OrderReviewRatingFragmentNavigator>(){
 
     var ratingReviewResponse: MutableLiveData<RatingAndReviewModel> = MutableLiveData()

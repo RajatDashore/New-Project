@@ -11,9 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.uoons.india.R
 import com.uoons.india.ui.product_detail.model.ReviewsModel
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class ProductDeatilsRatingReviewAdapter(val reviewsLst: ArrayList<ReviewsModel>?, val requireContext: Context,
                                         var onclickThumbUpReview:(value : String)->Unit,var onclickThumbDownReview:(value : String)->Unit) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>(){

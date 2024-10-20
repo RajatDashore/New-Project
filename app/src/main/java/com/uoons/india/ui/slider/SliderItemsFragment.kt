@@ -17,9 +17,7 @@ import com.uoons.india.ui.category.category_items.adapter.CategoryItemsAdapter
 import com.uoons.india.ui.category.category_items.model.SubCategoriesModel
 import com.uoons.india.ui.filter.FiltersBottomSheet
 import com.uoons.india.ui.sorting.SortBottomSheet
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class SliderItemsFragment : BaseFragment<FragmentSliderItemsBinding, SliderItemsFragmentVM>(),
     SliderItemsFragmentNavigator {
 

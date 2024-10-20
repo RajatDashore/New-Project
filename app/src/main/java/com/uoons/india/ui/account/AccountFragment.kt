@@ -37,9 +37,7 @@ import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
 import com.uoons.india.utils.rx.UoonsRxBus
 import com.uoons.india.utils.rx.UoonsRxEvent
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class AccountFragment : BaseFragment<FragmentAccountBinding, AccountFragmentVM>(),
     AccountFrgamentNavigator {
     private var LOG_TAG = "AccountFragment"

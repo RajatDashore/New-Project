@@ -10,9 +10,7 @@ import com.uoons.india.databinding.FAQLayoutRowBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.help.view_pager_fragment.model.FAQDataModel
 import com.uoons.india.ui.help.view_pager_fragment.model.FAQListDataModel
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class FAQFragmentAdapter(var fAQList: FAQDataModel,var context: Context) :
     BaseRecyclerAdapter<FAQLayoutRowBinding, Any, FAQFragmentAdapter.ViewHolder>(){
 

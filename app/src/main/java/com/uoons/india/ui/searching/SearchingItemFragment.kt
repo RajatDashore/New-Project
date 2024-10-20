@@ -19,9 +19,7 @@ import android.widget.TextView.OnEditorActionListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.uoons.india.ui.searching.adapter.SearchItemHistoryListAdapter
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class SearchingItemFragment : BaseFragment<FragmentSearchingItemBinding, SearchingItemFragmentVM>(), SearchingItemFragmentNavigator {
     private var LOG_TAG = SearchingItemFragment::class.java.name
     override val bindingVariable: Int = BR.homeFragmentRecyclerVM

@@ -3,11 +3,11 @@ package com.uoons.india.utils
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
-import io.michaelrocks.paranoid.Obfuscate
+
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
-@Obfuscate
+
 class MyUtils {
 
     fun validSignature(applicationContext: Context, DDSIGNATURE:String, RELSIGNATURE:String):Boolean{

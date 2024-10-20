@@ -11,14 +11,12 @@ import com.uoons.india.databinding.RowOrderBundleItemsBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.order.model.FecthAllBundleOrderListModel
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.roundToInt
 
-@Obfuscate
 class FetchAllBundleOrderAdapter(private val fecthAllBundleOrderList: ArrayList<FecthAllBundleOrderListModel>, val requireContext: Context, var onclick:(value : String)->Unit) : BaseRecyclerAdapter<RowOrderBundleItemsBinding, Any, FetchAllBundleOrderAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(viewDataBinding: RowOrderBundleItemsBinding, parent: ViewGroup, viewType: Int): ViewHolder {

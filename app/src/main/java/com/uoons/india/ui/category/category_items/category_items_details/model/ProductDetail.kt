@@ -2,9 +2,7 @@ package com.uoons.india.ui.category.category_items.category_items_details.model
 
 import com.google.gson.annotations.SerializedName
 import com.uoons.india.ui.product_detail.model.ProductAddInfoModel
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class ProductDetail(@SerializedName("pid"                 ) var pid                : String? = null,
                          @SerializedName("user_id"             ) var userId             : String? = null,
                          @SerializedName("productid"           ) var productid          : String? = null,

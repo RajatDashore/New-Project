@@ -1,9 +1,7 @@
 package com.uoons.india.ui.profile.editprofile.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class ProfileImageResponseDataModel(@SerializedName("file_name"      ) var fileName     : String?  = null,
                                          @SerializedName("file_type"      ) var fileType     : String?  = null,
                                          @SerializedName("file_path"      ) var filePath     : String?  = null,

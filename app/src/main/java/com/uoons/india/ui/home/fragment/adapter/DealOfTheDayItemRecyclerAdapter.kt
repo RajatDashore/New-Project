@@ -12,9 +12,7 @@ import com.uoons.india.databinding.RowHomeDealOfTheDayBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.home.fragment.model.DeshBoardItems
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class DealOfTheDayItemRecyclerAdapter: BaseRecyclerAdapter<RowHomeDealOfTheDayBinding, Any, DealOfTheDayItemRecyclerAdapter.ViewHolder>(){
     private var customProductIdClickListener: OnProductIdClickListener? = null
     var bestSellerItemList: ArrayList<DeshBoardItems>? = null

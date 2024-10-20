@@ -14,9 +14,9 @@ import com.uoons.india.databinding.RowAllDeliverAddressBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.checkout.checkout_address.model.DeliverAllAddressModel
 import com.uoons.india.ui.checkout.checkout_address.model.GetAllDeliverAddressModel
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
+
+
 class AllDeliverAddressAdapter(var onclick:(obj:Any)->Unit,var onclick1:(obj:Any)->Unit ) : BaseRecyclerAdapter<RowAllDeliverAddressBinding, Any, AllDeliverAddressAdapter.ViewHolder>(){
 
     private var myAllAddressList: DeliverAllAddressModel = DeliverAllAddressModel()

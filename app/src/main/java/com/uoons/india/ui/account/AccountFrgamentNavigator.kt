@@ -1,9 +1,7 @@
 package com.uoons.india.ui.account
 
 import com.uoons.india.ui.base.CommonNavigator
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 interface AccountFrgamentNavigator : CommonNavigator {
     fun onSignUpClick()
     fun naviGateToMyBankDetailsFragment()

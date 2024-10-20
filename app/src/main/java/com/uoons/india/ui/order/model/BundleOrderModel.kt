@@ -1,9 +1,9 @@
 package com.uoons.india.ui.order.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
+
+
 data class BundleOrderModel(@SerializedName("id"                  ) var id                 : String? = null,
                             @SerializedName("user_id"             ) var userId             : String? = null,
                             @SerializedName("admin_id"            ) var adminId            : String? = null,

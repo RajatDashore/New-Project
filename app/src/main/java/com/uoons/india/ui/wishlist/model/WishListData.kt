@@ -1,9 +1,6 @@
 package com.uoons.india.ui.wishlist.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
-
-@Obfuscate
 data class WishListData(
     @SerializedName("id"                  ) var id                 : String? = null,
     @SerializedName("profileid"           ) var profileid          : String? = null,

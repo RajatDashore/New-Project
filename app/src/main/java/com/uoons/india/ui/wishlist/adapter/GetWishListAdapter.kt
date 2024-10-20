@@ -11,12 +11,10 @@ import com.uoons.india.databinding.RowWishListDataBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.wishlist.model.GetWishListDataModel
 import com.uoons.india.ui.wishlist.model.WishListData
-import io.michaelrocks.paranoid.Obfuscate
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
 
-@Obfuscate
 class GetWishListAdapter(var onclick:(pos:Int)->Unit):
     BaseRecyclerAdapter<RowWishListDataBinding, Any, GetWishListAdapter.ViewHolder>() {
 

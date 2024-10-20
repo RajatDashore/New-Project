@@ -13,13 +13,12 @@ import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.home.fragment.model.DeshBoardItems
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-@Obfuscate
+
 class SomeProductsRecyclerAdapter :
     BaseRecyclerAdapter<RowHomeSomeProductBinding, Any, SomeProductsRecyclerAdapter.ViewHolder>(){
 

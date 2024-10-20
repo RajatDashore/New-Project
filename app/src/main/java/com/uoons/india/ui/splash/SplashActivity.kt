@@ -25,14 +25,13 @@ import com.uoons.india.ui.home.HomeActivity
 import com.uoons.india.ui.language.SelectLanguageActivity
 import com.uoons.india.ui.splash.model.ForceUpdatedModel
 import com.uoons.india.utils.*
-import io.michaelrocks.paranoid.Obfuscate
 import io.sentry.Sentry
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 import kotlin.system.exitProcess
 
 
-@Obfuscate
+
 class SplashActivity : BaseActivity<ActivitySplashBinding, SplashVM>(), SplashNavigator{
     override val bindingVariable: Int = BR.splashVM
     override val layoutId: Int = R.layout.activity_splash

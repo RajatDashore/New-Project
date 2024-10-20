@@ -9,9 +9,7 @@ import com.uoons.india.R
 import com.uoons.india.databinding.RowProductDetailsQuestionAnswersBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.product_detail.model.QuestionanswerModel
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class ProductDetailsQuastionAnswerAdapter(var questionanswer: ArrayList<QuestionanswerModel>, var context: Context,
                                           var onclickThumbUp:(value : String)->Unit,var onclickThumbDown:(value : String)->Unit) :
     BaseRecyclerAdapter<RowProductDetailsQuestionAnswersBinding, Any, ProductDetailsQuastionAnswerAdapter.ViewHolder>() {

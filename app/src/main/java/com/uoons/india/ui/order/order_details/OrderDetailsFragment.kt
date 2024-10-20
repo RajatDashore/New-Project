@@ -34,14 +34,13 @@ import com.uoons.india.ui.order.order_details.model.OrderDetailModel
 import com.uoons.india.ui.wishlist.model.GetWishListDataModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
+
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.abs
 import kotlin.math.roundToInt
 
-@Obfuscate
 class OrderDetailsFragment : BaseFragment<FragmentOrderDetailsBinding, OrderDetailsFragmentVM>(),
     OrderDetailsFragmentNavigator {
     private var LOG_TAG = "OrderDetailsFragment"
@@ -66,7 +65,7 @@ class OrderDetailsFragment : BaseFragment<FragmentOrderDetailsBinding, OrderDeta
         if (mViewModel.navigator!!.checkIfInternetOn()) {
             mViewModel.getAllOrdersList(orderId)
             // Start shimmer animation
-            viewDataBinding.shimmerOrderDetailsLayout.startShimmerAnimation()
+            viewDataBinding.shimmerOrderDetailsLayout.startShimmer()
         } else {
             mViewModel.navigator!!.showAlertDialog1Button(
                 AppConstants.Uoons,
@@ -77,7 +76,7 @@ class OrderDetailsFragment : BaseFragment<FragmentOrderDetailsBinding, OrderDeta
 
     override fun onDestroy() {
         super.onDestroy()
-        viewDataBinding.shimmerOrderDetailsLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerOrderDetailsLayout.stopShimmer()
         viewDataBinding.shimmerOrderDetailsLayout.visibility = View.GONE
     }
 

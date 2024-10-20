@@ -6,12 +6,11 @@ import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.view.MotionEvent
 import android.view.View
-import io.michaelrocks.paranoid.Obfuscate
 import java.lang.ref.WeakReference
 private const val SHRINK_VALUE = 0.93f
 private const val DURATION_ANIMATION = 100L
 
-@Obfuscate
+
 class ClickShrinkEffect(view: View) {
 
     private val weakRefView = WeakReference(view)

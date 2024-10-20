@@ -9,9 +9,7 @@ import com.uoons.india.R
 import com.uoons.india.databinding.MyRefferalCodeBottomSheetLayoutBinding
 import com.uoons.india.ui.base.BaseBottomSheetDialogFrag
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class MyRefferalCodeFragment : BaseBottomSheetDialogFrag<MyRefferalCodeBottomSheetLayoutBinding, MyRefferalCodeFragmentVM>(),
     MyRefferalCodeFragmentNavigator {
     private  val TAG = "MyRefferalCodeFragment"

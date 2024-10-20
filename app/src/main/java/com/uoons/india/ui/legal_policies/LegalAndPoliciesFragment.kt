@@ -12,9 +12,7 @@ import com.uoons.india.R
 import com.uoons.india.databinding.FragmentLegalAndPoliciesBinding
 import com.uoons.india.ui.base.BaseFragment
 import android.webkit.WebViewClient
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class LegalAndPoliciesFragment : BaseFragment<FragmentLegalAndPoliciesBinding, LegalAndPoliciesFragmentVM>(), LegalAndPoliciesFragmentNavigator {
 
     override val bindingVariable: Int = BR.legalAndPoliciesFragmentVM

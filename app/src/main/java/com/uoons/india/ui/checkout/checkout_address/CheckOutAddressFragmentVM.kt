@@ -8,10 +8,9 @@ import com.uoons.india.ui.base.BaseViewModel
 import com.uoons.india.ui.checkout.checkout_address.model.DeliverAllAddressModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import kotlinx.coroutines.launch
 
-@Obfuscate
+
 class CheckOutAddressFragmentVM : BaseViewModel<CheckOutAddressFragmentNavigator>() {
 
     // GET All Deliver Address

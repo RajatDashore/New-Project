@@ -1,9 +1,7 @@
 package com.uoons.india.ui.home.fragment.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class Items(
     @SerializedName("id"     ) var id    : String? = null,
     @SerializedName("title" ) var title : String? = null,

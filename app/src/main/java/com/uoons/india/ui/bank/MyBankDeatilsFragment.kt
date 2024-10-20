@@ -26,14 +26,13 @@ import com.uoons.india.ui.bank.model.FetchBankDetailsModel
 import com.uoons.india.ui.base.BaseFragment
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import org.json.JSONException
 
 import org.json.JSONObject
 import javax.xml.transform.ErrorListener
 import javax.xml.transform.TransformerException
 
-@Obfuscate
+
 class MyBankDeatilsFragment: BaseFragment<FragmentMyBankDetailsBinding, MyBankDeatilsFragmentVM>(), MyBankDeatilsFrgamentNavigator {
     private var LOG_TAG = "MyBankDeatilsFragment"
     override val bindingVariable: Int = BR.myBankDetailsFragmentVM

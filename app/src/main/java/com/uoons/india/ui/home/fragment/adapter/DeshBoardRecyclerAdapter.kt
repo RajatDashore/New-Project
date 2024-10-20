@@ -1,3 +1,4 @@
+
 package com.uoons.india.ui.home.fragment.adapter
 
 import android.annotation.SuppressLint
@@ -13,19 +14,17 @@ import android.widget.LinearLayout
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.slider.Slider
 import com.uoons.india.R
 import com.uoons.india.data.local.AppPreference
 import com.uoons.india.data.local.PreferenceKeys
 import com.uoons.india.ui.home.fragment.model.DeshBoardItems
 import com.uoons.india.ui.home.fragment.model.DeshBoardModel
 import com.uoons.india.utils.CommonUtils
-import com.smarteist.autoimageslider.SliderView
-import io.michaelrocks.paranoid.Obfuscate
 import java.text.NumberFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-@Obfuscate
 class DeshBoardRecyclerAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     private var LOG_TAG = DeshBoardRecyclerAdapter.javaClass.name
 
@@ -322,25 +321,25 @@ class DeshBoardRecyclerAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     private inner class LayoutSliderOneViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
-        var slider: SliderView = itemView.findViewById(R.id.slider)
+       // var slider: = itemView.findViewById(R.id.slider)
         fun bind(position: Int) {
-            setSliderItemRecycler(slider, allHomeItemsList.Data[position].items)
+         //   setSliderItemRecycler(slider, allHomeItemsList.Data[position].items)
         }
     }
 
     private inner class LayoutSliderTwoViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
-        var sliderTwo: SliderView = itemView.findViewById(R.id.sliderTwo)
+       // var sliderTwo: SliderView = itemView.findViewById(R.id.sliderTwo)
         fun bind(position: Int) {
-            setSliderTwoItemRecycler(sliderTwo, allHomeItemsList.Data[position].items)
+           // setSliderTwoItemRecycler(sliderTwo, allHomeItemsList.Data[position].items)
         }
     }
 
     private inner class LayoutSliderThreeViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
-        var sliderThree: SliderView = itemView.findViewById(R.id.sliderThree)
+        //var sliderThree: SliderView = itemView.findViewById(R.id.sliderThree)
         fun bind(position: Int) {
-            setSliderThreeItemRecycler(sliderThree, allHomeItemsList.Data[position].items)
+          //  setSliderThreeItemRecycler(sliderThree, allHomeItemsList.Data[position].items)
         }
     }
 
@@ -668,31 +667,31 @@ class DeshBoardRecyclerAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>
         recyclerView.adapter = newArrivalsItemRecyclerAdapter
     }
 
-    private fun setSliderItemRecycler(sliderView: SliderView, categoryItemList: ArrayList<DeshBoardItems>) {
-        sliderOneAdapter.setData(categoryItemList, context)
+    private fun setSliderItemRecycler(sliderView: Slider, categoryItemList: ArrayList<DeshBoardItems>) {
+        /*sliderOneAdapter.setData(categoryItemList, context)
         sliderView.autoCycleDirection = SliderView.LAYOUT_DIRECTION_LTR
         sliderView.setSliderAdapter(sliderOneAdapter)
         sliderView.scrollTimeInSec = 3
         sliderView.isAutoCycle = true // adapter
-        sliderView.startAutoCycle()
+        sliderView.startAutoCycle()*/
     }
 
-    private fun setSliderTwoItemRecycler(sliderTwoView: SliderView, categoryItemList: ArrayList<DeshBoardItems>) {
-        sliderTwoAdapter.setData(categoryItemList, context)
+    private fun setSliderTwoItemRecycler(sliderTwoView:Slider, categoryItemList: ArrayList<DeshBoardItems>) {
+       /* sliderTwoAdapter.setData(categoryItemList, context)
         sliderTwoView.autoCycleDirection = SliderView.LAYOUT_DIRECTION_LTR
         sliderTwoView.setSliderAdapter(sliderTwoAdapter)
         sliderTwoView.scrollTimeInSec = 3
         sliderTwoView.isAutoCycle = true
-        sliderTwoView.startAutoCycle()
+        sliderTwoView.startAutoCycle()*/
     }
 
-    private fun setSliderThreeItemRecycler(sliderThreeView: SliderView, categoryItemList: ArrayList<DeshBoardItems>) {
-        sliderThreeAdapter.setData(categoryItemList, context)
+    private fun setSliderThreeItemRecycler(sliderThreeView: Slider, categoryItemList: ArrayList<DeshBoardItems>) {
+      /*  sliderThreeAdapter.setData(categoryItemList, context)
         sliderThreeView.autoCycleDirection = SliderView.LAYOUT_DIRECTION_LTR
         sliderThreeView.setSliderAdapter(sliderThreeAdapter)
         sliderThreeView.scrollTimeInSec = 3
         sliderThreeView.isAutoCycle = true
-        sliderThreeView.startAutoCycle()
+        sliderThreeView.startAutoCycle()*/
     }
 
     private fun setDealOfTheDayItemRecycler(recyclerView: RecyclerView, categoryItemList: ArrayList<DeshBoardItems>) {

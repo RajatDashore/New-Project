@@ -2,9 +2,7 @@ package com.uoons.india.utils
 
 import com.uoons.india.ui.home.fragment.model.DeshBoardModel
 import com.uoons.india.ui.home.fragment.more_products.model.MoreProducts
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 object DashBoardDataListSingleton {
 
     private var dashBoardData: DeshBoardModel? = null

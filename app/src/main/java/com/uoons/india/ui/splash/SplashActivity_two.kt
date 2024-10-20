@@ -24,7 +24,6 @@ import com.uoons.india.utils.ActivityNavigator
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
 import com.uoons.india.utils.DialogConstant
-import io.michaelrocks.paranoid.Obfuscate
 import io.sentry.Sentry
 import retrofit2.Call
 import retrofit2.Callback
@@ -33,7 +32,6 @@ import java.util.Timer
 import java.util.TimerTask
 import kotlin.system.exitProcess
 
-@Obfuscate
 class SplashActivity_two : Activity() {
     lateinit var activity: Activity
       val versionCode = BuildConfig.VERSION_CODE

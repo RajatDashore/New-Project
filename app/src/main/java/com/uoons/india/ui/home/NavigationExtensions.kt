@@ -12,7 +12,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.uoons.india.R
-import io.michaelrocks.paranoid.Obfuscate
+
 
 
 fun BottomNavigationView.setupWithNavController(navGraphIds: List<Int>, fragmentManager: FragmentManager, containerId: Int, intent: Intent): LiveData<NavController> {
@@ -166,7 +166,7 @@ private fun BottomNavigationView.setupItemReselected(
         val navController = selectedFragment.navController
         // Pop the back stack to the start destination of the current navController graph
         navController.popBackStack(
-            navController.graph.startDestination, false
+         //   navController.graph.startDestination, false   // Rajat Dashore
         )
     }
 }

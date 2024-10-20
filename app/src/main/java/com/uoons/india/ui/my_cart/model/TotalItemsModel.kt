@@ -1,9 +1,7 @@
 package com.uoons.india.ui.my_cart.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class TotalItemsModel(
     @SerializedName("items") var items: ArrayList<GetMyCartItemsModel> = arrayListOf(),
     @SerializedName("payMode") var payMode: Int? = null,

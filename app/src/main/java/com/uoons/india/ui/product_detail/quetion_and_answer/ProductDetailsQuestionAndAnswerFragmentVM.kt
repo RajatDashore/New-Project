@@ -8,10 +8,10 @@ import com.uoons.india.ui.base.BaseViewModel
 import com.uoons.india.ui.product_detail.model.QuestionLikeUnlikeModel
 import com.uoons.india.ui.product_detail.quetion_and_answer.model.QuestionAnswerModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
+
 import kotlinx.coroutines.launch
 
-@Obfuscate
+
 class ProductDetailsQuestionAndAnswerFragmentVM : BaseViewModel<ProductDetailsQuestionAndAnswerFragmentNavigator>(){
 
     var getAllQuestionsAnswersResponse : MutableLiveData<QuestionAnswerModel> = MutableLiveData()

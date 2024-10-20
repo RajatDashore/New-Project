@@ -20,9 +20,6 @@ import com.uoons.india.ui.base.BaseActivity
 import com.uoons.india.ui.home.HomeActivity
 import com.uoons.india.utils.ActivityNavigator
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
-
-@Obfuscate
 class OnBoardingScreenActivity : BaseActivity<ActivityOnBoardingScreenBinding, OnBoardingScreenVM>(), OnBoardingScreenNavigator, OnStartedDashboardClicked {
     override val bindingVariable: Int = BR.onBoardingScreenVM
     override val layoutId: Int = R.layout.activity_on_boarding_screen

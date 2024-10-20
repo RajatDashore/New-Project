@@ -3,9 +3,7 @@ package com.uoons.india.ui.category.category_items.model
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class Data(  @SerializedName("pid"                 ) var pid                : String? = null,
                   @SerializedName("user_id"             ) var userId             : String? = null,
                   @SerializedName("productid"           ) var productid          : String? = null,

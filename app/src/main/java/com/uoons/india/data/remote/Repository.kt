@@ -42,12 +42,11 @@ import com.uoons.india.ui.sorting.model.SortingModel
 import com.uoons.india.ui.splash.model.ForceUpdatedModel
 import com.uoons.india.ui.wishlist.model.AddWishListResponseModel
 import com.uoons.india.ui.wishlist.model.GetWishListDataModel
-import io.michaelrocks.paranoid.Obfuscate
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import java.util.ArrayList
 
-@Obfuscate
+
 abstract class Repository {
 
     object get : NetworkRetrofit()

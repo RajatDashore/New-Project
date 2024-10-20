@@ -15,9 +15,7 @@ import com.uoons.india.databinding.FragmentPostYourQuestionBinding
 import com.uoons.india.ui.base.BaseFragment
 import com.uoons.india.ui.question_answers.post_question.model.PostYourQuestionModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class PostYourQuestionFragment : BaseFragment<FragmentPostYourQuestionBinding, PostYourQuestionFragmentVM>(), PostYourQuestionFragmentNavigator {
     private var LOG_TAG = PostYourQuestionFragment::class.java.name
     override val bindingVariable: Int = BR.postYourQuestionFragmentVM

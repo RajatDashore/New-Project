@@ -1,7 +1,7 @@
 package com.uoons.india.ui.order.order_tracker.model
 
+import android.graphics.drawable.GradientDrawable
 import android.os.Parcelable
-import com.smarteist.autoimageslider.IndicatorView.draw.data.Orientation
 import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.android.parcel.Parcelize
 import kotlin.properties.Delegates.observable
@@ -24,13 +24,16 @@ class TimelineAttributes(
         var lineDashGap: Int
 ): Parcelable {
 
-    @IgnoredOnParcel
-    var orientation by observable(Orientation.VERTICAL) { _, oldValue, newValue ->
+   /* @IgnoredOnParcel
+    var orientation by observable(GradientDrawable.Orientation.VERTICAL) { _, oldValue, newValue ->
         onOrientationChanged?.invoke(oldValue, newValue)
     }
+    */
+
+    private lateinit var orientation: Any
 
     @IgnoredOnParcel
-    var onOrientationChanged: ((Orientation, Orientation) -> Unit)? = null
+    var onOrientationChanged: ((GradientDrawable.Orientation, GradientDrawable.Orientation) -> Unit)? = null
 
     fun copy(): TimelineAttributes {
         val attributes = TimelineAttributes(markerSize, markerColor, markerInCenter, markerLeftPadding, markerTopPadding,

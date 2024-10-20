@@ -15,9 +15,7 @@ import com.uoons.india.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.michaelrocks.paranoid.Obfuscate;
 
-@Obfuscate
 public class FlowLayout extends ViewGroup {
 
     private final List<List<View>> mLines = new ArrayList<>();

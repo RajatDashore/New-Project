@@ -13,10 +13,9 @@ import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.category.category_items.model.Data
 import com.uoons.india.ui.category.category_items.model.SubCategoriesModel
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import java.text.DecimalFormat
 
-@Obfuscate
+
 class CategoryItemsAdapter:
     BaseRecyclerAdapter<RowCategoryItemsBinding, Any, CategoryItemsAdapter.ViewHolder>() {
 

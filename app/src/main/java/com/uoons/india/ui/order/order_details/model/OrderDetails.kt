@@ -1,9 +1,7 @@
 package com.uoons.india.ui.order.order_details.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class OrderDetails ( @SerializedName("id"                  ) var id                 : String?                    = null,
                           @SerializedName("user_id"             ) var userId             : String?                    = null,
                           @SerializedName("admin_id"            ) var adminId            : String?                    = null,

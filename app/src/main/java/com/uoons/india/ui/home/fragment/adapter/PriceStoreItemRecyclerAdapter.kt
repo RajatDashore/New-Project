@@ -12,9 +12,9 @@ import com.uoons.india.databinding.RowHomePriceStoreBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.home.fragment.model.DeshBoardItems
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
+
+
 class PriceStoreItemRecyclerAdapter :
     BaseRecyclerAdapter<RowHomePriceStoreBinding, Any, PriceStoreItemRecyclerAdapter.ViewHolder>(){
 

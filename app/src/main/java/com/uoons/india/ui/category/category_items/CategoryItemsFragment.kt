@@ -27,9 +27,8 @@ import com.uoons.india.ui.login_module.login_mobile_no.LoginMobileNoBottomSheet
 import com.uoons.india.ui.sorting.SortBottomSheet
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
+
 class CategoryItemsFragment : BaseFragment<FragmentCategoryItemsBinding, CategoryItemsFragmentVM>(), CategoryItemsFragmentNavigator {
     private var LOG_TAG = "CategoryItemsFragment"
     override val bindingVariable: Int = BR.categoryItemsFragmentVM

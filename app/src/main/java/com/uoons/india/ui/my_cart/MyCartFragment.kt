@@ -18,11 +18,10 @@ import com.uoons.india.ui.my_cart.model.GetMyCartDataModel
 import com.uoons.india.ui.order.order_details.OrderDetailsFragment
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import java.text.NumberFormat
 import java.util.*
 
-@Obfuscate
+
 class MyCartFragment : BaseFragment<FragmentMyCartBinding, MyCartFragmentVM>(), MyCartFragmentNavigator, OnListItemClicked {
 
     private var LOG_TAG = MyCartFragment::class.java.name
@@ -41,7 +40,7 @@ class MyCartFragment : BaseFragment<FragmentMyCartBinding, MyCartFragmentVM>(), 
         mViewModel.navigator = this
         getMyCartDataModel = GetMyCartDataModel()
         if (mViewModel.navigator!!.checkIfInternetOn()) {
-            viewDataBinding.shimmerMyCartLayout.startShimmerAnimation()
+            viewDataBinding.shimmerMyCartLayout.startShimmer()
             mViewModel.getMyCartItemsApiCall()
         } else {
             mViewModel.navigator!!.showAlertDialog1Button(AppConstants.Uoons, resources.getString(R.string.please_check_internet_connection), onClick = {})
@@ -216,7 +215,7 @@ class MyCartFragment : BaseFragment<FragmentMyCartBinding, MyCartFragmentVM>(), 
                 resources.getString(R.string.rupees) + data.Data!!.shipping.toString()
        }
 
-        viewDataBinding.shimmerMyCartLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerMyCartLayout.stopShimmer()
         viewDataBinding.shimmerMyCartLayout.visibility = View.GONE
     }
 

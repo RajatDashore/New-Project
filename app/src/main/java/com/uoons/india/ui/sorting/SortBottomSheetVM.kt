@@ -7,10 +7,10 @@ import com.uoons.india.ui.base.BaseViewModel
 import com.uoons.india.ui.product_list.model.SortByNameModel
 import com.uoons.india.ui.sorting.model.SortingModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
+
 import kotlinx.coroutines.launch
 
-@Obfuscate
+
 class SortBottomSheetVM : BaseViewModel<SortBottomSheetNavigator>(){
 
     var getSortingDataResponse : MutableLiveData<SortingModel> = MutableLiveData()

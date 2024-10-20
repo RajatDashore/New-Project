@@ -44,7 +44,6 @@ import com.uoons.india.utils.CommonUtils
 import com.uoons.india.utils.CommonUtils.getRealPathFromURI
 import com.uoons.india.utils.applyClickShrink
 import com.yalantis.ucrop.UCrop
-import io.michaelrocks.paranoid.Obfuscate
 import java.io.File
 import java.io.IOException
 import java.io.InputStream
@@ -52,7 +51,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-@Obfuscate
+
 class EditProfileFragment: BaseFragment<FragmentEditProfilesBinding, EditProfileFragmentVM>(), EditProfileFrgamentNavigator {
     override val bindingVariable: Int = BR.editProfileFragmentVM
     override val layoutId: Int = R.layout.fragment_edit_profiles
@@ -77,7 +76,7 @@ class EditProfileFragment: BaseFragment<FragmentEditProfilesBinding, EditProfile
     override  fun init() {
         mViewModel.navigator = this
         // Start shimmer animation
-        viewDataBinding.shimmerEditProfileLayout.startShimmerAnimation()
+        viewDataBinding.shimmerEditProfileLayout.startShimmer()
         if (mViewModel.navigator!!.checkIfInternetOn()) {
             mViewModel.getUserDetailsApiCall()
         }else{

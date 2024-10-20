@@ -17,11 +17,11 @@ import com.uoons.india.ui.product_detail.suggestion_for_enhance.adapter.Suggesti
 import com.uoons.india.ui.product_detail.suggestion_for_enhance.model.*
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
+
 import org.json.JSONArray
 
 
-@Obfuscate
+
 class SuggestionForEnhanceFragment : BaseFragment<FragmentSuggestionForEnhanceBinding, SuggestionForEnhanceFragmentVM>(),
     SuggestionForEnhanceFragmentNavigator {
 
@@ -40,7 +40,7 @@ class SuggestionForEnhanceFragment : BaseFragment<FragmentSuggestionForEnhanceBi
         mViewModel.navigator = this
         pId = arguments?.getString(AppConstants.PId).toString()
         // Start shimmer animation
-        viewDataBinding.shimmerSuggestionForEnhanceLayout.startShimmerAnimation()
+        viewDataBinding.shimmerSuggestionForEnhanceLayout.startShimmer()
         mViewModel.getSuggestionForEnhaceApiCall()
     }
 
@@ -91,13 +91,13 @@ class SuggestionForEnhanceFragment : BaseFragment<FragmentSuggestionForEnhanceBi
         viewDataBinding.ediEnterFeedback.visibility = View.VISIBLE
         viewDataBinding.sendFeedback.visibility = View.VISIBLE
 
-        viewDataBinding.shimmerSuggestionForEnhanceLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerSuggestionForEnhanceLayout.stopShimmer()
         viewDataBinding.shimmerSuggestionForEnhanceLayout.visibility = View.GONE
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        viewDataBinding.shimmerSuggestionForEnhanceLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerSuggestionForEnhanceLayout.stopShimmer()
         viewDataBinding.shimmerSuggestionForEnhanceLayout.visibility = View.GONE
     }
 

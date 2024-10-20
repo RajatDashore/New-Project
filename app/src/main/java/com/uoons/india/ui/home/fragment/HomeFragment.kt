@@ -28,10 +28,7 @@ import com.uoons.india.ui.sorting.SortBottomSheet
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
 import com.uoons.india.utils.DashBoardDataListSingleton
-import io.michaelrocks.paranoid.Obfuscate
 
-
-@Obfuscate
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentRecyclerVM>(),
     HomeFragmentNavigator {
     private var LOG_TAG = "HomeFragment"
@@ -88,7 +85,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentRecyclerVM>()
 
     override fun onDestroy() {
         super.onDestroy()
-        viewDataBinding.shimmerLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerLayout.stopShimmer()
         viewDataBinding.shimmerLayout.visibility = View.GONE
     }
 
@@ -98,7 +95,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentRecyclerVM>()
         navController = Navigation.findNavController(view)
 
         // Start shimmer animation
-        viewDataBinding.shimmerLayout.startShimmerAnimation()
+        viewDataBinding.shimmerLayout.startShimmer()
 
         val release: String = Build.VERSION.RELEASE
         val sdkVersion: Int = Build.VERSION.SDK_INT
@@ -290,7 +287,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentRecyclerVM>()
     private fun setAdapterData(data: DeshBoardModel) {
         deshBoardRecyclerAdapter.setItemsList(data, requireContext())
         viewDataBinding.deshBoardViewRecycler.adapter = deshBoardRecyclerAdapter
-        viewDataBinding.shimmerLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerLayout.stopShimmer()
         viewDataBinding.shimmerLayout.visibility = View.GONE
     }
 
@@ -326,7 +323,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentRecyclerVM>()
 
         if(viewDataBinding.moreProductViewRecycler.adapter == null) viewDataBinding.moreProductViewRecycler.adapter = deshBordMoreProductsAdapter
 
-        viewDataBinding.shimmerLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerLayout.stopShimmer()
         viewDataBinding.shimmerLayout.visibility = View.GONE
     }
 

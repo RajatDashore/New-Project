@@ -22,9 +22,7 @@ import com.uoons.india.ui.checkout.checkout_address.model.DeliverAllAddressModel
 import com.uoons.india.ui.checkout.checkout_address.model.GetAllDeliverAddressModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class CheckOutAddressFragment :
     BaseFragment<FragmentCheckOutAddressBinding, CheckOutAddressFragmentVM>(),
     CheckOutAddressFragmentNavigator {
@@ -88,7 +86,7 @@ class CheckOutAddressFragment :
             addressId = getAllDeliverAddressModel.id!!.toInt()
             Log.e("CheckOutAddressFragment", "addressId; $addressId")
             if (mViewModel.navigator!!.checkIfInternetOn()) {
-                viewDataBinding.shimmerCheckOutAddressLayout.startShimmerAnimation()
+                viewDataBinding.shimmerCheckOutAddressLayout.startShimmer()
                 mViewModel.deleteDeliverAddress(addressId)
             } else {
                 mViewModel.navigator!!.showAlertDialog1Button(
@@ -107,7 +105,7 @@ class CheckOutAddressFragment :
         }
         )
         if (mViewModel.navigator!!.checkIfInternetOn()) {
-            viewDataBinding.shimmerCheckOutAddressLayout.startShimmerAnimation()
+            viewDataBinding.shimmerCheckOutAddressLayout.startShimmer()
             mViewModel.fetchUserDeliverAddress()
         } else {
             mViewModel.navigator!!.showAlertDialog1Button(AppConstants.Uoons, resources.getString(R.string.please_check_internet_connection), onClick = {})
@@ -183,7 +181,7 @@ class CheckOutAddressFragment :
         if (mViewModel.isValidField(strFullName = viewDataBinding.edtFullName.text.toString(), strEmail = viewDataBinding.edtEmail.text.toString(), strMobileNumber = viewDataBinding.edtPhoneNumber.text.toString(), strAddress1 = viewDataBinding.edtHouseNo.text.toString(),
                 strAddress2 = viewDataBinding.edtAddress.text.toString(), strAddressType = viewDataBinding.sppinerTypeOfAddress.selectedItem.toString(), strPinCode = AppPreference.getValue(PreferenceKeys.PIN_CODE), strCity = viewDataBinding.edtCity.text.toString(), strState = viewDataBinding.sppinerState.selectedItem.toString(), strShpiningAddress = viewDataBinding.chkBoxSaveShippingAddress.isChecked)
         ) {
-            viewDataBinding.shimmerCheckOutAddressLayout.startShimmerAnimation()
+            viewDataBinding.shimmerCheckOutAddressLayout.startShimmer()
             mViewModel.saveDeliverAddressApiCall(viewDataBinding.edtFullName.text.toString(), viewDataBinding.edtEmail.text.toString(), viewDataBinding.edtPhoneNumber.text.toString(), viewDataBinding.edtHouseNo.text.toString(), viewDataBinding.edtAddress.text.toString(),
                 viewDataBinding.sppinerTypeOfAddress.selectedItem.toString(), viewDataBinding.edtPincode.text.toString(), viewDataBinding.edtCity.text.toString(), viewDataBinding.sppinerState.selectedItem.toString(), viewDataBinding.chkBoxSaveShippingAddress.isChecked)
         }
@@ -211,7 +209,7 @@ class CheckOutAddressFragment :
                 viewLifecycleOwner,
                 Observer<DeliverAllAddressModel> {
                     if (it != null) {
-                        viewDataBinding.shimmerCheckOutAddressLayout.stopShimmerAnimation()
+                        viewDataBinding.shimmerCheckOutAddressLayout.stopShimmer()
                         viewDataBinding.shimmerCheckOutAddressLayout.visibility = View.GONE
                         Log.d("", "Delivery address not found")
                     } else {
@@ -227,14 +225,14 @@ class CheckOutAddressFragment :
         viewDataBinding.rcvDeliverAddressList.visibility = View.VISIBLE
         viewDataBinding.scrollViewAddress.visibility = View.VISIBLE
         viewDataBinding.scrollViewNewAddress.visibility = View.GONE
-        viewDataBinding.shimmerCheckOutAddressLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerCheckOutAddressLayout.stopShimmer()
         viewDataBinding.shimmerCheckOutAddressLayout.visibility = View.GONE
     }
 
     override fun deleteDeliverAddressResponse() {
         viewDataBinding.rcvDeliverAddressList.visibility = View.VISIBLE
         mViewModel.fetchUserDeliverAddress()
-        viewDataBinding.shimmerCheckOutAddressLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerCheckOutAddressLayout.stopShimmer()
         viewDataBinding.shimmerCheckOutAddressLayout.visibility = View.GONE
     }
 
@@ -244,7 +242,7 @@ class CheckOutAddressFragment :
         allDeliverAddressAdapter.setAllDeliverAddressList(deliverAllAddressModel, context)
         viewDataBinding.rcvDeliverAddressList.adapter = allDeliverAddressAdapter
         allDeliverAddressAdapter.notifyDataSetChanged()
-        viewDataBinding.shimmerCheckOutAddressLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerCheckOutAddressLayout.stopShimmer()
         viewDataBinding.shimmerCheckOutAddressLayout.visibility = View.GONE
     }
 

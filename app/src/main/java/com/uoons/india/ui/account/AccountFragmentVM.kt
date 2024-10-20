@@ -8,10 +8,9 @@ import com.uoons.india.ui.base.BaseViewModel
 import com.uoons.india.ui.profile.model.UserDetailsModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import kotlinx.coroutines.launch
 
-@Obfuscate
+
 class AccountFragmentVM : BaseViewModel<AccountFrgamentNavigator>(){
     var userNumber : MutableLiveData<String> = MutableLiveData()
     var getUserDetailsResponse : MutableLiveData<UserDetailsModel> = MutableLiveData()

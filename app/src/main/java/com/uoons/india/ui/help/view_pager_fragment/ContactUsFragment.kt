@@ -14,9 +14,7 @@ import com.uoons.india.ui.base.BaseFragment
 import com.uoons.india.ui.help.view_pager_fragment.model.ContactUsModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class ContactUsFragment : BaseFragment<FragmentContactUsBinding, ContactUsFragmentVM>(),
     ContactUsFragmentNavigator {
 

@@ -11,10 +11,9 @@ import com.uoons.india.ui.checkout.checkout_payment.model.CheckOutModel
 import com.uoons.india.ui.checkout.checkout_payment.model.online_payment_status.OnlinePaymentStatusModel
 import com.uoons.india.ui.my_cart.model.GetMyCartDataModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
 import kotlinx.coroutines.launch
 
-@Obfuscate
+
 class CheckOutPaymentFragmentVM : BaseViewModel<CheckOutPaymentFragmentNavigator>()  {
 
     // GET MY CART ITEMS

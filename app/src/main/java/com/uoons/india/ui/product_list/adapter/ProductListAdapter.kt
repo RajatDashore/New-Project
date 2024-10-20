@@ -15,13 +15,12 @@ import com.uoons.india.R
 import com.uoons.india.ui.product_list.model.ProductListModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-@Obfuscate
+
 class ProductListAdapter(updatedProductsList: ArrayList<ProductListModel>, context: Context,var onclick:(value : String)->Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     var productList: ArrayList<ProductListModel>? = null

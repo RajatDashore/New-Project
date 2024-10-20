@@ -15,9 +15,6 @@ import com.uoons.india.ui.help.adapter.SectionPageAdapter
 import com.uoons.india.ui.help.adapter.ViewPagerAdapter
 import com.uoons.india.ui.help.view_pager_fragment.ContactUsFragment
 import com.uoons.india.ui.help.view_pager_fragment.FAQFragment
-import io.michaelrocks.paranoid.Obfuscate
-
-@Obfuscate
 class HelpFragment : BaseFragment<FragmentHelpBinding, HelpFragmentVM>(),
     HelpFragmentNavigator {
 
@@ -30,7 +27,7 @@ class HelpFragment : BaseFragment<FragmentHelpBinding, HelpFragmentVM>(),
     override  fun init() {
         mViewModel.navigator = this
         // Start shimmer animation
-        viewDataBinding.shimmerHelpLayout.startShimmerAnimation()
+        viewDataBinding.shimmerHelpLayout.startShimmer()
     }
 
 

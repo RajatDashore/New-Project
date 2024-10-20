@@ -28,7 +28,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.uoons.india.R
 import com.uoons.india.utils.AppConstants.EMPTY
 import com.uoons.india.utils.DialogConstant.getThemeColour
-import io.michaelrocks.paranoid.Obfuscate
 import java.io.File
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -36,7 +35,7 @@ import java.util.*
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
-@Obfuscate
+
 object CommonUtils
 {
     private const val EMAIL_PATTERN = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"

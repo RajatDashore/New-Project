@@ -14,7 +14,7 @@ import com.uoons.india.ui.profile.editprofile.model.SaveUserDetailsResponse
 import com.uoons.india.ui.profile.model.UserDetailsModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
+
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
@@ -23,7 +23,7 @@ import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 
-@Obfuscate
+
 class EditProfileFragmentVM: BaseViewModel<EditProfileFrgamentNavigator>() {
 
     var saveUserDetailResponse: MutableLiveData<SaveUserDetailsResponse> = MutableLiveData()

@@ -1,3 +1,5 @@
+/*
+
 package com.uoons.india.ui.home.fragment.adapter
 
 import android.content.Context
@@ -8,10 +10,8 @@ import android.view.ViewGroup
 import com.uoons.india.databinding.RowHomeSliderBinding
 import com.uoons.india.ui.home.fragment.model.DeshBoardItems
 import com.uoons.india.utils.CommonUtils
-import com.smarteist.autoimageslider.SliderViewAdapter
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
+
 class SliderOneAdapter : SliderViewAdapter<SliderOneAdapter.ViewHolder>() {
 
     private var customClickListener: OnItemClickListener? = null
@@ -61,3 +61,4 @@ class SliderOneAdapter : SliderViewAdapter<SliderOneAdapter.ViewHolder>() {
         }
     }
 }
+ */

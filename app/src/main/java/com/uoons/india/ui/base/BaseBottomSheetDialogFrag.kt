@@ -19,9 +19,7 @@ import com.uoons.india.data.remote.error.Failure
 import android.util.TypedValue
 import android.view.WindowManager
 import com.uoons.india.BR
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 abstract class BaseBottomSheetDialogFrag<T:ViewDataBinding,V:BaseViewModel<*>>:BottomSheetDialogFragment(),CommonNavigator {
 
     lateinit var baseActivity: BaseActivity<*, *>

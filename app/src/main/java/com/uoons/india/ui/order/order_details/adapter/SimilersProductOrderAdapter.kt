@@ -9,9 +9,7 @@ import com.uoons.india.databinding.RowSimilersProductOrderBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.order.order_details.model.SimilersProductOrderModel
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class SimilersProductOrderAdapter(var similerOrderList: ArrayList<SimilersProductOrderModel>, val requireContext: Context,var onclick:(value : String)->Unit) :
     BaseRecyclerAdapter<RowSimilersProductOrderBinding, Any, SimilersProductOrderAdapter.ViewHolder>(){
 

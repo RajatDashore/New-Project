@@ -2,10 +2,10 @@ package com.uoons.india.ui.checkout.checkout_payment.model.online_payment_status
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
 
-@Obfuscate
+
+
 class OnlinePaymentStatusModel {
     @SerializedName("status")
     @Expose

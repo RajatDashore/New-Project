@@ -1,9 +1,7 @@
 package com.uoons.india.ui.category.category_items.category_items_details.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class SimilarProducts(@SerializedName("pid"                 ) var pid                : String? = null,
                            @SerializedName("user_id"             ) var userId             : String? = null,
                            @SerializedName("productid"           ) var productid          : String? = null,

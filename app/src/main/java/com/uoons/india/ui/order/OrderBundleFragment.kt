@@ -25,9 +25,7 @@ import com.uoons.india.ui.order.model.FecthAllBundleOrderModel
 import com.uoons.india.ui.wishlist.model.GetWishListDataModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class OrderBundleFragment : BaseFragment<FragmentOrderBundleBinding, OrderBundleFragmentVM>(), OrderBundleFragmentNavigator{
 
     override val bindingVariable: Int = BR.orderBundleFragmentVM
@@ -45,7 +43,7 @@ class OrderBundleFragment : BaseFragment<FragmentOrderBundleBinding, OrderBundle
                 mViewModel.getMyCartItemsApiCall()
                 mViewModel.getWishListProductApiCall()
                 // Start shimmer animation
-                viewDataBinding.shimmerOrderBundleLayout.startShimmerAnimation()
+                viewDataBinding.shimmerOrderBundleLayout.startShimmer()
             }else{
                 viewDataBinding.cstLayoutOrderEmpty.visibility = View.VISIBLE
                 viewDataBinding.rcvOrderBundleFragment.visibility = View.GONE
@@ -60,7 +58,7 @@ class OrderBundleFragment : BaseFragment<FragmentOrderBundleBinding, OrderBundle
 
     override fun onDestroy() {
         super.onDestroy()
-        viewDataBinding.shimmerOrderBundleLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerOrderBundleLayout.stopShimmer()
         viewDataBinding.shimmerOrderBundleLayout.visibility = View.GONE
     }
 

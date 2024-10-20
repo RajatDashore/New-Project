@@ -10,11 +10,9 @@ import android.provider.DocumentsContract
 import android.provider.MediaStore
 import android.provider.OpenableColumns
 import androidx.annotation.RequiresApi
-import io.michaelrocks.paranoid.Obfuscate
 import java.io.*
 
 
-@Obfuscate
 object ImageFilePath {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     fun getPath(context: Context, uri: Uri): String? {

@@ -14,13 +14,13 @@ import com.uoons.india.databinding.RowProductDetailsFrequentlyBoughtProductsBind
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.product_detail.model.FreqProdModel
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
+
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-@Obfuscate
+
 class ProductDeatilsFrequentlyBouoghtAdapter(private val freqProd: ArrayList<FreqProdModel>, val context: Context,
                                              var onclick:(value : String)->Unit,var onclick1:(value : String)->Unit, var userCoins :String) :
     BaseRecyclerAdapter<RowProductDetailsFrequentlyBoughtProductsBinding, Any, ProductDeatilsFrequentlyBouoghtAdapter.ViewHolder>(){

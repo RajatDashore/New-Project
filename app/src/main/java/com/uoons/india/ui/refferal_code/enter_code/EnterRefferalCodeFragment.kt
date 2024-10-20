@@ -7,9 +7,7 @@ import com.uoons.india.BR
 import com.uoons.india.R
 import com.uoons.india.databinding.EnterRefferalCodeBottomSheetLayoutBinding
 import com.uoons.india.ui.base.BaseBottomSheetDialogFrag
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class EnterRefferalCodeFragment : BaseBottomSheetDialogFrag<EnterRefferalCodeBottomSheetLayoutBinding, EnterRefferalCodeFragmentVM>(),
     EnterRefferalCodeFragmentNavigatore {
     private  val TAG = "EnterRefferalCodeFragment"

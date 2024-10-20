@@ -4,13 +4,12 @@ import android.annotation.SuppressLint
 import android.util.Log
 import com.uoons.india.utils.AppConstants.EMPTY
 import com.uoons.india.utils.CommonUtils.isStringNullOrBlank
-import io.michaelrocks.paranoid.Obfuscate
 import java.text.DateFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
-@Obfuscate
+
 object DateTimeUtils {
 
     const val FORMAT_1 =  "yyyy-MM-dd HH:mm:ss"

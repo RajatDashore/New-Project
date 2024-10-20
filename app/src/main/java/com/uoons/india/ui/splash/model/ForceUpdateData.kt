@@ -1,9 +1,7 @@
 package com.uoons.india.ui.splash.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class ForceUpdateData(
     @SerializedName("app_id") var appId: String? = null,
     @SerializedName("playStoreVersionCode") var playStoreVersionCode: String? = null,

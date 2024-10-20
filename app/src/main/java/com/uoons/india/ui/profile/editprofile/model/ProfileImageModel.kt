@@ -1,9 +1,7 @@
 package com.uoons.india.ui.profile.editprofile.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class ProfileImageModel(@SerializedName("status"  ) var status  : Boolean? = null,
                              @SerializedName("message" ) var message : String?  = null,
                              @SerializedName("Data"    ) var Data    : ProfileImageResponseDataModel?    = ProfileImageResponseDataModel(),

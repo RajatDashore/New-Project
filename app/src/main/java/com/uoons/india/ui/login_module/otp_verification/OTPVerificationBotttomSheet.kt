@@ -25,9 +25,9 @@ import com.uoons.india.utils.OTPGenericTextWatcher
 import com.uoons.india.utils.OtpGenericKeyEvent
 import com.uoons.india.utils.rx.UoonsRxBus
 import com.uoons.india.utils.rx.UoonsRxEvent
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
+
+
 class OTPVerificationBotttomSheet :
     BaseBottomSheetDialogFrag<OtpVerificationBottomSheetBinding, OTPVerificationBottomSheetVM>(),
     OTPVerificationBottomSheetNavigator {

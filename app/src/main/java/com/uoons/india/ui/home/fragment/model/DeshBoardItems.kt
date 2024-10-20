@@ -1,9 +1,7 @@
 package com.uoons.india.ui.home.fragment.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class DeshBoardItems(
                           @SerializedName("c_id"         ) var cId         : String? = null,
                           @SerializedName("category"     ) var category    : String? = null,

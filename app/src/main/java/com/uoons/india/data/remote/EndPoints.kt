@@ -1,8 +1,6 @@
 package com.uoons.india.data.remote
 
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 object EndPoints {
     const val SEND_OTP = "api/sendOTP"
     const val FORCE_UPDATE = "api/forceUpdate"

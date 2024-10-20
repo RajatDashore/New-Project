@@ -13,10 +13,10 @@ import com.uoons.india.databinding.RowHomeRecentlyViewsBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.home.fragment.model.DeshBoardItems
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
+
 import java.lang.Exception
 
-@Obfuscate
+
 class HomeRecentlyViewRecyclerAdapter : BaseRecyclerAdapter<RowHomeRecentlyViewsBinding, Any, HomeRecentlyViewRecyclerAdapter.ViewHolder>(){
 
     private var customProductIdClickListener: OnProductIdClickListener? = null

@@ -1,9 +1,7 @@
 package com.uoons.india.ui.category.category_items.category_items_details.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class AvailabilityModel(@SerializedName("pid"                ) var pid               : String?  = null,
                              @SerializedName("isServiceable"      ) var isServiceable     : Boolean? = null,
                              @SerializedName("isCOD"              ) var isCOD             : Boolean? = null,

@@ -26,11 +26,10 @@ import com.uoons.india.ui.login_module.login_mobile_no.model.LogingResponseModel
 import com.uoons.india.ui.login_module.otp_verification.OTPVerificationBotttomSheet
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import java.security.Key
 
 
-@Obfuscate
+
 class LoginMobileNoBottomSheet : BaseBottomSheetDialogFrag<LoginMobileNoBottomSheetBinding, LoginMobileNoBottomSheetVM>(),
     LoginMobileNoBottomSheetNavigator {
 

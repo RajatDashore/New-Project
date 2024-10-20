@@ -12,9 +12,7 @@ import kotlinx.coroutines.launch
 import com.uoons.india.ui.home.fragment.SingleLiveEvent
 import com.uoons.india.ui.my_cart.model.GetMyCartDataModel
 import com.uoons.india.ui.wishlist.model.GetWishListDataModel
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class ProductListFragmentVM : BaseViewModel<ProductListFragmentNavigator>(){
     private var LOG_TAG = ProductListFragmentVM::class.java.name
     var productListResponse : MutableLiveData<ProductModel> = MutableLiveData()

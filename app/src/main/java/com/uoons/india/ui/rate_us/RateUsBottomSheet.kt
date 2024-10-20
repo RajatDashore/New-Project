@@ -10,9 +10,6 @@ import com.uoons.india.R
 import com.uoons.india.databinding.RateUsBottomSheetLayoutBinding
 import com.uoons.india.ui.base.BaseBottomSheetDialogFrag
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
-
-@Obfuscate
 class RateUsBottomSheet : BaseBottomSheetDialogFrag<RateUsBottomSheetLayoutBinding, RateUsBottomSheetVM>(),
     RateUsBottomSheetNavigator {
 

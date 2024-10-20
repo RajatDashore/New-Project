@@ -7,10 +7,9 @@ import com.uoons.india.ui.base.BaseViewModel
 import com.uoons.india.ui.product_detail.suggestion_for_enhance.model.PostSuggestionResponse
 import com.uoons.india.ui.product_detail.suggestion_for_enhance.model.SuggestionToEnhanceModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
+
 import kotlinx.coroutines.launch
 
-@Obfuscate
 class SuggestionForEnhanceFragmentVM : BaseViewModel<SuggestionForEnhanceFragmentNavigator>() {
 
     // GET Suggestion for enhance

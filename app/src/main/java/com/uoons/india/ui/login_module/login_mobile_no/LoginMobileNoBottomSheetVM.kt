@@ -8,10 +8,9 @@ import com.uoons.india.ui.base.BaseViewModel
 import com.uoons.india.ui.login_module.login_mobile_no.model.LogingResponseModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import kotlinx.coroutines.launch
 
-@Obfuscate
+
 class LoginMobileNoBottomSheetVM : BaseViewModel<LoginMobileNoBottomSheetNavigator>() {
     var loginResponse : MutableLiveData<LogingResponseModel> = MutableLiveData()
     var loginFailureResponse : MutableLiveData<LogingResponseModel> = MutableLiveData()

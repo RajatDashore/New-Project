@@ -15,9 +15,7 @@ import android.widget.RadioButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.uoons.india.ui.product_list.model.SortByNameModel
 import com.uoons.india.ui.sorting.model.SortingModel
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class SortBottomSheet(var onclick:(sortId:String)->Unit) : BaseBottomSheetDialogFrag<SortBottomSheetBinding, SortBottomSheetVM>(),
     SortBottomSheetNavigator {
 

@@ -1,9 +1,7 @@
 package com.uoons.india.ui.product_detail.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class QuestionanswerModel(@SerializedName("id"         ) var id        : String? = null,
                                @SerializedName("question"   ) var question  : String? = null,
                                @SerializedName("answer"     ) var answer    : String? = null,

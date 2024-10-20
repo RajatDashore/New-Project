@@ -7,9 +7,7 @@ import com.uoons.india.BR
 import com.uoons.india.R
 import com.uoons.india.databinding.ActivityNotificationServiceBinding
 import com.uoons.india.ui.base.BaseActivity
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class NotificationServiceActivity : BaseActivity<ActivityNotificationServiceBinding, NotificationServiceActivityVM>(), NotificationServiceActivityNavigator {
 
     override val bindingVariable: Int = BR.notificationServiceActivityVM

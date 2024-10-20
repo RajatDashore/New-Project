@@ -1,10 +1,10 @@
 package com.uoons.india.utils.rx
 
-import io.michaelrocks.paranoid.Obfuscate
+
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 
-@Obfuscate
+
 object UoonsRxBus {
 
     private val publisher = PublishSubject.create<Any>()

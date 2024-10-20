@@ -1,3 +1,5 @@
+/*
+
 package com.uoons.india.ui.product_detail.adapter
 
 import android.content.Context
@@ -8,10 +10,7 @@ import androidx.databinding.BindingAdapter
 import com.uoons.india.databinding.RowProductDetailsImageSliderBinding
 import com.uoons.india.ui.product_detail.model.ImagesArrayListModel
 import com.uoons.india.utils.CommonUtils
-import com.smarteist.autoimageslider.SliderViewAdapter
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class ProductDetailsImageSliderAdapter(val productImageSliderList: ArrayList<ImagesArrayListModel>,val context: Context) : SliderViewAdapter<ProductDetailsImageSliderAdapter.ViewHolder>(){
 
 
@@ -42,3 +41,5 @@ class ProductDetailsImageSliderAdapter(val productImageSliderList: ArrayList<Ima
         }
     }
 }
+
+ */

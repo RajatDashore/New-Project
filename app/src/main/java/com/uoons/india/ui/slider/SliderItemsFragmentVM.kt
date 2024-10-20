@@ -10,10 +10,9 @@ import com.uoons.india.ui.category.category_items.model.ChildIds
 import com.uoons.india.ui.category.category_items.model.FiltersModel
 import com.uoons.india.ui.category.category_items.model.SubCategoriesModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
 import kotlinx.coroutines.launch
 
-@Obfuscate
+
 class SliderItemsFragmentVM : BaseViewModel<SliderItemsFragmentNavigator>(){
     // GET SUB CATEGORIES
     var homeSliderDataResponse : MutableLiveData<SubCategoriesModel> = MutableLiveData()

@@ -14,13 +14,12 @@ import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.home.fragment.more_products.model.MoreProducts
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-@Obfuscate
+
 class DeshBordMoreProductsAdapter(var moreProductsItemList: ArrayList<MoreProducts>,
                                   var context: Context, var onclick:(value: String)->Unit) :
     BaseRecyclerAdapter<RowHomeDeshbordMoreProductsBinding, Any, DeshBordMoreProductsAdapter.ViewHolder>() {

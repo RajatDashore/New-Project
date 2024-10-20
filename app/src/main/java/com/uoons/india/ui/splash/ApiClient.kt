@@ -1,12 +1,11 @@
 package com.uoons.india.ui.splash
  import com.google.gson.GsonBuilder
- import io.michaelrocks.paranoid.Obfuscate
  import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-@Obfuscate
+
 object ApiClient {
     var BASE_URL = "https://uoons.com/"
 

@@ -6,10 +6,9 @@ import com.uoons.india.data.remote.Repository
 import com.uoons.india.ui.base.BaseViewModel
 import com.uoons.india.ui.help.view_pager_fragment.model.FAQDataModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
 import kotlinx.coroutines.launch
 
-@Obfuscate
+
 class FAQFragmentVM: BaseViewModel<FAQFragmentNavigator>() {
 
     // --- FAQ List

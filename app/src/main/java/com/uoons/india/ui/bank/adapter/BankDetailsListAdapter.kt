@@ -11,10 +11,9 @@ import com.uoons.india.R
 import com.uoons.india.databinding.RowBankDetailsListBinding
 import com.uoons.india.ui.bank.model.BankDetailsList
 import com.uoons.india.ui.base.BaseRecyclerAdapter
-import io.michaelrocks.paranoid.Obfuscate
 import kotlin.collections.ArrayList
 
-@Obfuscate
+
 class BankDetailsListAdapter(var fetchBankDetailsList: ArrayList<BankDetailsList>, var context: Context, var onclick:(value : String)->Unit,
                              var onclick1:(value : String)->Unit) :
     BaseRecyclerAdapter<RowBankDetailsListBinding, Any, BankDetailsListAdapter.ViewHolder>(){

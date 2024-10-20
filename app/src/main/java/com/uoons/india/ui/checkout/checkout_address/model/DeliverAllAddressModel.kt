@@ -1,9 +1,7 @@
 package com.uoons.india.ui.checkout.checkout_address.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class DeliverAllAddressModel(
     @SerializedName("status") var status: String? = null,
     @SerializedName("message") var message: String? = null,

@@ -1,9 +1,7 @@
 package com.uoons.india.ui.help.view_pager_fragment.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class FAQListDataModel(@SerializedName("id"         ) var id        : String? = null,
                             @SerializedName("question"   ) var question  : String? = null,
                             @SerializedName("answer"     ) var answer    : String? = null,

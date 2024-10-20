@@ -1,9 +1,7 @@
 package com.uoons.india.ui.product_detail.model
 
 import com.google.gson.annotations.SerializedName
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 data class ImagesArrayListModel(@SerializedName("id"            ) var id           : String? = null,
                                 @SerializedName("product_id"    ) var productId    : String? = null,
                                 @SerializedName("product_image" ) var productImage : String? = null,

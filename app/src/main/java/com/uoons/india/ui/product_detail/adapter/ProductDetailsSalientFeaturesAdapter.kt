@@ -8,9 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.uoons.india.R
 import com.uoons.india.databinding.RowProductDetailsSalientFeaturesBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class ProductDetailsSalientFeaturesAdapter(var salientFeatures: ArrayList<String>, var context: Context) :
     BaseRecyclerAdapter<RowProductDetailsSalientFeaturesBinding, Any, ProductDetailsSalientFeaturesAdapter.ViewHolder>(){
 

@@ -22,10 +22,9 @@ import com.uoons.india.ui.wishlist.model.AddWishListResponseModel
 import com.uoons.india.ui.wishlist.model.GetWishListDataModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import kotlinx.coroutines.launch
 
-@Obfuscate
+
 class ProductDetailFragmentVM : BaseViewModel<ProductDetailFragmentNavigator>(){
 
     private  val TAG = "ProductDetailFragmentVM"

@@ -10,10 +10,8 @@ import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
 import android.util.Log
-import io.michaelrocks.paranoid.Obfuscate
-import java.io.File
 
-@Obfuscate
+import java.io.File
 object FileUtils {
     fun getRealPath(context: Context?, fileUri: Uri?): String {
         // SDK < API11

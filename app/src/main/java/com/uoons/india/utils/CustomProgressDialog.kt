@@ -4,9 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.view.LayoutInflater
 import com.uoons.india.R
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class CustomProgressDialog : Dialog {
     private var mContext: Context? = null
     private var pDialog: Dialog? = null

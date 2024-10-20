@@ -12,9 +12,7 @@ import com.uoons.india.databinding.RowHomeAdvertisementBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.home.fragment.model.DeshBoardItems
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class HomeAdvertisementAdapter : BaseRecyclerAdapter<RowHomeAdvertisementBinding, Any, HomeAdvertisementAdapter.ViewHolder>(){
 
     private var customProductIdClickListener: OnProductIdClickListener? = null

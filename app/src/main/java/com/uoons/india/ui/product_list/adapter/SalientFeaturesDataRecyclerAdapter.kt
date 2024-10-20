@@ -7,9 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.uoons.india.R
 import com.uoons.india.databinding.RowProductSalientFeaturesBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class SalientFeaturesDataRecyclerAdapter : BaseRecyclerAdapter<RowProductSalientFeaturesBinding, Any, SalientFeaturesDataRecyclerAdapter.ViewHolder>(){
 
     var salientFeaturesDataList: ArrayList<String> = ArrayList<String>()

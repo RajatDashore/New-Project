@@ -15,9 +15,6 @@ import com.uoons.india.databinding.FragmentNotificationsSettingsBinding
 import com.uoons.india.ui.base.BaseFragment
 import com.uoons.india.ui.filter.model.FilterItemsDataModel
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
-
-@Obfuscate
 class NotificationsSettingsFragment : BaseFragment<FragmentNotificationsSettingsBinding, NotificationsSettingsFragmentVM>(),
     NotificationsSettingsFragmentNavigator {
 

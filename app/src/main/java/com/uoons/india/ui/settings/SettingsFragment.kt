@@ -14,9 +14,6 @@ import com.uoons.india.databinding.FragmentSettingsBinding
 import com.uoons.india.ui.base.BaseFragment
 import com.uoons.india.utils.DialogConstant
 import com.uoons.india.utils.PropertiChangeListener
-import io.michaelrocks.paranoid.Obfuscate
-
-@Obfuscate
 class SettingsFragment : BaseFragment<FragmentSettingsBinding, SettingsFragmentVM>(), SettingsFragmentNavigator, PropertiChangeListener {
 
     override val bindingVariable: Int = BR.settingsFragmentVM

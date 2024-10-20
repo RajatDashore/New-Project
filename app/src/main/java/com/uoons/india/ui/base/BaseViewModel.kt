@@ -2,11 +2,10 @@ package com.uoons.india.ui.base
 
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.ViewModel
-import io.michaelrocks.paranoid.Obfuscate
+
 
 import io.reactivex.disposables.CompositeDisposable
 
-@Obfuscate
 abstract class BaseViewModel<N : Any> : ViewModel() {
 
     private val isLoading = ObservableBoolean(false)

@@ -4,9 +4,7 @@ package com.uoons.india.ui.base
 import com.uoons.india.R
 import com.uoons.india.data.remote.error.Failure
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 interface CommonNavigator {
 
     fun init()

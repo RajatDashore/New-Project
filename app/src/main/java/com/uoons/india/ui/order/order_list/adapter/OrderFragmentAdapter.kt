@@ -12,14 +12,13 @@ import com.uoons.india.databinding.RowOrderItemsBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.order.order_list.model.OrderListModel
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.roundToInt
 
-@Obfuscate
+
 class OrderFragmentAdapter(val ordersList: ArrayList<OrderListModel>,val requireContext: Context,var onclick:(value : String)->Unit) : BaseRecyclerAdapter<RowOrderItemsBinding, Any, OrderFragmentAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(viewDataBinding: RowOrderItemsBinding, parent: ViewGroup, viewType: Int): ViewHolder {

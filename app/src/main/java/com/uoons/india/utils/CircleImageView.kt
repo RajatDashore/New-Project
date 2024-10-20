@@ -17,9 +17,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatImageView
 import com.uoons.india.R
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class CircleImageView : AppCompatImageView {
     private val mDrawableRect = RectF()
     private val mBorderRect = RectF()

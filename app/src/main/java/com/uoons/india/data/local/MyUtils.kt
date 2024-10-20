@@ -3,11 +3,10 @@ package com.uoons.india.data.local
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
-import io.michaelrocks.paranoid.Obfuscate
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
-@Obfuscate
+
 class MyUtils {
 
 

@@ -6,9 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.result.ActivityResultLauncher
 import androidx.fragment.app.Fragment
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 object ActivityNavigator
 {
     fun startActivity(mContext: Context, cls: Class<*>) {

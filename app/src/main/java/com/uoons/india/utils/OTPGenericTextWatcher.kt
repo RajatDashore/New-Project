@@ -4,9 +4,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import com.uoons.india.R
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class OTPGenericTextWatcher(var currentView: EditText, var nextView: EditText?) :
     TextWatcher {
     override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}

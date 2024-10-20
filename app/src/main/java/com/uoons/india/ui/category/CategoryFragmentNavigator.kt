@@ -1,9 +1,6 @@
 package com.uoons.india.ui.category
 
 import com.uoons.india.ui.base.CommonNavigator
-import io.michaelrocks.paranoid.Obfuscate
-
-@Obfuscate
 interface CategoryFragmentNavigator : CommonNavigator {
     fun naviGateToCategoryItemsFragment(cId: String, cName: String)
     fun getAllCategoriesData()

@@ -34,13 +34,11 @@ import com.uoons.india.ui.profile.model.UserDetailsModel
 import com.uoons.india.ui.wishlist.model.GetWishListDataModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
 
 
-@Obfuscate
 class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, ProductDetailFragmentVM>(),
     ProductDetailFragmentNavigator {
     private var logTag = "ProductDetailFragment"
@@ -92,7 +90,7 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
     private var isExpanded = false
     private val MAX_LINES_COLLAPSED = 3
 
-    override  fun init() {
+    override fun init() {
         mViewModel.navigator = this
         viewDataBinding.txvPinCodeText.text = AppConstants.EMPTY
         pId = arguments?.getString(AppConstants.PId).toString()
@@ -110,7 +108,7 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
 
     override fun onDestroy() {
         super.onDestroy()
-        viewDataBinding.shimmerProductDetailsLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerProductDetailsLayout.stopShimmer()
         viewDataBinding.shimmerProductDetailsLayout.visibility = View.GONE
     }
 
@@ -118,7 +116,7 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
         // Start shimmer animation
-        viewDataBinding.shimmerProductDetailsLayout.startShimmerAnimation()
+        viewDataBinding.shimmerProductDetailsLayout.startShimmer()
 
         if (AppPreference.getValue(PreferenceKeys.PROFILE_ID).isNotEmpty()) {
             mViewModel.getMyCartItemsApiCall()
@@ -159,38 +157,50 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
         })
 
         viewDataBinding.rcvSalientFeatures.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         }
 
         viewDataBinding.rcvDescriptionImages.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         }
 
         viewDataBinding.rcvAdditionalInfo.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         }
 
         viewDataBinding.rcvQuestionsAnswer.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         }
 
         viewDataBinding.rcvFrequentlyProducts.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         }
 
         viewDataBinding.rcvProductsReview.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         }
 
         viewDataBinding.ivMoreQuestionsAnswer.setOnClickListener {
             val bundle = bundleOf(AppConstants.PId to pId)
-            navController?.navigate(R.id.action_productDetailFragment_to_productDetailsQuestionAndAnswerFragment, bundle)
+            navController?.navigate(
+                R.id.action_productDetailFragment_to_productDetailsQuestionAndAnswerFragment,
+                bundle
+            )
         }
 
         viewDataBinding.cstLayoutSearchQuestions.setOnClickListener(View.OnClickListener {
             if (mViewModel.navigator!!.checkIfInternetOn()) {
                 val bundle = bundleOf(AppConstants.PId to pId)
-                navController?.navigate(R.id.action_productDetailFragment_to_searchQuestionAnswerFragment, bundle)
+                navController?.navigate(
+                    R.id.action_productDetailFragment_to_searchQuestionAnswerFragment,
+                    bundle
+                )
             } else if (mViewModel.navigator!!.isConnectedToInternet()) {
                 return@OnClickListener
             }
@@ -200,7 +210,8 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
             viewDataBinding.crdCheckPinCode.visibility = View.VISIBLE
             viewDataBinding.edtEnterPincode.visibility = View.VISIBLE
         } else {
-            viewDataBinding.txvPinCodeText.text = AppPreference.getValue(PreferenceKeys.PIN_CODE_EXPECTED_DELIVERY)
+            viewDataBinding.txvPinCodeText.text =
+                AppPreference.getValue(PreferenceKeys.PIN_CODE_EXPECTED_DELIVERY)
             viewDataBinding.edtEnterPincode.setText(AppPreference.getValue(PreferenceKeys.PIN_CODE))
             viewDataBinding.txvPinCodeText.visibility = View.VISIBLE
         }
@@ -217,7 +228,10 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
 //                        CommonUtils.showToastMessage(requireContext(), it.message.toString())
                     }
                 } else {
-                    CommonUtils.showToastMessage(requireContext(), resources.getString(R.string.error_in_fetching_data))
+                    CommonUtils.showToastMessage(
+                        requireContext(),
+                        resources.getString(R.string.error_in_fetching_data)
+                    )
                 }
             }
         }
@@ -231,12 +245,15 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
 
             } else {
                 mViewModel.addWishListApiCall(pId.toInt())
-                val logger = AppEventsLogger.newLogger(activity)
+                val logger = activity?.let { AppEventsLogger.newLogger(it) }
                 val params = Bundle()
                 params.putString(AppEventsConstants.EVENT_PARAM_CONTENT_ID, pId)
-                params.putString(AppEventsConstants.EVENT_PARAM_CONTENT_TYPE, AppConstants.ECOMMERCE)
+                params.putString(
+                    AppEventsConstants.EVENT_PARAM_CONTENT_TYPE,
+                    AppConstants.ECOMMERCE
+                )
                 params.putString(AppEventsConstants.EVENT_PARAM_CURRENCY, AppConstants.INR)
-                logger.logEvent(AppEventsConstants.EVENT_NAME_ADDED_TO_WISHLIST, 10.0, params)
+                logger?.logEvent(AppEventsConstants.EVENT_NAME_ADDED_TO_WISHLIST, 10.0, params)
 
             }
         } else if (mViewModel.navigator!!.isConnectedToInternet()) {
@@ -318,7 +335,10 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                 if (it != null) {
                     removeWishlistResponseOnProduct(it)
                 } else {
-                    CommonUtils.showToastMessage(requireContext(), resources.getString(R.string.error_in_fetching_data))
+                    CommonUtils.showToastMessage(
+                        requireContext(),
+                        resources.getString(R.string.error_in_fetching_data)
+                    )
                 }
             }
         }
@@ -330,14 +350,22 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
             viewDataBinding.ivAddWishList.visibility = View.VISIBLE
             viewDataBinding.ivRomveWishList.visibility = View.GONE
         } else {
-            CommonUtils.showToastMessage(requireContext(), removeCartItemResponse.message.toString())
+            CommonUtils.showToastMessage(
+                requireContext(),
+                removeCartItemResponse.message.toString()
+            )
         }
     }
 
 
     override fun naviGateToCheckOutAddressFragment() {
         if (CommonUtils.isStringNullOrBlank(AppPreference.getValue(PreferenceKeys.PIN_CODE))) {
-            context?.let { CommonUtils.showToastMessage(it, AppConstants.CheckLoacationAvailibilty) }
+            context?.let {
+                CommonUtils.showToastMessage(
+                    it,
+                    AppConstants.CheckLoacationAvailibilty
+                )
+            }
 
         } else {
             if (view != null) {
@@ -348,14 +376,28 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                             loginMobileNoBottomSheet.show(childFragmentManager, logTag)
                         } else {
                             if (inCart == AppConstants.TRUE) {
-                                context.let { CommonUtils.showToastMessage(requireContext(), AppConstants.AllReadyAddCartProduct) }
+                                context.let {
+                                    CommonUtils.showToastMessage(
+                                        requireContext(),
+                                        AppConstants.AllReadyAddCartProduct
+                                    )
+                                }
 
                             } else {
-                                mViewModel.addPlaceOrder(pId.toInt(), AppConstants.one.toInt(), requireContext())
+                                mViewModel.addPlaceOrder(
+                                    pId.toInt(),
+                                    AppConstants.one.toInt(),
+                                    requireContext()
+                                )
                             }
                         }
                     } else {
-                        context?.let { CommonUtils.showToastMessage(it, resources.getString(R.string.out_of_stock_product)) }
+                        context?.let {
+                            CommonUtils.showToastMessage(
+                                it,
+                                resources.getString(R.string.out_of_stock_product)
+                            )
+                        }
 
                     }
 
@@ -368,7 +410,12 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
 
     override fun naviGateToMyCartFragment() {
         if (CommonUtils.isStringNullOrBlank(AppPreference.getValue(PreferenceKeys.PIN_CODE))) {
-            context?.let { CommonUtils.showToastMessage(it, AppConstants.CheckLoacationAvailibilty) }
+            context?.let {
+                CommonUtils.showToastMessage(
+                    it,
+                    AppConstants.CheckLoacationAvailibilty
+                )
+            }
 
         } else {
             if (mViewModel.navigator!!.checkIfInternetOn()) {
@@ -378,14 +425,24 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                         loginMobileNoBottomSheet.show(childFragmentManager, logTag)
                     } else {
                         if (inCart.equals(AppConstants.TRUE, ignoreCase = true)) {
-                            CommonUtils.showToastMessage(requireContext(), AppConstants.AllReadyAddCartProduct)
+                            CommonUtils.showToastMessage(
+                                requireContext(),
+                                AppConstants.AllReadyAddCartProduct
+                            )
 
                         } else {
-                            mViewModel.addCartItem(pId.toInt(), AppConstants.one.toInt(), requireContext())
+                            mViewModel.addCartItem(
+                                pId.toInt(),
+                                AppConstants.one.toInt(),
+                                requireContext()
+                            )
                         }
                     }
                 } else {
-                    CommonUtils.showToastMessage(requireContext(), resources.getString(R.string.out_of_stock_product))
+                    CommonUtils.showToastMessage(
+                        requireContext(),
+                        resources.getString(R.string.out_of_stock_product)
+                    )
 
                 }
             } else if (mViewModel.navigator!!.isConnectedToInternet()) {
@@ -403,7 +460,12 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
     }
 
     override fun addResponseCartItem() {
-        context.let { CommonUtils.showToastMessage(requireContext(), AppConstants.ProductAddInCart) }
+        context.let {
+            CommonUtils.showToastMessage(
+                requireContext(),
+                AppConstants.ProductAddInCart
+            )
+        }
 
         if (AppPreference.getValue(PreferenceKeys.PROFILE_ID).isNotEmpty()) {
             mViewModel.getMyCartItemsApiCall()
@@ -416,7 +478,12 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
             mViewModel.addToCartItemsFrequentResponse.observe(viewLifecycleOwner) {
                 if (it != null) {
                     addToCartFrequentBought(it)
-                } else { CommonUtils.showToastMessage(requireContext(), resources.getString(R.string.error_in_fetching_data)) }
+                } else {
+                    CommonUtils.showToastMessage(
+                        requireContext(),
+                        resources.getString(R.string.error_in_fetching_data)
+                    )
+                }
             }
         }
     }
@@ -424,7 +491,12 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
     private fun addToCartFrequentBought(addItemToCartDataResponse: AddItemToCartDataResponse) {
         if (addItemToCartDataResponse.Data == true) {
             if (mViewModel.navigator!!.checkIfInternetOn()) {
-                context.let { CommonUtils.showToastMessage(requireContext(), AppConstants.AllReadyAddCartProduct) }
+                context.let {
+                    CommonUtils.showToastMessage(
+                        requireContext(),
+                        AppConstants.AllReadyAddCartProduct
+                    )
+                }
                 if (AppPreference.getValue(PreferenceKeys.PROFILE_ID).isNotEmpty()) {
                     mViewModel.getMyCartItemsApiCall()
                     mViewModel.getWishListProductApiCall()
@@ -434,7 +506,12 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
             }
         } else if (addItemToCartDataResponse.Data == false) {
             if (mViewModel.navigator!!.checkIfInternetOn()) {
-                context.let { CommonUtils.showToastMessage(requireContext(), AppConstants.ProductAddInCart) }
+                context.let {
+                    CommonUtils.showToastMessage(
+                        requireContext(),
+                        AppConstants.ProductAddInCart
+                    )
+                }
                 if (AppPreference.getValue(PreferenceKeys.PROFILE_ID).isNotEmpty()) {
                     mViewModel.getMyCartItemsApiCall()
                     mViewModel.getWishListProductApiCall()
@@ -451,7 +528,10 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                 if (it != null) {
                     setAvailibilityProduct(it)
                 } else {
-                    CommonUtils.showToastMessage(requireContext(), resources.getString(R.string.error_in_fetching_data))
+                    CommonUtils.showToastMessage(
+                        requireContext(),
+                        resources.getString(R.string.error_in_fetching_data)
+                    )
                 }
             }
         }
@@ -460,7 +540,10 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
     override fun suggestionToEnhanceClick() {
         if (mViewModel.navigator!!.checkIfInternetOn()) {
             val bundle = bundleOf(AppConstants.PId to pId)
-            navController?.navigate(R.id.action_productDetailFragment_to_suggestionForEnhanceFragment, bundle)
+            navController?.navigate(
+                R.id.action_productDetailFragment_to_suggestionForEnhanceFragment,
+                bundle
+            )
         } else if (mViewModel.navigator!!.isConnectedToInternet()) {
             return
         }
@@ -469,7 +552,9 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
     override fun checkPincodeAvailibility() {
         if (mViewModel.isValidField(strPinCode = viewDataBinding.edtEnterPincode.text.toString())) {
             if (mViewModel.navigator!!.checkIfInternetOn()) {
-                mViewModel.checkPinCodeAvailability(viewDataBinding.edtEnterPincode.text.toString().toInt(), pId.toInt())
+                mViewModel.checkPinCodeAvailability(
+                    viewDataBinding.edtEnterPincode.text.toString().toInt(), pId.toInt()
+                )
 
             } else if (mViewModel.navigator!!.isConnectedToInternet()) {
                 return
@@ -478,12 +563,23 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
     }
 
     private fun setAvailibilityProduct(productAvailabilityResponseModel: ProductAvailabilityResponseModel) {
-        if (productAvailabilityResponseModel.status.equals(AppConstants.SUCCESS, ignoreCase = true)) {
-            viewDataBinding.txvPinCodeText.text = productAvailabilityResponseModel.Data!!.expDeliveryTime
-            AppPreference.addValue(PreferenceKeys.PIN_CODE_EXPECTED_DELIVERY, productAvailabilityResponseModel.Data!!.expDeliveryTime.toString())
+        if (productAvailabilityResponseModel.status.equals(
+                AppConstants.SUCCESS,
+                ignoreCase = true
+            )
+        ) {
+            viewDataBinding.txvPinCodeText.text =
+                productAvailabilityResponseModel.Data!!.expDeliveryTime
+            AppPreference.addValue(
+                PreferenceKeys.PIN_CODE_EXPECTED_DELIVERY,
+                productAvailabilityResponseModel.Data!!.expDeliveryTime.toString()
+            )
 
         } else {
-            CommonUtils.showToastMessage(requireContext(), productAvailabilityResponseModel.message.toString())
+            CommonUtils.showToastMessage(
+                requireContext(),
+                productAvailabilityResponseModel.message.toString()
+            )
         }
     }
 
@@ -512,12 +608,12 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
         pImage = data.Data?.productImages.toString()
         pName = data.Data?.productName.toString()
         val price = data.Data?.productPrice.toString()
-        val logger = AppEventsLogger.newLogger(activity)
+        val logger = activity?.let { AppEventsLogger.newLogger(it) }
         val params = Bundle()
         params.putString(AppEventsConstants.EVENT_PARAM_CONTENT_ID, pId)
         params.putString(AppEventsConstants.EVENT_PARAM_CONTENT_TYPE, pName)
         params.putString(AppEventsConstants.EVENT_PARAM_CURRENCY, price)
-        logger.logEvent(AppEventsConstants.EVENT_NAME_VIEWED_CONTENT, price.toDouble(), params)
+        logger?.logEvent(AppEventsConstants.EVENT_NAME_VIEWED_CONTENT, price.toDouble(), params)
 
 
         if (data.Data?.productStock?.toInt() == AppConstants.zero.toInt()) {
@@ -545,20 +641,28 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
             if (data.Data!!.productImages.isNullOrEmpty()) {
                 viewDataBinding.ivFrequentlyBought.setImageResource(R.drawable.image_gray_color)
             } else {
-                CommonUtils.catIoadImage(viewDataBinding.ivFrequentlyBought, data.Data!!.productImages, viewDataBinding.ivFrequentlyBought.id)
+                CommonUtils.catIoadImage(
+                    viewDataBinding.ivFrequentlyBought,
+                    data.Data!!.productImages,
+                    viewDataBinding.ivFrequentlyBought.id
+                )
             }
         } else {
             if (data.Data!!.images[0].productImage.isNullOrEmpty()) {
                 viewDataBinding.ivFrequentlyBought.setImageResource(R.drawable.image_gray_color)
             } else {
-                CommonUtils.catIoadImage(viewDataBinding.ivFrequentlyBought, data.Data!!.images[0].productImage, viewDataBinding.ivFrequentlyBought.id)
+                CommonUtils.catIoadImage(
+                    viewDataBinding.ivFrequentlyBought,
+                    data.Data!!.images[0].productImage,
+                    viewDataBinding.ivFrequentlyBought.id
+                )
             }
         }
 
 
-        if (data.Data?.bestSelling.equals(AppConstants.zero)){
+        if (data.Data?.bestSelling.equals(AppConstants.zero)) {
             viewDataBinding.txvBestSelling.setBackgroundColor(resources.getColor(R.color.transparent))
-        } else if(data.Data?.bestSelling.equals(AppConstants.one)) {
+        } else if (data.Data?.bestSelling.equals(AppConstants.one)) {
             viewDataBinding.txvBestSelling.visibility = View.VISIBLE
             viewDataBinding.txvBestSelling.text = "BEST SELLING"
             viewDataBinding.txvBestSelling.setBackgroundColor(Color.parseColor(data.Data?.bestSellingColorCode.toString()))
@@ -570,7 +674,7 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
         viewDataBinding.txvMRPPrice.text =
             resources.getString(R.string.rupees) + NumberFormat.getNumberInstance(Locale.getDefault())
                 .format(data.Data?.productPrice?.toInt())
-        if (data.Data?.description?.description.isNullOrEmpty()){
+        if (data.Data?.description?.description.isNullOrEmpty()) {
             viewDataBinding.txvDescriptionText.visibility = View.GONE
             viewDataBinding.ivMoreDecription.visibility = View.GONE
             viewDataBinding.viewDescription.visibility = View.GONE
@@ -581,7 +685,7 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
             viewDataBinding.txvDescription.text = data.Data?.description?.description
         }
 
-        if (data.Data?.returnPolicy?.trim().isNullOrEmpty()){
+        if (data.Data?.returnPolicy?.trim().isNullOrEmpty()) {
             viewDataBinding.txvReturnPolicyText.visibility = View.GONE
         } else {
             viewDataBinding.txvReturnPolicyText.visibility = View.VISIBLE
@@ -594,7 +698,8 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
         val productSellPrice = Integer.parseInt(data.Data?.productSalePrice.toString())
         val youSavePrice = productPrice - productSellPrice
 
-        val percentage = calculatePercentageChange(productPrice.toDouble(), productSellPrice.toDouble())
+        val percentage =
+            calculatePercentageChange(productPrice.toDouble(), productSellPrice.toDouble())
 
         val str: String = percentage.toString()
         val float1: Float = str.toFloat()
@@ -607,7 +712,8 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
         } else {
             viewDataBinding.txvYouSave.text =
                 resources.getString(R.string.rupees) + NumberFormat.getNumberInstance(Locale.getDefault())
-                    .format(youSavePrice).toString() + " (" + discount + AppConstants.PERCENTAGE + ")"
+                    .format(youSavePrice)
+                    .toString() + " (" + discount + AppConstants.PERCENTAGE + ")"
         }
 
         inWishList = data.Data?.inWishlist.toString()
@@ -655,7 +761,10 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                     AppConstants.SubId to data.Data?.advertisment!!.brandId,
                     AppConstants.CName to data.Data?.advertisment!!.sponsoredBy
                 )
-                navController?.navigate(R.id.action_productDetailFragment_to_productListFragment, bundle)
+                navController?.navigate(
+                    R.id.action_productDetailFragment_to_productListFragment,
+                    bundle
+                )
 
             } else if (mViewModel.navigator!!.isConnectedToInternet()) {
                 return@OnClickListener
@@ -672,7 +781,10 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
 
         } else {
 
-            productDetailsDescriptionImageAdapter = ProductDetailsDescriptionImageAdapter(data.Data?.description?.images, requireContext())
+            productDetailsDescriptionImageAdapter = ProductDetailsDescriptionImageAdapter(
+                data.Data?.description?.images,
+                requireContext()
+            )
             viewDataBinding.rcvDescriptionImages.adapter = productDetailsDescriptionImageAdapter
             productDetailsDescriptionImageAdapter.notifyDataSetChanged()
         }
@@ -689,8 +801,14 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                 productDeatilsRatingReviewAdapter =
                     ProductDeatilsRatingReviewAdapter(reviewsModelList, requireContext(),
                         onclickThumbUpReview = {
-                            if (CommonUtils.isStringNullOrBlank(AppPreference.getValue(PreferenceKeys.PROFILE_ID))) {
-                                val loginMobileNoBottomSheet = LoginMobileNoBottomSheet().newInstance()
+                            if (CommonUtils.isStringNullOrBlank(
+                                    AppPreference.getValue(
+                                        PreferenceKeys.PROFILE_ID
+                                    )
+                                )
+                            ) {
+                                val loginMobileNoBottomSheet =
+                                    LoginMobileNoBottomSheet().newInstance()
                                 loginMobileNoBottomSheet.show(childFragmentManager, logTag)
                             } else {
                                 reviewLikeUnlike = true
@@ -699,8 +817,14 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                             }
                         },
                         onclickThumbDownReview = {
-                            if (CommonUtils.isStringNullOrBlank(AppPreference.getValue(PreferenceKeys.PROFILE_ID))) {
-                                val loginMobileNoBottomSheet = LoginMobileNoBottomSheet().newInstance()
+                            if (CommonUtils.isStringNullOrBlank(
+                                    AppPreference.getValue(
+                                        PreferenceKeys.PROFILE_ID
+                                    )
+                                )
+                            ) {
+                                val loginMobileNoBottomSheet =
+                                    LoginMobileNoBottomSheet().newInstance()
                                 loginMobileNoBottomSheet.show(childFragmentManager, logTag)
                             } else {
                                 reviewLikeUnlike = true
@@ -715,8 +839,14 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                 productDeatilsRatingReviewAdapter =
                     ProductDeatilsRatingReviewAdapter(data.Data?.reviews, requireContext(),
                         onclickThumbUpReview = {
-                            if (CommonUtils.isStringNullOrBlank(AppPreference.getValue(PreferenceKeys.PROFILE_ID))) {
-                                val loginMobileNoBottomSheet = LoginMobileNoBottomSheet().newInstance()
+                            if (CommonUtils.isStringNullOrBlank(
+                                    AppPreference.getValue(
+                                        PreferenceKeys.PROFILE_ID
+                                    )
+                                )
+                            ) {
+                                val loginMobileNoBottomSheet =
+                                    LoginMobileNoBottomSheet().newInstance()
                                 loginMobileNoBottomSheet.show(childFragmentManager, "loginScreen")
                             } else {
                                 reviewLikeUnlike = true
@@ -725,8 +855,14 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                             }
                         },
                         onclickThumbDownReview = {
-                            if (CommonUtils.isStringNullOrBlank(AppPreference.getValue(PreferenceKeys.PROFILE_ID))) {
-                                val loginMobileNoBottomSheet = LoginMobileNoBottomSheet().newInstance()
+                            if (CommonUtils.isStringNullOrBlank(
+                                    AppPreference.getValue(
+                                        PreferenceKeys.PROFILE_ID
+                                    )
+                                )
+                            ) {
+                                val loginMobileNoBottomSheet =
+                                    LoginMobileNoBottomSheet().newInstance()
                                 loginMobileNoBottomSheet.show(childFragmentManager, logTag)
                             } else {
                                 reviewLikeUnlike = true
@@ -823,18 +959,25 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
             MyImagesViewPagerAdapter(data.Data!!.images, requireContext(), onClick = {
                 val value = Bundle()
                 value.putSerializable("imagesList", productMultipleImagesList)
-                navController?.navigate(R.id.action_productDetailFragment_to_fullScreenImageShowFragment, value)
+                navController?.navigate(
+                    R.id.action_productDetailFragment_to_fullScreenImageShowFragment,
+                    value
+                )
             })
 
         viewDataBinding.productImageSlider.adapter = myImagesViewPagerAdapter
-        if (data.Data!!.images.size > 1){
-            TabLayoutMediator(viewDataBinding.dotsLayout1,viewDataBinding.productImageSlider, TabLayoutMediator.TabConfigurationStrategy { tab, position -> }).attach()
+        if (data.Data!!.images.size > 1) {
+            TabLayoutMediator(
+                viewDataBinding.dotsLayout1,
+                viewDataBinding.productImageSlider,
+                TabLayoutMediator.TabConfigurationStrategy { tab, position -> }).attach()
         } else {
             viewDataBinding.dotsLayout1.visibility = View.GONE
         }
 
 
-        viewDataBinding.productImageSlider.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+        viewDataBinding.productImageSlider.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
             }
@@ -879,8 +1022,14 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                     ProductDetailsQuastionAnswerAdapter(data.Data!!.questionanswer,
                         requireContext(),
                         onclickThumbUp = {
-                            if (CommonUtils.isStringNullOrBlank(AppPreference.getValue(PreferenceKeys.PROFILE_ID))) {
-                                val loginMobileNoBottomSheet = LoginMobileNoBottomSheet().newInstance()
+                            if (CommonUtils.isStringNullOrBlank(
+                                    AppPreference.getValue(
+                                        PreferenceKeys.PROFILE_ID
+                                    )
+                                )
+                            ) {
+                                val loginMobileNoBottomSheet =
+                                    LoginMobileNoBottomSheet().newInstance()
                                 loginMobileNoBottomSheet.show(childFragmentManager, logTag)
                             } else {
                                 questionsLikeUnlike = true
@@ -889,8 +1038,14 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                             }
                         },
                         onclickThumbDown = {
-                            if (CommonUtils.isStringNullOrBlank(AppPreference.getValue(PreferenceKeys.PROFILE_ID))) {
-                                val loginMobileNoBottomSheet = LoginMobileNoBottomSheet().newInstance()
+                            if (CommonUtils.isStringNullOrBlank(
+                                    AppPreference.getValue(
+                                        PreferenceKeys.PROFILE_ID
+                                    )
+                                )
+                            ) {
+                                val loginMobileNoBottomSheet =
+                                    LoginMobileNoBottomSheet().newInstance()
                                 loginMobileNoBottomSheet.show(childFragmentManager, logTag)
                             } else {
                                 questionsLikeUnlike = true
@@ -908,7 +1063,10 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
             viewDataBinding.crdFrequently.visibility = View.GONE
         } else {
             if (reviewLikeUnlike || questionsLikeUnlike) {
-                Log.d(logTag, "reviewLikeUnlike || questionsLikeUnlike :: $reviewLikeUnlike :: $questionsLikeUnlike")
+                Log.d(
+                    logTag,
+                    "reviewLikeUnlike || questionsLikeUnlike :: $reviewLikeUnlike :: $questionsLikeUnlike"
+                )
 
             } else {
                 reviewLikeUnlike = false
@@ -919,35 +1077,70 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                         requireContext(),
                         onclick = {
                             if (mViewModel.navigator!!.checkIfInternetOn()) {
-                                if (CommonUtils.isStringNullOrBlank(AppPreference.getValue(PreferenceKeys.PIN_CODE))) {
-                                    context.let { CommonUtils.showToastMessage(requireContext(), AppConstants.CheckLoacationAvailibilty) }
+                                if (CommonUtils.isStringNullOrBlank(
+                                        AppPreference.getValue(
+                                            PreferenceKeys.PIN_CODE
+                                        )
+                                    )
+                                ) {
+                                    context.let {
+                                        CommonUtils.showToastMessage(
+                                            requireContext(),
+                                            AppConstants.CheckLoacationAvailibilty
+                                        )
+                                    }
 
                                 } else {
                                     if (!outOfStock) {
-                                        if (CommonUtils.isStringNullOrBlank(AppPreference.getValue(PreferenceKeys.PROFILE_ID))) {
-                                            val loginMobileNoBottomSheet = LoginMobileNoBottomSheet().newInstance()
-                                            loginMobileNoBottomSheet.show(childFragmentManager, logTag)
+                                        if (CommonUtils.isStringNullOrBlank(
+                                                AppPreference.getValue(
+                                                    PreferenceKeys.PROFILE_ID
+                                                )
+                                            )
+                                        ) {
+                                            val loginMobileNoBottomSheet =
+                                                LoginMobileNoBottomSheet().newInstance()
+                                            loginMobileNoBottomSheet.show(
+                                                childFragmentManager,
+                                                logTag
+                                            )
 
                                         } else {
-                                            mViewModel.addFrequentBoughtCartItem(it.toInt(), AppConstants.one.toInt(), requireContext())
+                                            mViewModel.addFrequentBoughtCartItem(
+                                                it.toInt(),
+                                                AppConstants.one.toInt(),
+                                                requireContext()
+                                            )
 
                                         }
                                     } else {
-                                        CommonUtils.showToastMessage(requireContext(), resources.getString(R.string.out_of_stock_product))
+                                        CommonUtils.showToastMessage(
+                                            requireContext(),
+                                            resources.getString(R.string.out_of_stock_product)
+                                        )
                                     }
                                 }
                             } else {
-                                mViewModel.navigator!!.showAlertDialog1Button(AppConstants.Uoons, resources.getString(R.string.please_check_internet_connection), onClick = {})
+                                mViewModel.navigator!!.showAlertDialog1Button(
+                                    AppConstants.Uoons,
+                                    resources.getString(R.string.please_check_internet_connection),
+                                    onClick = {})
 
                             }
                         },
                         onclick1 = {
                             if (mViewModel.navigator!!.checkIfInternetOn()) {
                                 val bundle = bundleOf(AppConstants.PId to it)
-                                navController?.navigate(R.id.action_productDetailFragment_self, bundle)
+                                navController?.navigate(
+                                    R.id.action_productDetailFragment_self,
+                                    bundle
+                                )
 
                             } else {
-                                mViewModel.navigator!!.showAlertDialog1Button(AppConstants.Uoons, resources.getString(R.string.please_check_internet_connection), onClick = {})
+                                mViewModel.navigator!!.showAlertDialog1Button(
+                                    AppConstants.Uoons,
+                                    resources.getString(R.string.please_check_internet_connection),
+                                    onClick = {})
 
                             }
                         },
@@ -982,13 +1175,20 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                             onclick = {
                                 if (mViewModel.navigator!!.checkIfInternetOn()) {
                                     val bundle = bundleOf(AppConstants.PId to it)
-                                    navController?.navigate(R.id.action_productDetailFragment_self, bundle)
+                                    navController?.navigate(
+                                        R.id.action_productDetailFragment_self,
+                                        bundle
+                                    )
 
                                 } else {
-                                    mViewModel.navigator!!.showAlertDialog1Button(AppConstants.Uoons, resources.getString(R.string.please_check_internet_connection), onClick = {})
+                                    mViewModel.navigator!!.showAlertDialog1Button(
+                                        AppConstants.Uoons,
+                                        resources.getString(R.string.please_check_internet_connection),
+                                        onClick = {})
                                 }
                             })
-                    viewDataBinding.rcvMoreLikeThisProducts.adapter = moreProductDetailsMoreProductAdapter
+                    viewDataBinding.rcvMoreLikeThisProducts.adapter =
+                        moreProductDetailsMoreProductAdapter
                     moreProductDetailsMoreProductAdapter.notifyDataSetChanged()
                 } else {
                     moreProductDetailsMoreProductAdapter = MoreProductDetailsMoreProductAdapter(
@@ -997,14 +1197,18 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                         onclick = {
                             if (mViewModel.navigator!!.checkIfInternetOn()) {
                                 val bundle = bundleOf(AppConstants.PId to it)
-                                navController?.navigate(R.id.action_productDetailFragment_self, bundle)
+                                navController?.navigate(
+                                    R.id.action_productDetailFragment_self,
+                                    bundle
+                                )
                             } else {
                                 mViewModel.navigator!!.showAlertDialog1Button(AppConstants.Uoons,
                                     resources.getString(R.string.please_check_internet_connection),
                                     onClick = {})
                             }
                         })
-                    viewDataBinding.rcvMoreLikeThisProducts.adapter = moreProductDetailsMoreProductAdapter
+                    viewDataBinding.rcvMoreLikeThisProducts.adapter =
+                        moreProductDetailsMoreProductAdapter
                     moreProductDetailsMoreProductAdapter.notifyDataSetChanged()
                     viewDataBinding.txvClickMoreProducts.visibility = View.GONE
                 }
@@ -1027,13 +1231,13 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
             )
         }
 
-        data.Data!!.salientFeatures.removeAll(listOf(null,""))
+        data.Data!!.salientFeatures.removeAll(listOf(null, ""))
         if (data.Data!!.salientFeatures.isEmpty() || data.Data!!.salientFeatures.size == AppConstants.zero.toInt()) {
             viewDataBinding.txvSaliantFeatures.visibility = View.GONE
             viewDataBinding.crdSalientFeatures.visibility = View.GONE
             viewDataBinding.viewsalientFeature.visibility = View.GONE
         } else {
-            data.Data!!.salientFeatures.removeAll(listOf(null,""))
+            data.Data!!.salientFeatures.removeAll(listOf(null, ""))
             if (data.Data!!.salientFeatures.size > 4) {
                 salientFeatureList1.clear()
 
@@ -1041,18 +1245,23 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                     salientFeatureList1.add(data.Data!!.salientFeatures[i])
                 }
 
-                if (salientFeatureList1[0].isEmpty()){
+                if (salientFeatureList1[0].isEmpty()) {
                     viewDataBinding.txvSaliantFeatures.visibility = View.GONE
                     viewDataBinding.crdSalientFeatures.visibility = View.GONE
                     viewDataBinding.viewsalientFeature.visibility = View.GONE
                 } else {
-                    productDetailsSalientFeaturesAdapter = ProductDetailsSalientFeaturesAdapter(salientFeatureList1, requireContext())
-                    viewDataBinding.rcvSalientFeatures.adapter = productDetailsSalientFeaturesAdapter
+                    productDetailsSalientFeaturesAdapter =
+                        ProductDetailsSalientFeaturesAdapter(salientFeatureList1, requireContext())
+                    viewDataBinding.rcvSalientFeatures.adapter =
+                        productDetailsSalientFeaturesAdapter
                     productDetailsSalientFeaturesAdapter.notifyDataSetChanged()
                 }
 
             } else {
-                productDetailsSalientFeaturesAdapter = ProductDetailsSalientFeaturesAdapter(data.Data!!.salientFeatures, requireContext())
+                productDetailsSalientFeaturesAdapter = ProductDetailsSalientFeaturesAdapter(
+                    data.Data!!.salientFeatures,
+                    requireContext()
+                )
                 viewDataBinding.rcvSalientFeatures.adapter = productDetailsSalientFeaturesAdapter
                 productDetailsSalientFeaturesAdapter.notifyDataSetChanged()
                 viewDataBinding.crdSalientFeatures.visibility = View.GONE
@@ -1092,17 +1301,21 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                     productAddInfo1.add(data.Data!!.addInformation[i])
                 }
 
-                if (productAddInfo1[0].title.isNullOrEmpty()){
+                if (productAddInfo1[0].title.isNullOrEmpty()) {
                     viewDataBinding.txvAdditionalInfoText.visibility = View.GONE
                     viewDataBinding.ivAdditionalInfo.visibility = View.GONE
                     viewDataBinding.viewAdditionalIndo.visibility = View.GONE
                 } else {
-                    productDetailsAdditionalInfoAdapter = ProductDetailsAdditionalInfoAdapter(productAddInfo1, requireContext())
+                    productDetailsAdditionalInfoAdapter =
+                        ProductDetailsAdditionalInfoAdapter(productAddInfo1, requireContext())
                     viewDataBinding.rcvAdditionalInfo.adapter = productDetailsAdditionalInfoAdapter
                     productDetailsAdditionalInfoAdapter.notifyDataSetChanged()
                 }
             } else {
-                productDetailsAdditionalInfoAdapter = ProductDetailsAdditionalInfoAdapter(data.Data!!.addInformation, requireContext())
+                productDetailsAdditionalInfoAdapter = ProductDetailsAdditionalInfoAdapter(
+                    data.Data!!.addInformation,
+                    requireContext()
+                )
                 viewDataBinding.rcvAdditionalInfo.adapter = productDetailsAdditionalInfoAdapter
                 productDetailsAdditionalInfoAdapter.notifyDataSetChanged()
                 viewDataBinding.ivAdditionalInfo.visibility = View.GONE
@@ -1117,14 +1330,16 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                     productAddInfo2.add(data.Data!!.addInformation[i])
                 }
 
-                productDetailsAdditionalInfoAdapter = ProductDetailsAdditionalInfoAdapter(productAddInfo2, requireContext())
+                productDetailsAdditionalInfoAdapter =
+                    ProductDetailsAdditionalInfoAdapter(productAddInfo2, requireContext())
                 viewDataBinding.rcvAdditionalInfo.adapter = productDetailsAdditionalInfoAdapter
                 productDetailsAdditionalInfoAdapter.notifyDataSetChanged()
                 viewDataBinding.txvAdditionalInfo.text = resources.getString(R.string.less)
 
             } else {
                 viewDataBinding.txvAdditionalInfo.text = resources.getString(R.string.more)
-                productDetailsAdditionalInfoAdapter = ProductDetailsAdditionalInfoAdapter(productAddInfo1, requireContext())
+                productDetailsAdditionalInfoAdapter =
+                    ProductDetailsAdditionalInfoAdapter(productAddInfo1, requireContext())
                 viewDataBinding.rcvAdditionalInfo.adapter = productDetailsAdditionalInfoAdapter
                 productDetailsAdditionalInfoAdapter.notifyDataSetChanged()
 
@@ -1238,17 +1453,17 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
     }
 
 
-/*
-    fun getEncryptedSharedprefs(context: Context): SharedPreferences {
+    /*
+        fun getEncryptedSharedprefs(context: Context): SharedPreferences {
 
-        val masterkeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
-        return EncryptedSharedPreferences.create(
-            "secured_prefs", masterkeyAlias, context,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-        )
+            val masterkeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
+            return EncryptedSharedPreferences.create(
+                "secured_prefs", masterkeyAlias, context,
+                EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+            )
 
-    }
-*/
+        }
+    */
 
 }

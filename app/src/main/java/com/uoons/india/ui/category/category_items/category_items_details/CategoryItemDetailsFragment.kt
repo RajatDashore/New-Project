@@ -30,17 +30,8 @@ import com.uoons.india.ui.category.category_items.category_items_details.model.S
 import com.uoons.india.ui.login_module.login_mobile_no.LoginMobileNoBottomSheet
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 import java.lang.Integer.parseInt
 import java.text.DecimalFormat
-
-
-
-
-
-
-
-@Obfuscate
 class CategoryItemDetailsFragment : BaseFragment<FragmentCategoryItemDetailsBinding, CategoryItemDetailsFragmentVM>(), CategoryItemDetailsFragmentNavigator {
 
     override val bindingVariable: Int = BR.categoryItemDetailsFragmentVM

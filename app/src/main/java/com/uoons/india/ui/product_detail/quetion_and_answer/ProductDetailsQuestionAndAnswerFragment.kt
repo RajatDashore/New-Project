@@ -24,9 +24,7 @@ import com.uoons.india.ui.product_detail.model.QuestionLikeUnlikeModel
 import com.uoons.india.ui.product_detail.quetion_and_answer.model.QuestionAnswerModel
 import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class ProductDetailsQuestionAndAnswerFragment : BaseFragment<FragmentProductDetailsQuestionAndAnswerBinding, ProductDetailsQuestionAndAnswerFragmentVM>(),
     ProductDetailsQuestionAndAnswerFragmentNavigator {
     override val bindingVariable: Int = BR.productDetailsQuestionAndAnswerFragmentVM
@@ -41,7 +39,7 @@ class ProductDetailsQuestionAndAnswerFragment : BaseFragment<FragmentProductDeta
         mViewModel.navigator = this
         pId = arguments?.getString(AppConstants.PId).toString()
         // Start shimmer animation
-        viewDataBinding.shimmerQuestionAndAnswerLayout.startShimmerAnimation()
+        viewDataBinding.shimmerQuestionAndAnswerLayout.startShimmer()
         if (mViewModel.navigator!!.checkIfInternetOn()) {
             mViewModel.getAllQuestionAnswersApiCall(pId)
         }else if (mViewModel.navigator!!.isConnectedToInternet()){
@@ -51,7 +49,7 @@ class ProductDetailsQuestionAndAnswerFragment : BaseFragment<FragmentProductDeta
 
     override fun onDestroy() {
         super.onDestroy()
-        viewDataBinding.shimmerQuestionAndAnswerLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerQuestionAndAnswerLayout.stopShimmer()
         viewDataBinding.shimmerQuestionAndAnswerLayout.visibility = View.GONE
     }
 
@@ -115,7 +113,7 @@ class ProductDetailsQuestionAndAnswerFragment : BaseFragment<FragmentProductDeta
         viewDataBinding.rcvQuestionsAnswer.adapter = productDetailsQuastionAnswerAdapter
         productDetailsQuastionAnswerAdapter.notifyDataSetChanged()
 
-        viewDataBinding.shimmerQuestionAndAnswerLayout.stopShimmerAnimation()
+        viewDataBinding.shimmerQuestionAndAnswerLayout.stopShimmer()
         viewDataBinding.shimmerQuestionAndAnswerLayout.visibility = View.GONE
     }
 

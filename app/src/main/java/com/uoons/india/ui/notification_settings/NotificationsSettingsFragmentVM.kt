@@ -9,11 +9,10 @@ import com.uoons.india.ui.base.BaseViewModel
 import com.uoons.india.ui.filter.model.FilterAllCategoryDataModel
 import com.uoons.india.ui.filter.model.FilterItemsDataModel
 import com.uoons.india.ui.notification_settings.adapter.NotificationsAdapter
-import io.michaelrocks.paranoid.Obfuscate
 import java.io.IOException
 import java.io.InputStream
 
-@Obfuscate
+
 class NotificationsSettingsFragmentVM : BaseViewModel<NotificationsSettingsFragmentNavigator>(){
     // --- Notifications List
     var notificationsRCVListData : MutableLiveData<ArrayList<FilterItemsDataModel>> = MutableLiveData()

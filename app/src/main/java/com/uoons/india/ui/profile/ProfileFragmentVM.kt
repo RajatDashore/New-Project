@@ -6,10 +6,10 @@ import com.uoons.india.data.remote.Repository
 import com.uoons.india.ui.base.BaseViewModel
 import com.uoons.india.ui.profile.model.UserDetailsModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
+
 import kotlinx.coroutines.launch
 
-@Obfuscate
+
 class ProfileFragmentVM: BaseViewModel<ProfileFrgamentNavigator>() {
     var getUserDetailsResponse : MutableLiveData<UserDetailsModel> = MutableLiveData()
 

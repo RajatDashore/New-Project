@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import coil.ComponentRegistry
 import coil.ImageLoader
 import coil.decode.SvgDecoder
 import coil.request.ImageRequest
@@ -16,9 +17,7 @@ import com.uoons.india.databinding.RowCategoriesBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.category.model.AllCategoryModel
 import com.uoons.india.ui.category.model.CategoriesModel
-import io.michaelrocks.paranoid.Obfuscate
 
-@Obfuscate
 class CategoryFragmentAdapter :
     BaseRecyclerAdapter<RowCategoriesBinding, Any, CategoryFragmentAdapter.ViewHolder>() {
 
@@ -101,7 +100,9 @@ lateinit var url: String
 
     fun ImageView.loadSvg(url: String) {
         val imageLoader = ImageLoader.Builder(this.context)
-            .componentRegistry { add(SvgDecoder(this@loadSvg.context)) }
+            .components(fun ComponentRegistry.Builder.() {
+                //add(SvgDecoder(context)) // Rajat Dashore
+            })
             .build()
 
         val request = ImageRequest.Builder(this.context)
