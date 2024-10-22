@@ -16,7 +16,7 @@ object PushNotification {
 
             // Get new FCM registration token
             val token = task.result
-            Log.e("HomeFragment","FirebaseMessaging:- "+token)
+            Log.e("HomeFragment", "FirebaseMessaging:- $token")
         })
     }
 

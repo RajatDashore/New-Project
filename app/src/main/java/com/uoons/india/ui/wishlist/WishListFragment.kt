@@ -24,7 +24,7 @@ class WishListFragment : BaseFragment<FragmentWishListBinding, WishListFragmentV
     override val layoutId: Int = R.layout.fragment_wish_list
     override val viewModelClass: Class<WishListFragmentVM> = WishListFragmentVM::class.java
     private var navController: NavController? = null
-    lateinit var getWishListAdapter : GetWishListAdapter
+    private lateinit var getWishListAdapter : GetWishListAdapter
 
     override   fun init() {
         mViewModel.navigator = this

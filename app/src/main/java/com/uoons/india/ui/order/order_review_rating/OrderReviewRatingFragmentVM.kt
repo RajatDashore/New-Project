@@ -12,6 +12,7 @@ import com.uoons.india.utils.AppConstants
 import kotlinx.coroutines.launch
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.util.ArrayList
 
 
@@ -78,9 +79,8 @@ class OrderReviewRatingFragmentVM : BaseViewModel<OrderReviewRatingFragmentNavig
     }
 
     private fun createPartFromString(key: String): RequestBody {
-        return RequestBody.create(
-            MultipartBody.FORM, key
-        )
+        return key
+            .toRequestBody(MultipartBody.FORM)
     }
 
     private fun saveRatingAndReview(pId: String, ratingProduct: Float, productReview: String,multipartArralist: ArrayList<MultipartBody.Part>): HashMap<String, Any> {

@@ -1,4 +1,4 @@
-
+@file:Suppress("DEPRECATION")
 
 package com.uoons.india.utils
 import android.content.Intent

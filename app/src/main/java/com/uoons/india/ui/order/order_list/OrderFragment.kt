@@ -127,7 +127,7 @@ class OrderFragment : BaseFragment<FragmentOrderBinding, OrderFragmentVM>(),
         navController?.navigate(R.id.action_orderFragment_to_homeFragment)
     }
 
-    fun naviGateToMyCartFragment(){
+   private fun naviGateToMyCartFragment(){
         navController?.navigate(R.id.action_orderFragment_to_myCartFragment)
     }
 

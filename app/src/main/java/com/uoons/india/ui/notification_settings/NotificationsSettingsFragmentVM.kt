@@ -15,8 +15,8 @@ import java.io.InputStream
 
 class NotificationsSettingsFragmentVM : BaseViewModel<NotificationsSettingsFragmentNavigator>(){
     // --- Notifications List
-    var notificationsRCVListData : MutableLiveData<ArrayList<FilterItemsDataModel>> = MutableLiveData()
-    lateinit var notificationsAdapter : NotificationsAdapter
+   private var notificationsRCVListData : MutableLiveData<ArrayList<FilterItemsDataModel>> = MutableLiveData()
+   private lateinit var notificationsAdapter : NotificationsAdapter
 
     // --- Notifications click
     var notificationClick: MutableLiveData<Int> = MutableLiveData()
@@ -70,7 +70,7 @@ class NotificationsSettingsFragmentVM : BaseViewModel<NotificationsSettingsFragm
     }
 
 
-    fun getAssetJsonData(context: Context): String {
+    private fun getAssetJsonData(context: Context): String {
         val json: String
         json = try {
             val `is`: InputStream = context.getAssets().open("filters_data.json")

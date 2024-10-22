@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.uoons.india.ui.base
 
 import android.content.Context

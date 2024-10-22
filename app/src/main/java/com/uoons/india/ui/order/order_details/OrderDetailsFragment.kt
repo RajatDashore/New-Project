@@ -56,7 +56,7 @@ class OrderDetailsFragment : BaseFragment<FragmentOrderDetailsBinding, OrderDeta
     private var mesg: String = ""
     private var isSelected: Boolean = false
     private lateinit var similersProductOrderAdapter: SimilersProductOrderAdapter
-    var PID :String = ""
+   private var PID :String = ""
 
     override fun init() {
         mViewModel.navigator = this

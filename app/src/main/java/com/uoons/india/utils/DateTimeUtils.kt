@@ -142,6 +142,7 @@ object DateTimeUtils {
     }
 
 
+    @SuppressLint("SimpleDateFormat")
     fun convertDateformatDate(date: String?, initDateFormat: String?, endDateFormat: String?): String {
         var formattedDate=""
         try {
@@ -216,7 +217,7 @@ object DateTimeUtils {
 
         @SuppressLint("SimpleDateFormat")
         val fmtampm = SimpleDateFormat(FORMAT_6, Locale.ENGLISH)
-        val date: Date = fmtampm.parse(slots)
+        val date: Date? = fmtampm.parse(slots)
         val cal: Calendar = Calendar.getInstance()
         cal.time = date
         cal.add(Calendar.MINUTE, duration)

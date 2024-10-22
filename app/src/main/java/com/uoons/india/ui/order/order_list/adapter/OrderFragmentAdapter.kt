@@ -35,7 +35,7 @@ class OrderFragmentAdapter(val ordersList: ArrayList<OrderListModel>,val require
         val formatInput = SimpleDateFormat(DATE_FORMAT_I)
         val formatOutput = SimpleDateFormat(DATE_FORMAT_O)
 
-        val date: Date = formatInput.parse(ordersList[position].bundleCreated)
+        val date: Date? = ordersList[position].bundleCreated?.let { formatInput.parse(it) }
         val dateString: String = formatOutput.format(date)
         holder.binding.txvBundleDate.text = dateString
 

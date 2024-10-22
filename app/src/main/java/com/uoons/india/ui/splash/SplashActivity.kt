@@ -32,6 +32,7 @@ import kotlin.system.exitProcess
 
 
 
+@Suppress("DEPRECATION", "DEPRECATION")
 class SplashActivity : BaseActivity<ActivitySplashBinding, SplashVM>(), SplashNavigator{
     override val bindingVariable: Int = BR.splashVM
     override val layoutId: Int = R.layout.activity_splash

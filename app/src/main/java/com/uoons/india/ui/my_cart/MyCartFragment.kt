@@ -34,7 +34,7 @@ class MyCartFragment : BaseFragment<FragmentMyCartBinding, MyCartFragmentVM>(), 
     private var deleteCartItem: Boolean = false
     private var initializeData: Boolean = true
     private var removePosition: Int = 0
-    var itemPosition: Int = 0
+   private var itemPosition: Int = 0
 
     override   fun init() {
         mViewModel.navigator = this

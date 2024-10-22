@@ -15,7 +15,7 @@ class SuggestionForEnhanceFragmentVM : BaseViewModel<SuggestionForEnhanceFragmen
     // GET Suggestion for enhance
     var getSuggestionEnhanceDataResponse : MutableLiveData<SuggestionToEnhanceModel> = MutableLiveData()
 
-    var postSuggestionEnhanceDataResponse : MutableLiveData<PostSuggestionResponse> = MutableLiveData()
+    private var postSuggestionEnhanceDataResponse : MutableLiveData<PostSuggestionResponse> = MutableLiveData()
 
     init {
         getSuggestionEnhanceDataResponse = MutableLiveData()

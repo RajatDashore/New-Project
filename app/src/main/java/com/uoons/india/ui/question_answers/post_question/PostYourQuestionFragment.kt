@@ -1,5 +1,6 @@
 package com.uoons.india.ui.question_answers.post_question
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -63,6 +64,7 @@ class PostYourQuestionFragment : BaseFragment<FragmentPostYourQuestionBinding, P
         }
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun productDetailPage(postYourQuestionModel: PostYourQuestionModel, it2: Context) {
         val bundle = bundleOf(AppConstants.PId to pId)
           navController?.navigate(R.id.action_postYourQuestionFragment_to_productDetailFragment,bundle)

@@ -32,6 +32,7 @@ import java.util.Timer
 import java.util.TimerTask
 import kotlin.system.exitProcess
 
+@Suppress("DEPRECATION")
 class SplashActivity_two : Activity() {
     lateinit var activity: Activity
       val versionCode = BuildConfig.VERSION_CODE
@@ -129,7 +130,7 @@ class SplashActivity_two : Activity() {
                     Log.e(TAG, "response.body()?.forceUpdateApp: "+ response.body()?.forceUpdateApp)
                     val versionCodeAPI = response.body()?.playStoreVersionCode
                     val versionCodeRequest: String = versionCode.toString()
-                    Log.e(TAG, "versionCodeAPI:------------     "+versionCodeAPI)
+                    Log.e(TAG, "versionCodeAPI:------------     $versionCodeAPI")
                     Log.e(TAG, "versionCodeRequest:------------     "+versionCodeRequest)
                     if (versionCodeRequest == versionCodeAPI) {
 

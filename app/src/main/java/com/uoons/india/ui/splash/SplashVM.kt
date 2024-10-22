@@ -5,11 +5,9 @@ import com.uoons.india.data.remote.Repository
 import com.uoons.india.ui.base.BaseViewModel
 import com.uoons.india.ui.splash.model.ForceUpdatedModel
 import com.uoons.india.utils.AppConstants
-import io.michaelrocks.paranoid.Obfuscate
 import kotlinx.coroutines.launch
 import java.util.*
 
-@Obfuscate
 class SplashVM: BaseViewModel<SplashNavigator>() {
 
     var forceUpdatedResponse : MutableLiveData<ForceUpdatedModel> = MutableLiveData()

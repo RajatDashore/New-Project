@@ -20,6 +20,7 @@ import android.util.TypedValue
 import android.view.WindowManager
 import com.uoons.india.BR
 
+@Suppress("DEPRECATION")
 abstract class BaseBottomSheetDialogFrag<T:ViewDataBinding,V:BaseViewModel<*>>:BottomSheetDialogFragment(),CommonNavigator {
 
     lateinit var baseActivity: BaseActivity<*, *>
@@ -71,7 +72,7 @@ abstract class BaseBottomSheetDialogFrag<T:ViewDataBinding,V:BaseViewModel<*>>:B
                 ).toInt()
                 (bottomSheet.parent as View).setBackgroundColor(Color.TRANSPARENT)
                 bottomSheet.background = requireContext().resources.getDrawable(R.drawable.bottom_sheet_background)
-            }
+            }//getDrawable(R.drawable.bottom_sheet_background)
         }
 
         /*Log.e("bindingVariable","BaseBottomSheetDialogFrag:- $bindingVariable")

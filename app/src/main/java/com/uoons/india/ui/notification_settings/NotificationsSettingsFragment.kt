@@ -22,7 +22,7 @@ class NotificationsSettingsFragment : BaseFragment<FragmentNotificationsSettings
     override val layoutId: Int = R.layout.fragment_notifications_settings
     override val viewModelClass: Class<NotificationsSettingsFragmentVM> = NotificationsSettingsFragmentVM::class.java
     private var navController: NavController? = null
-    lateinit var thiscontext: Context
+    private lateinit var thiscontext: Context
 
     override    fun init() {
         mViewModel.navigator = this

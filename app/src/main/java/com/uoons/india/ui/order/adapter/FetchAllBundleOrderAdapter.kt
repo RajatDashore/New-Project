@@ -38,8 +38,8 @@ class FetchAllBundleOrderAdapter(private val fecthAllBundleOrderList: ArrayList<
         val formatInput = SimpleDateFormat(DATE_FORMAT_I)
         val formatOutput = SimpleDateFormat(DATE_FORMAT_O)
 
-        val date: Date = formatInput.parse(fecthAllBundleOrderList[position].bundleCreated)
-        val dateString: String = formatOutput.format(date)
+        val date: Date? = fecthAllBundleOrderList[position].bundleCreated?.let { formatInput.parse(it) }
+        val dateString: String = date?.let { formatOutput.format(it) }.toString()
         holder.binding.txvBundleDate.text = dateString
 
         val amount = fecthAllBundleOrderList[position].orders?.amount?.toDouble()?.roundToInt()

@@ -18,6 +18,7 @@ import com.google.android.material.slider.Slider
 import com.uoons.india.R
 import com.uoons.india.data.local.AppPreference
 import com.uoons.india.data.local.PreferenceKeys
+import com.uoons.india.ui.home.fragment.adapter.SliderOneAdapter.*
 import com.uoons.india.ui.home.fragment.model.DeshBoardItems
 import com.uoons.india.ui.home.fragment.model.DeshBoardModel
 import com.uoons.india.utils.CommonUtils

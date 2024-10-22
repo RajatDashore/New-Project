@@ -16,7 +16,7 @@ class WishListFragmentVM : BaseViewModel<WishListFragmentNavigator>() {
     var getWishListDataFailureResponse : MutableLiveData<GetWishListDataModel> = MutableLiveData()
 
     // Remove Wish List item
-    var removeWishListItemDataResponse : MutableLiveData<RemoveCartItemResponse> = MutableLiveData()
+    private var removeWishListItemDataResponse : MutableLiveData<RemoveCartItemResponse> = MutableLiveData()
 
     init {
         getWishListDataResponse = MutableLiveData()

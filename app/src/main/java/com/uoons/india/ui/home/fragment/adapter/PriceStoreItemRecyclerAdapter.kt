@@ -1,6 +1,7 @@
 package com.uoons.india.ui.home.fragment.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,12 +15,11 @@ import com.uoons.india.ui.home.fragment.model.DeshBoardItems
 import com.uoons.india.utils.CommonUtils
 
 
-
 class PriceStoreItemRecyclerAdapter :
-    BaseRecyclerAdapter<RowHomePriceStoreBinding, Any, PriceStoreItemRecyclerAdapter.ViewHolder>(){
+    BaseRecyclerAdapter<RowHomePriceStoreBinding, Any, PriceStoreItemRecyclerAdapter.ViewHolder>() {
 
     private var customClickListener: OnItemClickListener? = null
-    var priceStoreItemList: ArrayList<DeshBoardItems>? = null
+    private var priceStoreItemList: ArrayList<DeshBoardItems>? = null
     lateinit var context: Context
 
     interface OnItemClickListener {
@@ -30,7 +30,7 @@ class PriceStoreItemRecyclerAdapter :
         this.customClickListener = mItemClick
     }
 
-    fun setAllPriceStoreList(data:  ArrayList<DeshBoardItems>, context: Context){
+    fun setAllPriceStoreList(data: ArrayList<DeshBoardItems>, context: Context) {
         this.priceStoreItemList = data
         this.context = context
     }
@@ -39,12 +39,25 @@ class PriceStoreItemRecyclerAdapter :
         holder.bind(priceStoreItemList!![position])
 
         holder.binding.crdPriceStore.setOnClickListener(View.OnClickListener {
-            customClickListener?.onItemClicked(priceStoreItemList!![position].id.toString(),priceStoreItemList!![position].title.toString())
+            customClickListener?.onItemClicked(
+                priceStoreItemList!![position].id.toString(),
+                priceStoreItemList!![position].title.toString()
+            )
         })
     }
 
-    override fun onCreateViewHolder(viewDataBinding: RowHomePriceStoreBinding, parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(RowHomePriceStoreBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+    override fun onCreateViewHolder(
+        viewDataBinding: RowHomePriceStoreBinding,
+        parent: ViewGroup,
+        viewType: Int,
+    ): ViewHolder {
+        return ViewHolder(
+            RowHomePriceStoreBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun getLayoutId(viewType: Int): Int {
@@ -55,8 +68,9 @@ class PriceStoreItemRecyclerAdapter :
         return priceStoreItemList!!.size
     }
 
-    class ViewHolder(val binding:RowHomePriceStoreBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(data: DeshBoardItems){
+    class ViewHolder(val binding: RowHomePriceStoreBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(data: DeshBoardItems) {
             binding.recyclerPriceStoreDataItems = data
             binding.executePendingBindings()
         }
@@ -66,9 +80,11 @@ class PriceStoreItemRecyclerAdapter :
         @JvmStatic
         @BindingAdapter("loadImage")
         fun loadImage(thubmImage: ImageView, url: String) {
-            if (url.isEmpty()){
+            Log.d("load image", "loadImage called with url")
+
+            if (url.isEmpty()) {
                 CommonUtils.loadImage(thubmImage, "", thubmImage.id)
-            }else{
+            } else {
                 CommonUtils.loadImage(thubmImage, url, thubmImage.id)
             }
         }

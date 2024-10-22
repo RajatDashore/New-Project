@@ -6,6 +6,7 @@ import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.android.parcel.Parcelize
 import kotlin.properties.Delegates.observable
 
+@Suppress("DEPRECATED_ANNOTATION")
 @Parcelize
 class TimelineAttributes(
         var markerSize: Int,

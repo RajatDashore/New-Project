@@ -5,6 +5,7 @@ import com.uoons.india.ui.order.order_tracker.model.OrderStatus
 import kotlinx.android.parcel.Parcelize
 
 
+@Suppress("DEPRECATED_ANNOTATION")
 @Parcelize
 class TimeLineModel(
         var message: String,

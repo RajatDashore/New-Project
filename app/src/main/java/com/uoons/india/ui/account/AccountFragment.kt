@@ -38,6 +38,7 @@ import com.uoons.india.utils.CommonUtils
 import com.uoons.india.utils.rx.UoonsRxBus
 import com.uoons.india.utils.rx.UoonsRxEvent
 
+@Suppress("DEPRECATION", "DEPRECATION")
 class AccountFragment : BaseFragment<FragmentAccountBinding, AccountFragmentVM>(),
     AccountFrgamentNavigator {
     private var LOG_TAG = "AccountFragment"

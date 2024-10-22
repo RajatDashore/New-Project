@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat;
 
 import com.uoons.india.R;
 
+/** @noinspection ALL*/
 @SuppressLint("AppCompatCustomView")
 public class ReadMoreTextView extends TextView {
 

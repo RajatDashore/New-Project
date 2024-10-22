@@ -15,16 +15,17 @@ private fun dpToPx(dp: Float, resources: Resources): Int {
     return px.toInt()
 }
 
-fun getColorCompat(resId: Int) = UoonsAplication.instance?.let { ContextCompat.getColor(it, resId) }
+fun getColorCompat(resId: Int) =
+    UoonsAplication.instance?.let { ContextCompat.getColor(it, resId) }
 
 fun View.setVisible() {
     visibility = View.VISIBLE
 }
 
-fun View.setInvisible() {
+ private fun View.setInvisible() {
     visibility = View.INVISIBLE
 }
 
-fun View.setGone() {
+ fun View.setGone() {
     visibility = View.GONE
 }

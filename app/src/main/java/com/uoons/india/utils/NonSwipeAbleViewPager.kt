@@ -1,5 +1,6 @@
 package  com.uoons.india.utils
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
@@ -25,6 +26,7 @@ class NonSwipeAbleViewPager : ViewPager {
         return false
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
         // Never allow swiping to switch between pages
         return false

@@ -36,6 +36,7 @@ import com.uoons.india.utils.CommonUtils
 
 import java.lang.RuntimeException
 
+@Suppress("DEPRECATION")
 class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityVM>(), HomeActivityNavigator{
     override val bindingVariable: Int = BR.homeActivityVM
     override val layoutId: Int = R.layout.activity_home
@@ -46,8 +47,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityVM>(), HomeAc
     private val debugModeSignature = "0722069da1de445ae2ab0a69931a57cf8c6460b7652c1913e021ed863e30fa4a"
     private val releaseModeSignature = "94847dfbe1c115bd3201694fd606c0760b2401bb53b97866659f9933cbbc185e"
 
-    var appUpdateManager: AppUpdateManager? = null
-    val RC_APP_UPDATE = 100
+    private var appUpdateManager: AppUpdateManager? = null
+    private val RC_APP_UPDATE = 100
 
     override fun init() {
         mViewModel.navigator = this
@@ -248,7 +249,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityVM>(), HomeAc
        // appUpdateManager?.registerListener(listener)
     }
 
-    val listener = InstallStateUpdatedListener { state ->
+    private val listener = InstallStateUpdatedListener { state ->
         if (state.installStatus() == InstallStatus.DOWNLOADED) {
             popupSnackbarForCompleteUpdate()
         }

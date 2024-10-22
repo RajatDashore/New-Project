@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.uoons.india.ui.order.order_tracker.utils
 
 import android.content.Context

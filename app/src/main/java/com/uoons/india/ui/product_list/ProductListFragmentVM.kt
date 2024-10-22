@@ -15,7 +15,7 @@ import com.uoons.india.ui.wishlist.model.GetWishListDataModel
 
 class ProductListFragmentVM : BaseViewModel<ProductListFragmentNavigator>(){
     private var LOG_TAG = ProductListFragmentVM::class.java.name
-    var productListResponse : MutableLiveData<ProductModel> = MutableLiveData()
+    private var productListResponse : MutableLiveData<ProductModel> = MutableLiveData()
 
     private val _getProductListResponse = SingleLiveEvent<ProductModel>()
     val getProductListResponse : SingleLiveEvent<ProductModel>

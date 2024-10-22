@@ -28,10 +28,10 @@ class MyCartFragmentVM : BaseViewModel<MyCartFragmentNavigator>() {
     var getCartRemoveDataResponse: MutableLiveData<GetMyCartDataModel> = MutableLiveData()
 
     // Remove cart item
-    var removeCartItemDataResponse: MutableLiveData<RemoveCartItemResponse> = MutableLiveData()
+    private var removeCartItemDataResponse: MutableLiveData<RemoveCartItemResponse> = MutableLiveData()
 
     // ADD ITEM QUANTITY
-    var addItemQuantiytDataResponse: MutableLiveData<AddQuantityModelResponse> = MutableLiveData()
+    private var addItemQuantiytDataResponse: MutableLiveData<AddQuantityModelResponse> = MutableLiveData()
 
     // CHECK COUPEN CODE
     var checkCoupenCodeDataResponse: MutableLiveData<CoupenCodeModel> = MutableLiveData()

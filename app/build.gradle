@@ -1,3 +1,7 @@
+
+
+
+//file:noinspection GrDeprecatedAPIUsage
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
@@ -11,6 +15,7 @@ plugins {
 android {
     compileSdk 34
     buildToolsVersion "30.0.3"
+    namespace 'com.uoons.india' // Update this to match your package name
 
     defaultConfig {
         applicationId "com.uoons.india"
@@ -35,10 +40,10 @@ android {
             //signingConfig signingConfigs.release
         }
 
-        /*debug {
+        debug {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }*/
+        }
     }
 
     lintOptions {
@@ -76,6 +81,11 @@ android {
         jvmTarget = '1.8'
     }
 }
+//configurations.configureEach {
+//   resolutionStrategy{
+//       force("androidx.core:core-ktx-1.9.0")
+//   }
+//}
 
 dependencies {
     implementation ("androidx.legacy:legacy-support-v4:1.0.0")
@@ -83,7 +93,7 @@ dependencies {
     implementation ("androidx.navigation:navigation-ui-ktx:2.8.3")
     implementation ("androidx.navigation:navigation-fragment-ktx:2.8.3")
     implementation 'com.google.android.play:app-update-ktx:2.1.0'
-    implementation 'com.google.android.play:core-ktx:1.10.3'
+    //implementation 'com.google.android.play:core-ktx:1.10.3'
     testImplementation ("junit:junit:4.13.2")
     androidTestImplementation ("androidx.test.ext:junit:1.2.1")
     androidTestImplementation ("androidx.test.espresso:espresso-core:3.6.1")
@@ -92,7 +102,7 @@ dependencies {
     implementation ("com.google.android.material:material:1.12.0")
     implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
 
-    implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.9.22")
+    implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.7.10")
 
     //Coroutines
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
@@ -189,15 +199,15 @@ dependencies {
     implementation ("androidx.security:security-crypto:1.0.0")
 
     // Kotlin extensions library for Play In-App Update:
-    implementation ("com.google.android.play:core:2.2.0")
+  //  implementation ("com.google.android.play:core-ktx:1.8.1")
 
     // Intent Animation
-    implementation ("com.github.hajiyevelnur92:intentanimation:1.0.0")
+    implementation 'com.github.hajiyevelnur92:intentanimation:1.0'
 
     implementation ("com.github.vipulasri:timelineview:1.1.5")
 
     //RajatDashore
     //Slider show
 
-    implementation ("com.github.smarteist:autoimageslider:1.4.0")
+    implementation("com.github.smarteist:Android-Image-Slider:1.4.0")
 }

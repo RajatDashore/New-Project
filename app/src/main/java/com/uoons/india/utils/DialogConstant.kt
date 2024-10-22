@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION", "DEPRECATION")
+
 package com.uoons.india.utils
 
 import android.app.Dialog

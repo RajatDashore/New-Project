@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION", "DEPRECATION", "DEPRECATION", "DEPRECATION")
+
 package com.uoons.india.ui.profile.editprofile
 
 import android.Manifest

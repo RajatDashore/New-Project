@@ -28,7 +28,7 @@ class SearchItemsFragment : BaseFragment<FragmentSearchItemsBinding, SearchItems
     lateinit var categoryItemsAdapter: CategoryItemsAdapter
     var searchKey: String = ""
 
-    override     fun init() {
+    override fun init() {
         mViewModel.navigator = this
         categoryItemsAdapter = CategoryItemsAdapter()
         searchKey = arguments?.getString(AppConstants.SearchKey).toString()

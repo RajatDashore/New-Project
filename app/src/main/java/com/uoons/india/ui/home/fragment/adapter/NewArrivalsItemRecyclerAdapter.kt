@@ -1,6 +1,7 @@
 package com.uoons.india.ui.home.fragment.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,12 +15,11 @@ import com.uoons.india.ui.home.fragment.model.DeshBoardItems
 import com.uoons.india.utils.CommonUtils
 
 
-
-class NewArrivalsItemRecyclerAdapter:
-    BaseRecyclerAdapter<RowHomeCategoryBinding, Any, NewArrivalsItemRecyclerAdapter.ViewHolder>(){
+class NewArrivalsItemRecyclerAdapter :
+    BaseRecyclerAdapter<RowHomeCategoryBinding, Any, NewArrivalsItemRecyclerAdapter.ViewHolder>() {
 
     private var customProductIdClickListener: OnProductIdClickListener? = null
-    var categoryItemList: ArrayList<DeshBoardItems>? = null
+    private var categoryItemList: ArrayList<DeshBoardItems>? = null
     lateinit var context: Context
 
     interface OnProductIdClickListener {
@@ -30,7 +30,7 @@ class NewArrivalsItemRecyclerAdapter:
         this.customProductIdClickListener = mItemClick
     }
 
-    fun setData(data:  ArrayList<DeshBoardItems>, context: Context){
+    fun setData(data: ArrayList<DeshBoardItems>, context: Context) {
         this.categoryItemList = data
         this.context = context
     }
@@ -44,8 +44,18 @@ class NewArrivalsItemRecyclerAdapter:
         })
     }
 
-    override fun onCreateViewHolder(viewDataBinding: RowHomeCategoryBinding, parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(RowHomeCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+    override fun onCreateViewHolder(
+        viewDataBinding: RowHomeCategoryBinding,
+        parent: ViewGroup,
+        viewType: Int,
+    ): ViewHolder {
+        return ViewHolder(
+            RowHomeCategoryBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun getLayoutId(viewType: Int): Int {
@@ -56,19 +66,20 @@ class NewArrivalsItemRecyclerAdapter:
         return categoryItemList!!.size
     }
 
-    class ViewHolder(val binding:RowHomeCategoryBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(data: DeshBoardItems){
+    class ViewHolder(val binding: RowHomeCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(data: DeshBoardItems) {
             binding.recyclerDataItems = data
         }
     }
-
+   @Suppress
     companion object {
         @JvmStatic
         @BindingAdapter("loadImage")
         fun loadImage(thubmImage: ImageView, url: String) {
-            if (url.isEmpty()){
+            Log.d("BindingAdapters", "loadImage called with URL: $url")
+            if (url.isEmpty()) {
                 CommonUtils.loadImage(thubmImage, "", thubmImage.id)
-            }else{
+            } else {
                 CommonUtils.loadImage(thubmImage, url, thubmImage.id)
             }
         }

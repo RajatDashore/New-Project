@@ -1,6 +1,12 @@
 buildscript {
+    ext {
+
+        //agp_version1 = '7.4.0'
+        agp_version = '8.0.0'
+    }
+
     // ext.kotlin_version = "1.5.20"
-    ext.kotlin_version = "1.7.10"
+    ext.kotlin_version = "1.9.22"
     repositories {
         maven {
             url "https://maven.google.com"
@@ -12,9 +18,9 @@ buildscript {
 
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.2.1"
-        //classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.android.tools.build:gradle:$agp_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22"
+        // classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // Add this line
         classpath 'com.google.gms:google-services:4.3.10'

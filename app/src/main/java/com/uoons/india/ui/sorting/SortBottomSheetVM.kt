@@ -13,8 +13,8 @@ import kotlinx.coroutines.launch
 
 class SortBottomSheetVM : BaseViewModel<SortBottomSheetNavigator>(){
 
-    var getSortingDataResponse : MutableLiveData<SortingModel> = MutableLiveData()
-    var getSortingResponse : MutableLiveData<ArrayList<SortByNameModel>> = MutableLiveData()
+    private var getSortingDataResponse : MutableLiveData<SortingModel> = MutableLiveData()
+    private var getSortingResponse : MutableLiveData<ArrayList<SortByNameModel>> = MutableLiveData()
 
     init {
         getSortingDataResponse = MutableLiveData()

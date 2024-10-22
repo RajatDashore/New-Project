@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.uoons.india.ui.help.adapter
 
 import androidx.fragment.app.Fragment

@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.uoons.india.utils
 
 import android.Manifest
@@ -155,20 +157,17 @@ object CommonUtils
     }
 
     internal fun loadImage(view: ImageView?, imageURL: String?, placeError:Int) {
+        Log.d("ImageLoader","Load function called")
         try {
+
             if (imageURL != null) {
                 val newImageURL = BuildConfig.BASE_URL+imageURL
                 Glide.with(view!!.context)  /*.setDefaultRequestOptions(RequestOptions().circleCrop())*/
                     .load(newImageURL)
                     .apply(RequestOptions().override(view.layoutParams.width, view.layoutParams.height))
                     .placeholder(R.drawable.image_gray_color).into(view)
-              //  Log.e("","loadImage:- $newImageURL")
-                /*GlideApp.with(view!!.context)
-                    .load(newImageURL)
-                    .apply(RequestOptions().override(view.layoutParams.width, view.layoutParams.height))
-                    .placeholder(R.drawable.new_logo_uoons_name).into(view)*/
             }else{
-                view!!.setImageResource(R.drawable.image_gray_color)
+                view?.setImageResource(R.drawable.image_gray_color)
             }
         } catch (e: java.lang.Exception) {
             e.printStackTrace()
@@ -266,6 +265,7 @@ object CommonUtils
 
     }
 
+    @SuppressLint("InflateParams")
     fun showToastMessage(ctactivity: Context, message: String?) {
         val inflater =
             ctactivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -283,11 +283,12 @@ object CommonUtils
         toast = Toast(ctactivity)
         toast!!.setGravity(Gravity.CENTER, 0, 0)
         toast!!.setDuration(Toast.LENGTH_SHORT)
-        toast!!.setView(view)
+        toast!!.view = view
         toast!!.show()
     }
 
 
+    @SuppressLint("ObsoleteSdkInt")
     fun isAppIsInBackground(context: Context): Boolean {
         var isInBackground = true
         val am =
@@ -409,7 +410,7 @@ object CommonUtils
         }
     }
 
-    fun checkIsInternetOn(context: Context): Boolean {
+    private fun checkIsInternetOn(context: Context): Boolean {
         val connectivity = context
             .getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         if (connectivity != null) {
@@ -421,7 +422,7 @@ object CommonUtils
     }
 
 
-    fun isSupportedSymbols(symbol: Char): Boolean {
+    private fun isSupportedSymbols(symbol: Char): Boolean {
         for (temp in SUPPORT_SYMBOLS_CHAR) {
             if (temp == symbol) {
                 return true
@@ -429,7 +430,7 @@ object CommonUtils
         }
         return false
     }
-    fun isSupportedNumber(symbol: Char): Boolean {
+    private fun isSupportedNumber(symbol: Char): Boolean {
         for (temp in SUPPORT_SYMBOLS_NUMBER) {
             if (temp == symbol) {
                 return true

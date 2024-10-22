@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.uoons.india.ui.login_module.login_mobile_no
 
 import android.content.ContentValues
@@ -38,7 +40,7 @@ class LoginMobileNoBottomSheet : BaseBottomSheetDialogFrag<LoginMobileNoBottomSh
     override val layoutId: Int =R.layout.login_mobile_no_bottom_sheet
     override val viewModelClass: Class<LoginMobileNoBottomSheetVM> = LoginMobileNoBottomSheetVM::class.java
     private var navController: NavController? = null
-    var fireBaseToken : String = ""
+    private var fireBaseToken : String = ""
     var publicKey: Key? = null
     var privateKey: Key? = null
     override  fun init() {

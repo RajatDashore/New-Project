@@ -16,6 +16,7 @@ import com.google.android.play.core.install.model.InstallStatus
 import com.google.android.play.core.install.model.UpdateAvailability
 import com.uoons.india.R
 
+@Suppress("DEPRECATION")
 class InAppUpdate (activity: Activity) : InstallStateUpdatedListener {
 
      var appUpdateManager: AppUpdateManager

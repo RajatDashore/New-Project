@@ -13,40 +13,57 @@ import com.uoons.india.databinding.RowProductDetailsMoreProductsBinding
 import com.uoons.india.ui.base.BaseRecyclerAdapter
 import com.uoons.india.ui.product_detail.model.SimilarProductsModel
 import com.uoons.india.utils.CommonUtils
-
 import java.text.DecimalFormat
 import java.text.NumberFormat
-import java.util.*
-import kotlin.collections.ArrayList
+import java.util.Locale
 
-class MoreProductDetailsMoreProductAdapter(var similarProducts: ArrayList<SimilarProductsModel>, var context: Context, var onclick:(value : String)->Unit) :
-    BaseRecyclerAdapter<RowProductDetailsMoreProductsBinding, Any, MoreProductDetailsMoreProductAdapter.ViewHolder>(){
+class MoreProductDetailsMoreProductAdapter(
+    var similarProducts: ArrayList<SimilarProductsModel>,
+    var context: Context,
+    var onclick: (value: String) -> Unit,
+) :
+    BaseRecyclerAdapter<RowProductDetailsMoreProductsBinding, Any, MoreProductDetailsMoreProductAdapter.ViewHolder>() {
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int, type: Int) {
         holder.bind(similarProducts[position])
 
-        holder.binding.txvSellingPrice.text = context.resources.getString(R.string.rupees)+ NumberFormat.getNumberInstance(Locale.getDefault()).format(similarProducts[position].productSalePrice?.toInt())
-        holder.binding.txvMRPPrice.text = context.resources.getString(R.string.rupees)+NumberFormat.getNumberInstance(Locale.getDefault()).format(similarProducts[position].productPrice?.toInt())
+        holder.binding.txvSellingPrice.text =
+            context.resources.getString(R.string.rupees) + NumberFormat.getNumberInstance(Locale.getDefault())
+                .format(similarProducts[position].productSalePrice?.toInt())
+        holder.binding.txvMRPPrice.text =
+            context.resources.getString(R.string.rupees) + NumberFormat.getNumberInstance(Locale.getDefault())
+                .format(similarProducts[position].productPrice?.toInt())
 
-        val str : String = similarProducts[position].discount.toString()
-        val float1 : Float = str.toFloat()
+        val str: String = similarProducts[position].discount.toString()
+        val float1: Float = str.toFloat()
         val discount = DecimalFormat("#").format(float1)
-if(discount.equals("0")){
-    holder.binding.txvDisountOff.visibility= View.GONE
-}else{
-    holder.binding.txvDisountOff.text =  discount+context.resources.getString(R.string.disount)
-}
+        if (discount.equals("0")) {
+            holder.binding.txvDisountOff.visibility = View.GONE
+        } else {
+            holder.binding.txvDisountOff.text =
+                discount + context.resources.getString(R.string.disount)
+        }
 
-      //  holder.binding.txvDisountOff.text = context.data.Data?.productDescription
+        //  holder.binding.txvDisountOff.text = context.data.Data?.productDescription
 
         holder.binding.cstLayout.setOnClickListener(View.OnClickListener { view ->
             onclick.invoke(similarProducts[position].pid.toString())
         })
     }
 
-    override fun onCreateViewHolder(viewDataBinding: RowProductDetailsMoreProductsBinding, parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(RowProductDetailsMoreProductsBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+    override fun onCreateViewHolder(
+        viewDataBinding: RowProductDetailsMoreProductsBinding,
+        parent: ViewGroup,
+        viewType: Int,
+    ): ViewHolder {
+        return ViewHolder(
+            RowProductDetailsMoreProductsBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun getLayoutId(viewType: Int): Int {

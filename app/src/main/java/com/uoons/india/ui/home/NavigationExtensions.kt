@@ -15,6 +15,7 @@ import com.uoons.india.R
 
 
 
+@Suppress("DEPRECATION")
 fun BottomNavigationView.setupWithNavController(navGraphIds: List<Int>, fragmentManager: FragmentManager, containerId: Int, intent: Intent): LiveData<NavController> {
 
     // Map of tags
@@ -155,6 +156,7 @@ private fun BottomNavigationView.setupDeepLinks(
     }
 }
 
+@Suppress("DEPRECATION")
 private fun BottomNavigationView.setupItemReselected(
     graphIdToTagMap: SparseArray<String>,
     fragmentManager: FragmentManager

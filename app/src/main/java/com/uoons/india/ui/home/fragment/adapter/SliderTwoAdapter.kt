@@ -1,11 +1,12 @@
 
-/*
+
 package com.uoons.india.ui.home.fragment.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.smarteist.autoimageslider.SliderViewAdapter
 import com.uoons.india.databinding.RowHomeSliderTwoBinding
 import com.uoons.india.ui.home.fragment.model.DeshBoardItems
 import com.uoons.india.utils.CommonUtils
@@ -59,4 +60,3 @@ class SliderTwoAdapter : SliderViewAdapter<SliderTwoAdapter.ViewHolder>(){
     }
 }
 
- */

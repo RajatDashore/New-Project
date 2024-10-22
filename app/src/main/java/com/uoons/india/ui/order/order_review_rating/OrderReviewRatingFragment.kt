@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION", "DEPRECATION")
+
 package com.uoons.india.ui.order.order_review_rating
 
 import android.Manifest

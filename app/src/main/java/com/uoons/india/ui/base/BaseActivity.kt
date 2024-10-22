@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.uoons.india.ui.base
 
 import android.content.BroadcastReceiver
@@ -126,7 +128,7 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppComp
             alertMsg = getString(R.string.unauthorized_access),
             onClick = {
                 AppPreference.clearSharedPreference()
-                //ActivityNavigator.clearAllActivity(this, LoginActivity::class.java)
+              //  ActivityNavigator.clearAllActivity(this, LoginActivity::class.java)
             }
         )
     }
@@ -179,6 +181,7 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppComp
 
     override fun onBackPressed() {
         super.onBackPressed()
+        onBackPressedDispatcher.onBackPressed()
         //   overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out)
     }
 
@@ -337,7 +340,7 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppComp
     }
 
 
-    open protected fun checkForNotification(intent: Intent?) {}
+    protected open fun checkForNotification(intent: Intent?) {}
 
 
     override fun checkIfInternetOn(): Boolean {

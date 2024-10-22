@@ -1,4 +1,4 @@
-/*
+
 
 package com.uoons.india.ui.home.fragment.adapter
 
@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.smarteist.autoimageslider.SliderViewAdapter
 import com.uoons.india.databinding.RowHomeSliderBinding
 import com.uoons.india.ui.home.fragment.model.DeshBoardItems
 import com.uoons.india.utils.CommonUtils
@@ -61,4 +62,3 @@ class SliderOneAdapter : SliderViewAdapter<SliderOneAdapter.ViewHolder>() {
         }
     }
 }
- */

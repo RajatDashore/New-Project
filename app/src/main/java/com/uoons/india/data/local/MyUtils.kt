@@ -1,8 +1,11 @@
+@file:Suppress("DEPRECATION")
+
 package com.uoons.india.data.local
 
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
+import androidx.annotation.RequiresApi
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
@@ -10,6 +13,7 @@ import java.security.NoSuchAlgorithmException
 class MyUtils {
 
 
+    @RequiresApi(Build.VERSION_CODES.P)
     fun validSignature(applicationContext: Context,
                        DDSIGNATURE:String, RELSIGNATURE:String):Boolean{
         try{
@@ -57,7 +61,7 @@ class MyUtils {
     }
 
 
-    fun bytesToHex(bytes: ByteArray): String {
+    private fun bytesToHex(bytes: ByteArray): String {
         val hexArray = charArrayOf(
             '0',
             '1',
@@ -77,13 +81,11 @@ class MyUtils {
             'F'
         )
         val hexChars = CharArray(bytes.size * 2)
-        var i:Int = 0
         var v: Int
-        for (j:Byte in bytes) {
+        for ((i, j:Byte) in bytes.withIndex()) {
             v = j.toInt() and 0xFF
             hexChars[i*2] = hexArray[v ushr 4]
             hexChars[i * 2 + 1] = hexArray[v and 15]
-            i++
         }
         return String(hexChars)
     }

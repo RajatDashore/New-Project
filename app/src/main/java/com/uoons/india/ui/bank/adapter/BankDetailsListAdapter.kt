@@ -17,7 +17,7 @@ import kotlin.collections.ArrayList
 class BankDetailsListAdapter(var fetchBankDetailsList: ArrayList<BankDetailsList>, var context: Context, var onclick:(value : String)->Unit,
                              var onclick1:(value : String)->Unit) :
     BaseRecyclerAdapter<RowBankDetailsListBinding, Any, BankDetailsListAdapter.ViewHolder>(){
-    var lastSelectedPosition = -1
+    private var lastSelectedPosition = -1
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: ViewHolder, position: Int, type: Int) {

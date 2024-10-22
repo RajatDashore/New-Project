@@ -46,7 +46,7 @@ object AppPreference {
      * key
      *
      * */
-    inline fun <reified T> readValue(key: Preferences.Key<T>): T? {
+    private inline fun <reified T> readValue(key: Preferences.Key<T>): T? {
 
         return runBlocking {
             dataStore!!.data.first()[key]
@@ -58,7 +58,7 @@ object AppPreference {
     /**
      * clear value from DataStore
      */
-    fun clearDataStore() {
+    private fun clearDataStore() {
         runBlocking {
             dataStore!!.edit {
 
