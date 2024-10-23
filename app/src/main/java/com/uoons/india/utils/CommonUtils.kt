@@ -23,23 +23,21 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import com.uoons.india.BuildConfig
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-
+import com.uoons.india.BuildConfig
 import com.uoons.india.R
 import com.uoons.india.utils.AppConstants.EMPTY
 import com.uoons.india.utils.DialogConstant.getThemeColour
 import java.io.File
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Locale
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
 
-object CommonUtils
-{
+object CommonUtils {
     private const val EMAIL_PATTERN = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
     private const val BP_PATTERN = "^\\d{1,3}\\/\\d{1,3}\$"
     const val PACKAGE = "package:"
@@ -50,7 +48,11 @@ object CommonUtils
         try {
             if (str == null) {
                 return true
-            } else if (str == "null" || str == EMPTY || str.isEmpty() || str.equals("null", ignoreCase = true) || str.equals(EMPTY, ignoreCase = true)) {
+            } else if (str == "null" || str == EMPTY || str.isEmpty() || str.equals(
+                    "null",
+                    ignoreCase = true
+                ) || str.equals(EMPTY, ignoreCase = true)
+            ) {
                 return true
             }
         } catch (e: Exception) {
@@ -65,7 +67,11 @@ object CommonUtils
         try {
             if (str == null) {
                 return ""
-            } else if (str == "null" || str == EMPTY || str.isEmpty() || str.equals("null", ignoreCase = true) || str.equals(EMPTY, ignoreCase = true)) {
+            } else if (str == "null" || str == EMPTY || str.isEmpty() || str.equals(
+                    "null",
+                    ignoreCase = true
+                ) || str.equals(EMPTY, ignoreCase = true)
+            ) {
                 return ""
             }
         } catch (e: Exception) {
@@ -102,7 +108,7 @@ object CommonUtils
         val matcher: Matcher
         //val USERNAME_PATTERN ="^(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=.*[0-9])(?=\\S+$).{3,20}$"
 //        val USERNAME_PATTERN= "^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,20}[a-zA-Z0-9]\$"//[._-](?![._-]
-        val USERNAME_PATTERN= "^[a-zA-Z]$"
+        val USERNAME_PATTERN = "^[a-zA-Z]$"
         pattern = Pattern.compile(USERNAME_PATTERN)
         matcher = pattern.matcher(username)
         return !matcher.matches()
@@ -136,7 +142,8 @@ object CommonUtils
 
     fun makeFirstLetterUpperCase(string: String): String {
         if (string.isNotEmpty()) {
-            return string.substring(0, 1).uppercase(Locale.getDefault()) + string.substring(1).toLowerCase()
+            return string.substring(0, 1).uppercase(Locale.getDefault()) + string.substring(1)
+                .toLowerCase()
         }
         return ""
     }
@@ -146,9 +153,14 @@ object CommonUtils
             if (imageURL != null) {
                 Glide.with(view!!.context)
                     .load(imageURL)
-                    .apply(RequestOptions().override(view.layoutParams.width, view.layoutParams.height))
+                    .apply(
+                        RequestOptions().override(
+                            view.layoutParams.width,
+                            view.layoutParams.height
+                        )
+                    )
                     .placeholder(R.drawable.image_gray_color).into(view)
-            }else{
+            } else {
                 view!!.setImageResource(R.drawable.image_gray_color)
             }
         } catch (e: java.lang.Exception) {
@@ -156,17 +168,22 @@ object CommonUtils
         }
     }
 
-    internal fun loadImage(view: ImageView?, imageURL: String?, placeError:Int) {
-        Log.d("ImageLoader","Load function called")
+    internal fun loadImage(view: ImageView?, imageURL: String?, placeError: Int) {
+        Log.d("ImageLoader", "Load function called")
         try {
 
             if (imageURL != null) {
-                val newImageURL = BuildConfig.BASE_URL+imageURL
+                val newImageURL = BuildConfig.BASE_URL + imageURL
                 Glide.with(view!!.context)  /*.setDefaultRequestOptions(RequestOptions().circleCrop())*/
                     .load(newImageURL)
-                    .apply(RequestOptions().override(view.layoutParams.width, view.layoutParams.height))
+                    .apply(
+                        RequestOptions().override(
+                            view.layoutParams.width,
+                            view.layoutParams.height
+                        )
+                    )
                     .placeholder(R.drawable.image_gray_color).into(view)
-            }else{
+            } else {
                 view?.setImageResource(R.drawable.image_gray_color)
             }
         } catch (e: java.lang.Exception) {
@@ -174,15 +191,20 @@ object CommonUtils
         }
     }
 
-    internal fun catIoadImage(view: ImageView?, imageURL: String?, placeError:Int) {
+    internal fun catIoadImage(view: ImageView?, imageURL: String?, placeError: Int) {
         try {
             if (imageURL != null) {
-                val newImageURL = BuildConfig.BASE_URL+imageURL
+                val newImageURL = BuildConfig.BASE_URL + imageURL
                 Glide.with(view!!.context)  /*.setDefaultRequestOptions(RequestOptions().circleCrop())*/
                     .load(newImageURL)
-                    .apply(RequestOptions().override(view.layoutParams.width, view.layoutParams.height))
+                    .apply(
+                        RequestOptions().override(
+                            view.layoutParams.width,
+                            view.layoutParams.height
+                        )
+                    )
                     .placeholder(R.drawable.image_gray_color).into(view)
-            }else{
+            } else {
                 view!!.setImageResource(R.drawable.image_gray_color)
             }
         } catch (e: java.lang.Exception) {
@@ -221,7 +243,7 @@ object CommonUtils
                     result = result.replace("pm", "PM")
                 }
 
-               // Log.v(javaClass.name, "! RETURNING PARSED DATE : $result")
+                // Log.v(javaClass.name, "! RETURNING PARSED DATE : $result")
             } catch (e: Exception) {
                 Log.v(
                     javaClass.name,
@@ -232,8 +254,7 @@ object CommonUtils
         return result
     }
 
-    fun openLink(context: Context, url:String)
-    {
+    fun openLink(context: Context, url: String) {
         try {
             val webpage: Uri = Uri.parse(url)
             val myIntent = Intent(Intent.ACTION_VIEW, webpage)
@@ -247,7 +268,6 @@ object CommonUtils
             e.printStackTrace()
         }
     }
-
 
 
     fun showMessage(message: String, context: Context) {
@@ -274,7 +294,7 @@ object CommonUtils
         val txvToastMessage = view.findViewById<TextView>(R.id.txvToastMessage)
         val llToastBackground = view.findViewById<LinearLayout>(R.id.llToastBackground)
         llToastBackground.background.setColorFilter(
-           getThemeColour(ctactivity), PorterDuff.Mode.SRC_ATOP
+            getThemeColour(ctactivity), PorterDuff.Mode.SRC_ATOP
         )
         txvToastMessage.text = message
 
@@ -305,16 +325,16 @@ object CommonUtils
                     }
                 }
             }
-        }
-        else {
+        } else {
             val taskInfo = am.getRunningTasks(1)
             val componentInfo = taskInfo[0].topActivity
-            if (componentInfo !!.packageName == context.packageName) {
+            if (componentInfo!!.packageName == context.packageName) {
                 isInBackground = false
             }
         }
         return isInBackground
     }
+
     private val SUPPORT_SYMBOLS_CHAR = charArrayOf(
         '.',
         '_',
@@ -345,7 +365,8 @@ object CommonUtils
         ';',
         '`'
     )
-    private val SUPPORT_SYMBOLS_NUMBER = charArrayOf('0', '1', '2','3','4','5','6','7','8','9')
+    private val SUPPORT_SYMBOLS_NUMBER =
+        charArrayOf('0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
 
     fun isValidUsernameNumber(username: CharArray): Boolean {
         var valid = true
@@ -430,6 +451,7 @@ object CommonUtils
         }
         return false
     }
+
     private fun isSupportedNumber(symbol: Char): Boolean {
         for (temp in SUPPORT_SYMBOLS_NUMBER) {
             if (temp == symbol) {

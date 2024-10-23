@@ -29,6 +29,7 @@ import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.CommonUtils
 import com.uoons.india.utils.DashBoardDataListSingleton
 
+@Suppress("DEPRECATION")
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentRecyclerVM>(),
     HomeFragmentNavigator {
     private var LOG_TAG = "HomeFragment"

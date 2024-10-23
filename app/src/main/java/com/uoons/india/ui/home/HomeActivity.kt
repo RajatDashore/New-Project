@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
@@ -89,22 +90,36 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityVM>(), HomeAc
 
         viewDataBinding?.shimmerLayout?.stopShimmer()
         viewDataBinding?.shimmerLayout?.visibility = View.GONE
-
+        Log.d("onsuccesslog", "Intent action: ${intent?.action}")
+        Log.d("onsuccesslog", "Intent categories: ${intent?.categories}")
+        Log.d("onsuccesslog", "Intent data: ${intent?.data}")
+        Log.d("onsuccesslog", "Intent extras: ${intent?.extras}")
         Firebase.dynamicLinks
             .getDynamicLink(intent)
             .addOnSuccessListener(this) { pendingDynamicLinkData ->
                 var deepLink: Uri? = null
+                Log.d("onsuccesslog","log1")
+               // Log.d("onsuccesslog",pendingDynamicLinkData.toString())
                 if (pendingDynamicLinkData != null) {
                     deepLink = pendingDynamicLinkData.link
-
+                    Log.d("onsuccesslog","log2")
+                    Toast.makeText(this,"DipLink",Toast.LENGTH_LONG).show()
                     var pid = deepLink?.query
                     if (pid != null) {
                         pid = pid.replace(AppConstants.pid_, "")
                         deeplinkPage(pid)
+                        Log.d("onsuccesslog","log3")
+                        Toast.makeText(this,"DipLink2",Toast.LENGTH_LONG).show()
+                        Log.d("onsuccesslog","log4")
                     }
                 }
+                else{
+                    Log.d("onsuccesslog","fetch failed")
+
+                }
             }
-            .addOnFailureListener(this) { e -> Log.w("TAG", "getDynamicLink:onFailure", e) }
+            .addOnFailureListener(this) { e -> Log.w("dip", "getDynamicLink:onFailure", e) }
+
     }
 
     @Deprecated("Deprecated in Java")

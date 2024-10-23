@@ -46,10 +46,10 @@ object AppPreference {
      * key
      *
      * */
-    private inline fun <reified T> readValue(key: Preferences.Key<T>): T? {
+    private inline fun <reified T> readValue(key: Preferences.Key<T>) {
 
         return runBlocking {
-            dataStore!!.data.first()[key]
+            //dataStore.data
         }
 
 
@@ -118,10 +118,10 @@ object AppPreference {
      */
     fun getValue(key: Preferences.Key<String>): String {
         val value = readValue(key)
-        return if (CommonUtils.isStringNullOrBlank(value)) {
+        return if (CommonUtils.isStringNullOrBlank(value.toString())) {
             ""
         } else {
-            value!!
+            value.toString()
         }
     }
 
@@ -186,18 +186,34 @@ object AppPreference {
 
     inline fun <reified T> get(key: Preferences.Key<String>): T? {
         //We read JSON String which was saved.
-        val value = getValue(key)
+        val value = getValue(key) ?: return null
+        //if the value is null return null
+        //convert value to string
+        val jsonString=value.toString()
+
         //JSON String was found which means object can be read.
         //We convert this JSON String to model object. Parameter "c" (of
         //type “T” is used to cast.
-        return GsonBuilder().create().fromJson(value, T::class.java)
+        // Create Gson instance
+        return try {
+        when (T::class) {
+            String::class -> value as T
+            else -> {
+                val type = object : TypeToken<T>() {}.type
+                val gson = GsonBuilder().create()
+                gson.fromJson(jsonString, type)
+            }
+        }}
+        catch (e:Exception){
+            null
+        }
     }
 
     fun getArrayList(key: Preferences.Key<String>): ArrayList<Any>? {
         val gson = Gson()
-        val json: String? = getValue(key)
+        val json: String? = getValue(key).toString()
         val type = object : TypeToken<ArrayList<Any?>?>() {}.type
-        return gson.fromJson<ArrayList<Any>>(json, type)
+        return  gson.fromJson<ArrayList<Any>>(json, type)
     }
 
 

@@ -11,9 +11,7 @@ plugins {
 
 android {
     compileSdk 34
-    buildToolsVersion "30.0.3"
     namespace 'com.uoons.india' // Update this to match your package name
-
     // Your existing configuration
     tasks.configureEach { task ->
         if (task.name == 'mergeDevDebugResources') {
@@ -26,7 +24,7 @@ android {
     defaultConfig {
         applicationId "com.uoons.india"
         minSdkVersion 23
-        targetSdkVersion 33
+        targetSdk 34
         versionCode 37
         versionName "2.4.5"
         multiDexEnabled true
@@ -114,7 +112,7 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     implementation("androidx.core:core-ktx:1.13.1")
-    implementation 'androidx.appcompat:appcompat:1.6.1'  // Or another stable version
+    implementation 'androidx.appcompat:appcompat:1.7.0'  // Or another stable version
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
@@ -129,7 +127,7 @@ dependencies {
 
 
     //Gson for parsing
-    //   implementation 'com.google.code.gson:gson:2.8.8'
+    implementation 'com.google.code.gson:gson:2.10.1'
     /*Data store*/
     implementation("androidx.datastore:datastore-preferences:1.1.1")
     //pref definition not found in the new versions of dependency

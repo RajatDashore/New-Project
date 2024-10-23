@@ -1,12 +1,18 @@
 package com.uoons.india.data.remote
 
+import android.util.Log
 import arrow.core.Either
-import com.android.volley.BuildConfig
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.uoons.india.BuildConfig
 import com.uoons.india.data.local.AppPreference
 import com.uoons.india.data.local.PreferenceKeys
-import com.uoons.india.data.remote.error.*
+import com.uoons.india.data.remote.error.Failure
+import com.uoons.india.data.remote.error.NoInternetError
+import com.uoons.india.data.remote.error.ServerError
+import com.uoons.india.data.remote.error.TimeoutError
+import com.uoons.india.data.remote.error.UnknownError
+import com.uoons.india.data.remote.error.UnknownHostError
 import com.uoons.india.ui.bank.model.FetchBankDetailsModel
 import com.uoons.india.ui.bank.model.SaveBankDetailsModel
 import com.uoons.india.ui.category.category_items.category_items_details.model.AddItemToCartDataResponse
@@ -51,7 +57,6 @@ import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.ParserUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import okhttp3.CertificatePinner
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
@@ -71,65 +76,82 @@ open class NetworkRetrofit : Repository() {
 
     init {
         val gson: Gson = GsonBuilder().setLenient().create()
-        val retrofit = Retrofit.Builder().baseUrl(BuildConfig.BUILD_TYPE) //Changes Made
+        val retrofit = Retrofit.Builder().baseUrl(BuildConfig.BASE_URL)
             .client(getHttpClient())
             .addConverterFactory(NullOnEmptyConverterFactory())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
         apiService = retrofit.create(ApiServiceInterface::class.java)
+        if (apiService != null) {
+            Log.d("rajat", "The response from api service"+apiService.toString())
+            //did this log above show the response?
+
+        }
     }
 
     private fun getHttpClient(): OkHttpClient {
-             /*val  certPinner = CertificatePinner.Builder()
-            .add("uoons.com","sha256/ReEGXY0pnGBAqrASIqBCmOjSELZno6Vv++TuaIekQ9s=")
-            .build()*/
+        /*val  certPinner = CertificatePinner.Builder()
+       .add("uoons.com","sha256/ReEGXY0pnGBAqrASIqBCmOjSELZno6Vv++TuaIekQ9s=")
+       .build()*/
 
         val httpClientBuilder = OkHttpClient.Builder()
         httpClientBuilder.addInterceptor { chain ->
             var request = chain.request()
             if (AppPreference.getValue(PreferenceKeys.ACCESS_TOKEN) != "") {
-                val requestBuilder = request.newBuilder().addHeader(AppConstants.Auth, AppPreference.getValue(PreferenceKeys.ACCESS_TOKEN))
+                val requestBuilder = request.newBuilder().addHeader(
+                    AppConstants.Auth,
+                    AppPreference.getValue(PreferenceKeys.ACCESS_TOKEN)
+                )
+
                 request = requestBuilder.build()
+                if (request.body != null) {
+                    Log.d("raj", "The response from request "+request.toString())
+                }
             }
             chain.proceed(request)
         }
-        httpClientBuilder.connectTimeout(60, TimeUnit.SECONDS)
-        httpClientBuilder.readTimeout(60, TimeUnit.SECONDS)
-        httpClientBuilder.writeTimeout(60, TimeUnit.SECONDS)
-//        val loggingInterceptor = HttpLoggingInterceptor()
-//        loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-//        httpClientBuilder.addInterceptor(loggingInterceptor)
-           // .certificatePinner(certPinner)
+        httpClientBuilder.connectTimeout(30, TimeUnit.SECONDS)
+        httpClientBuilder.readTimeout(30, TimeUnit.SECONDS)
+        httpClientBuilder.writeTimeout(30, TimeUnit.SECONDS)
+        /*   val loggingInterceptor = HttpLoggingInterceptor()
+           loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+           httpClientBuilder.addInterceptor(loggingInterceptor)
+               .certificatePinner(certPinner)
+         */
         return httpClientBuilder.build()
     }
 
-     override suspend fun checkAPKUpdatedVersion(
+    override suspend fun checkAPKUpdatedVersion(
         channelCode: String,
-        versionCode: String
+        versionCode: String,
     ): Either<Failure, ForceUpdatedModel> {
         return callAPI { apiService.checkAPKUpdatedVersion(channelCode, versionCode) }
     }
 
-    override suspend fun login(channelCode: String, body: HashMap<String, Any>): Either<Failure, LogingResponseModel> {
+    override suspend fun login(
+        channelCode: String,
+        body: HashMap<String, Any>,
+    ): Either<Failure, LogingResponseModel> {
         return callAPI { apiService.login(channelCode, body) }
     }
+
     override suspend fun otp_Verification(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, OTPResponseModel> {
         return callAPI { apiService.otp_Verification(channelCode, body) }
     }
 
     override suspend fun saveUserDetails(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, SaveUserDetailsResponse> {
         return callAPI { apiService.saveUserDetails(channelCode, body) }
     }
 
     override suspend fun saveBankDetails(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, SaveBankDetailsModel> {
         return callAPI { apiService.saveBankDetails(channelCode, body) }
     }
@@ -140,14 +162,14 @@ open class NetworkRetrofit : Repository() {
 
     override suspend fun deleteBankDetails(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, FetchBankDetailsModel> {
         return callAPI { apiService.deleteBankDetails(channelCode, body) }
     }
 
     override suspend fun selectPrimaryAccount(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, FetchBankDetailsModel> {
         return callAPI { apiService.selectPrimaryAccount(channelCode, body) }
     }
@@ -162,28 +184,28 @@ open class NetworkRetrofit : Repository() {
 
     override suspend fun getMoreDeshBoardProducts(
         channelCode: String,
-        page: Int
+        page: Int,
     ): Either<Failure, HomePageMoreItemsDataModel> {
         return callAPI { apiService.getMoreDeshBoardProducts(channelCode, page) }
     }
 
     override suspend fun getHomepageItemsData(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, ProductModel> {
         return callAPI { apiService.getHomepageItemsData(channelCode, body) }
     }
 
     override suspend fun addRecentlyView(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, AddRecentlyViewModel> {
         return callAPI { apiService.addRecentlyView(channelCode, body) }
     }
 
     override suspend fun getFilterItemsData(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, ProductModel> {
         return callAPI { apiService.getFilterItemsData(channelCode, body) }
     }
@@ -196,68 +218,64 @@ open class NetworkRetrofit : Repository() {
         channelCode: String,
         sortById: Int,
         catId: Int,
-        filters: String
+        filters: String,
     ): Either<Failure, SubCategoriesModel> {
         return callAPI { apiService.getAllSubCategories(channelCode, sortById, catId, filters) }
     }
 
     override suspend fun getSingleProductDetail(
         channelCode: String,
-        pid: Int
+        pid: Int,
     ): Either<Failure, ProductDetailsModel> {
         return callAPI { apiService.getSingleProductDetail(channelCode, pid) }
     }
 
     override suspend fun getAllQuestionsAnswers(
         channelCode: String,
-        pid: Int
+        pid: Int,
     ): Either<Failure, QuestionAnswerModel> {
         return callAPI { apiService.getAllQuestionsAnswers(channelCode, pid) }
     }
 
     override suspend fun searchQuestionAnswers(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, QuestionAnswerModel> {
         return callAPI { apiService.searchQuestionAnswers(channelCode, body) }
     }
 
     override suspend fun postlikeUnlikeQuestion(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, QuestionLikeUnlikeModel> {
         return callAPI { apiService.postlikeUnlikeQuestion(channelCode, body) }
     }
 
     override suspend fun postlikeUnlikeReview(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, QuestionLikeUnlikeModel> {
         return callAPI { apiService.postlikeUnlikeReview(channelCode, body) }
     }
 
     override suspend fun orderCancel(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, OrderCancelModel> {
         return callAPI { apiService.orderCancel(channelCode, body) }
     }
 
-    override  suspend fun ordercancelreason(
+    override suspend fun ordercancelreason(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, OrderCancelModel> {
         return callAPI { apiService.orderCancel_reason(channelCode, body) }
     }
 
 
-
-
-
-
     override suspend fun postYourQuestion(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, PostYourQuestionModel> {
         return callAPI { apiService.postYourQuestion(channelCode, body) }
     }
@@ -268,21 +286,21 @@ open class NetworkRetrofit : Repository() {
 
     override suspend fun postSuggestion(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, PostSuggestionResponse> {
         return callAPI { apiService.postSuggestion(channelCode, body) }
     }
 
     override suspend fun addItemToCart(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, AddItemToCartDataResponse> {
         return callAPI { apiService.addItemToCart(channelCode, body) }
     }
 
     override suspend fun addQuantityToCart(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, AddQuantityModelResponse> {
         return callAPI { apiService.addQuantityToCart(channelCode, body) }
     }
@@ -293,14 +311,14 @@ open class NetworkRetrofit : Repository() {
 
     override suspend fun getSearchItems(
         channelCode: String,
-        searchKey: String
+        searchKey: String,
     ): Either<Failure, SubCategoriesModel> {
         return callAPI { apiService.getSearchItems(channelCode, searchKey) }
     }
 
     override suspend fun addToWishList(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, AddWishListResponseModel> {
         return callAPI { apiService.addToWishList(channelCode, body) }
     }
@@ -320,33 +338,36 @@ open class NetworkRetrofit : Repository() {
     override suspend fun getSortingData(
         channelCode: String,
         sortById: Int,
-        filters: String
+        filters: String,
     ): Either<Failure, SubCategoriesModel> {
         return callAPI { apiService.getSortingData(channelCode, sortById, filters) }
     }
 
     override suspend fun removeCartItem(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, RemoveCartItemResponse> {
         return callAPI { apiService.removeCartItem(channelCode, body) }
     }
 
     override suspend fun removeWishLitItem(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, RemoveCartItemResponse> {
         return callAPI { apiService.removeWishLitItem(channelCode, body) }
     }
 
     override suspend fun contactUs(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, ContactUsModel> {
         return callAPI { apiService.contactUs(channelCode, body) }
     }
 
-    override suspend fun profileImageSave(channelCode: String, body: MultipartBody.Part): Either<Failure, ProfileImageModel> {
+    override suspend fun profileImageSave(
+        channelCode: String,
+        body: MultipartBody.Part,
+    ): Either<Failure, ProfileImageModel> {
         return callAPI { apiService.profileImageSave(channelCode, body) }
     }
 
@@ -356,14 +377,14 @@ open class NetworkRetrofit : Repository() {
 
     override suspend fun insertNewDeliverAddress(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, DeliverAllAddressModel> {
         return callAPI { apiService.insertNewDeliverAddress(channelCode, body) }
     }
 
     suspend fun updatdeNewDeliverAddress(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, DeliverAllAddressModel> {
         return callAPI { apiService.updateNewDeliverAddress(channelCode, body) }
     }
@@ -371,7 +392,7 @@ open class NetworkRetrofit : Repository() {
 
     override suspend fun deleteDeliverAddress(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, DeliverAllAddressModel> {
         return callAPI { apiService.deleteDeliverAddress(channelCode, body) }
     }
@@ -379,40 +400,43 @@ open class NetworkRetrofit : Repository() {
     override suspend fun checkProductLocationAvailable(
         channelCode: String,
         pinCode: Int,
-        pId: Int
+        pId: Int,
     ): Either<Failure, ProductAvailabilityResponseModel> {
         return callAPI { apiService.checkProductLocationAvailable(channelCode, pinCode, pId) }
     }
 
     override suspend fun checkCoupenCode(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, CoupenCodeModel> {
         return callAPI { apiService.checkCoupenCode(channelCode, body) }
     }
 
     override suspend fun checkOutProduct(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, CheckOutModel> {
         return callAPI { apiService.checkOutProduct(channelCode, body) }
     }
 
     override suspend fun checkOutProductUpdate(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, OnlinePaymentStatusModel> {
         return callAPI { apiService.checkOutProductUpdate(channelCode, body) }
     }
 
-      suspend fun checkOutRazorpayUpdate(channelCode: String, body: HashMap<String, Any>): Either<Failure, OnlinePaymentStatusModel> {
+    suspend fun checkOutRazorpayUpdate(
+        channelCode: String,
+        body: HashMap<String, Any>,
+    ): Either<Failure, OnlinePaymentStatusModel> {
         return callAPI { apiService.checkOutRazorpayUpdate(channelCode, body) }
     }
 
 
     override suspend fun getToken(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, TokenModel> {
         return callAPI { apiService.getToken(channelCode, body) }
     }
@@ -424,28 +448,28 @@ open class NetworkRetrofit : Repository() {
 
     override suspend fun getOrderBundlesList(
         channelCode: String,
-        bundleId: String
+        bundleId: String,
     ): Either<Failure, OrderBundleListModel> {
         return callAPI { apiService.getOrderBundlesList(channelCode, bundleId) }
     }
 
     override suspend fun getOrderList(
         channelCode: String,
-        orderId: String
+        orderId: String,
     ): Either<Failure, OrderDetailModel> {
         return callAPI { apiService.getOrderList(channelCode, orderId) }
     }
 
     override suspend fun addRatingReview(
         channelCode: String,
-        body: HashMap<String, Any>
+        body: HashMap<String, Any>,
     ): Either<Failure, RatingAndReviewModel> {
         return callAPI { apiService.addRatingReview(channelCode, body) }
     }
 
     override suspend fun uploadReview(
         channelCode: String, partMap: HashMap<String, RequestBody>,
-        product_image: ArrayList<MultipartBody.Part>
+        product_image: ArrayList<MultipartBody.Part>,
     ): Either<Failure, RatingAndReviewModel> {
         return callAPI { apiService.uploadReview(channelCode, partMap, product_image) }
     }

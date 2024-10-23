@@ -9,9 +9,11 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
 
     <application
         android:name="com.uoons.india.utils.UoonsAplication"
@@ -24,7 +26,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Uoons"
         android:usesCleartextTraffic="false"
-        tools:ignore="DataExtractionRules"
+        tools:ignore="DataExtractionRules,UnusedAttribute"
         tools:replace="android:allowBackup">
         <activity
             android:name=".ui.checkout.confirm_pay.ConfirmPaymentStatusActivity"
@@ -59,16 +61,16 @@
             android:launchMode="singleTop"
             android:windowSoftInputMode="stateVisible|adjustResize">
 
-            <!--
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
 
 
-            <!--
+
+
             <intent-filter>
 
                 <action android:name="android.intent.action.VIEW" />
@@ -78,7 +80,7 @@
                     android:host="uoons.com"
                     android:scheme="https" />
             </intent-filter>
-            -->
+
 
         </activity>
         <activity
@@ -88,16 +90,18 @@
         <activity
             android:name="com.uoons.india.ui.language.SelectLanguageActivity"
             android:exported="true"
-            android:noHistory="true"/>
+            android:noHistory="true" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"
+            tools:ignore="DiscouragedApi" />
         <activity
             android:name="com.uoons.india.ui.splash.SplashActivity"
             android:exported="true"
-            android:noHistory="true"
             android:launchMode="singleTop"
-            android:screenOrientation="nosensor">
+            android:noHistory="true"
+            android:screenOrientation="nosensor"
+            tools:ignore="DiscouragedApi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
