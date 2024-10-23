@@ -154,7 +154,7 @@ object DialogConstant {
         themeColour = if (AppPreference.getValue(PreferenceKeys.MY_LANGUAGE).equals("hi")){
                 context.resources.getColor(R.color.black)
             }else if (AppPreference.getValue(PreferenceKeys.MY_LANGUAGE).equals("2")){
-                context.resources.getColor(R.color.design_default_color_on_primary)
+                context.resources.getColor(R.color.red)
             }else {
                 context.resources.getColor(R.color.primary_color)
             }

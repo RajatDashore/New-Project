@@ -106,7 +106,7 @@ class InAppUpdate (activity: Activity) : InstallStateUpdatedListener {
 
      private fun flexibleUpdateDownloadCompleted() {
         Snackbar.make(
-            parentActivity.findViewById(R.id.content),
+            parentActivity.findViewById(com.bumptech.glide.R.id.content), // Changed
             "An update has just been downloaded.",
             Snackbar.LENGTH_INDEFINITE
         ).apply {

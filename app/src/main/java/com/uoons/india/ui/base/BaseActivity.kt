@@ -262,12 +262,14 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppComp
                 }
             )
         } else if (serverError.statusCode == 426) {
-            showAlertDialog1Button(
-                alertMsg = serverError.message,
-                buttonTitle = getStringResource(R.string.update_app),
-                onClick = {
-                }
-            )
+            serverError.message?.let {
+                showAlertDialog1Button(
+                    alertMsg = it,
+                    buttonTitle = getStringResource(R.string.update_app),
+                    onClick = {
+                    }
+                )
+            }
         }else if (serverError.statusCode == 502) {
             showAlertDialog1Button(
                 alertMsg = "Bad Gateway",

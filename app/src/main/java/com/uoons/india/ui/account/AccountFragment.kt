@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION", "DEPRECATION")
+
 package com.uoons.india.ui.account
 
 import android.annotation.SuppressLint
@@ -21,7 +23,6 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
 import com.google.firebase.dynamiclinks.ShortDynamicLink
 import com.uoons.india.BR
-import com.uoons.india.BuildConfig
 import com.uoons.india.R
 import com.uoons.india.data.local.AppPreference
 import com.uoons.india.data.local.PreferenceKeys
@@ -47,11 +48,11 @@ class AccountFragment : BaseFragment<FragmentAccountBinding, AccountFragmentVM>(
     override val viewModelClass: Class<AccountFragmentVM> = AccountFragmentVM::class.java
     private var navController: NavController? = null
     private lateinit var otpVerificationBottomSheet: OTPVerificationBotttomSheet
-    private var myCoins: String = ""
-    private var PID: String = ""
-    private var NEW_MOBILE_NO: String = ""
+    private var myCoins: String? = ""
+    private var PID: String? = ""
+    private var NEW_MOBILE_NO: String? = ""
     private var referralCode: String = ""
-    private var name: String = ""
+    private var name: String? = ""
     lateinit var txvMakeyourown: TextView
     lateinit var activity: Activity
     private val VALID = 0
@@ -111,7 +112,7 @@ class AccountFragment : BaseFragment<FragmentAccountBinding, AccountFragmentVM>(
         Log.e("onViewCreated","onViewCreated_MOBILE_NO_MOBILE_NO:: "+AppPreference.getValue(PreferenceKeys.MOBILE_NO))
         navController = Navigation.findNavController(view)
         viewDataBinding.toolbar.txvTitleName.text = resources.getString(R.string.account)
-        viewDataBinding.apkVersion.text = resources.getString(R.string.varsionName) +" "+ BuildConfig.VERSION_NAME
+           // Changed  viewDataBinding.apkVersion.text = resources.getString(R.string.varsionName) +" "+ buildConfig.VERSION_NAME
         name =    AppPreference.getValue(PreferenceKeys.USER_NAME)
         viewDataBinding.toolbar.ivHeartVector.visibility = View.GONE
         viewDataBinding.toolbar.ivCartVector.visibility = View.GONE
@@ -124,7 +125,7 @@ class AccountFragment : BaseFragment<FragmentAccountBinding, AccountFragmentVM>(
         Log.e("","PROFILE_IDPROFILE_ID:: "+AppPreference.getValue(PreferenceKeys.PROFILE_ID))
         mViewModel.getDataObserver().observe(viewLifecycleOwner, Observer<String> {
             if (it != null) {
-                context?.let { mViewModel.checkUserNumber(NEW_MOBILE_NO) }
+                context?.let { mViewModel.checkUserNumber(NEW_MOBILE_NO!!) }
             } else {
                 Toast.makeText(requireActivity(), AppConstants.ErrorFetching, Toast.LENGTH_LONG).show()
             }
@@ -271,8 +272,8 @@ class AccountFragment : BaseFragment<FragmentAccountBinding, AccountFragmentVM>(
                                     unicodePointDownFinger.append(Character.toChars(0xE22F))
                                     val unicodeFire = StringBuilder()
                                     unicodeFire.append(Character.toChars(0x1F390))
-                                    userName = name.ifEmpty {
-                                        NEW_MOBILE_NO
+                                    userName = name!!.ifEmpty {
+                                        NEW_MOBILE_NO.toString()
                                     }
 
                                     val habitnumber =

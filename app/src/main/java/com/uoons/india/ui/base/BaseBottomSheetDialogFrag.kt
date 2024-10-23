@@ -40,7 +40,7 @@ abstract class BaseBottomSheetDialogFrag<T:ViewDataBinding,V:BaseViewModel<*>>:B
         dialog?.setCancelable(false)
         dialog?.setCanceledOnTouchOutside(false)
         dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-        val bottomSheet = dialog!!.findViewById<View>(R.id.design_bottom_sheet)
+        val bottomSheet = dialog!!.findViewById<View>(R.id.dropshadow)
         val fId = R.layout.filters_bottom_sheet
 //        Log.e("BaseBottomSheetDialogFrag","$bindingVariable")
 

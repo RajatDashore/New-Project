@@ -52,8 +52,8 @@ class OrderTrackerFragment : BaseFragment<FragmentOrderTrackerBinding, OrderTrac
                         dpToPx(0f)?.let { it4 ->
                             dpToPx(0f)?.let { it5 ->
                                 dpToPx(2f)?.let { it6 ->
-                                    getColorCompat(R.color.com_facebook_blue)?.let { it7 ->
-                                        getColorCompat(R.color.com_facebook_blue)?.let { it8 ->
+                                    getColorCompat(R.color.green)?.let { it7 ->
+                                        getColorCompat(R.color.green)?.let { it8 ->
                                             dpToPx(2f)?.let { it9 ->
                                                 dpToPx(4f)?.let { it10 ->
                                                     dpToPx(2f)?.let { it11 ->

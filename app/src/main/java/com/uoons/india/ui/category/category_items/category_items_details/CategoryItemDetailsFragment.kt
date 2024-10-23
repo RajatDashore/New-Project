@@ -43,9 +43,9 @@ class CategoryItemDetailsFragment :
     private var pId: Int = 0
     private lateinit var moreLikeSimilerProductAdapter: MoreLikeSimilerProductAdapter
     private var lstSimilerProduct: ArrayList<SimilarProducts> = ArrayList<SimilarProducts>()
-    private var inWishList: String = ""
-    private var inCart: String = ""
-    private var PID: String = ""
+    private var inWishList: String? = ""
+    private var inCart: String? = ""
+    private var PID: String? = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

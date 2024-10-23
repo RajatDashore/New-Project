@@ -1,9 +1,9 @@
 package com.uoons.india.data.remote
 
 import arrow.core.Either
+import com.android.volley.BuildConfig
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.uoons.india.BuildConfig
 import com.uoons.india.data.local.AppPreference
 import com.uoons.india.data.local.PreferenceKeys
 import com.uoons.india.data.remote.error.*
@@ -71,7 +71,7 @@ open class NetworkRetrofit : Repository() {
 
     init {
         val gson: Gson = GsonBuilder().setLenient().create()
-        val retrofit = Retrofit.Builder().baseUrl(BuildConfig.BASE_URL)
+        val retrofit = Retrofit.Builder().baseUrl(BuildConfig.BUILD_TYPE) //Changes Made
             .client(getHttpClient())
             .addConverterFactory(NullOnEmptyConverterFactory())
             .addConverterFactory(GsonConverterFactory.create(gson))

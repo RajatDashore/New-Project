@@ -20,7 +20,7 @@ class BankDetailsListAdapter(var fetchBankDetailsList: ArrayList<BankDetailsList
     private var lastSelectedPosition = -1
 
     @SuppressLint("NotifyDataSetChanged")
-    override fun onBindViewHolder(holder: ViewHolder, position: Int, type: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, @SuppressLint("RecyclerView") position: Int, type: Int) {
         holder.bind(fetchBankDetailsList[position])
         holder.binding.txvSavingAcNo.text = fetchBankDetailsList[position].accountNumber
         holder.binding.rdoBtnBankName.setOnCheckedChangeListener(null)

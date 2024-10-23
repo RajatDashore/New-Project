@@ -1,5 +1,6 @@
 buildscript {
     ext {
+        agp_version1 = '8.5.1'
 
         //agp_version1 = '7.4.0'
         agp_version = '8.0.0'
@@ -17,8 +18,10 @@ buildscript {
         mavenCentral()
 
     }
+
+
     dependencies {
-        classpath "com.android.tools.build:gradle:$agp_version"
+        classpath "com.android.tools.build:gradle:$agp_version1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22"
         // classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 

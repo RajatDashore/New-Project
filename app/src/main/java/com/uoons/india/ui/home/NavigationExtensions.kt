@@ -92,13 +92,15 @@ fun BottomNavigationView.setupWithNavController(navGraphIds: List<Int>, fragment
                             }
                         }
                         .addToBackStack(firstFragmentTag)
-                        .setCustomAnimations(
+                      /*  .setCustomAnimations(
                             R.anim.nav_default_enter_anim,
                             R.anim.nav_default_exit_anim,
                             R.anim.nav_default_pop_enter_anim,
-                            R.anim.nav_default_pop_exit_anim)
+                           R.anim.nav_default_pop_exit_anim)
                         .setReorderingAllowed(true)
                         .commit()
+
+                       */
                 }
                 selectedItemTag = newlySelectedItemTag
                 isOnFirstFragment = selectedItemTag == firstFragmentTag
