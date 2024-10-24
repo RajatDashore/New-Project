@@ -10,6 +10,7 @@ import android.graphics.Color
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
@@ -279,9 +280,14 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppComp
                 }
             )
         } else {
+  Log.e("ServerError", "Error Code: ${serverError.statusCode}, Message: ${serverError.toString()}")
+//so i can copy the err and look it up, it is related to GSON just dont know which file
             showAlertDialog1Button(
+                //lets test if it is here by changing the messageok
                 /*alertMsg = serverError.message+" Vishal Rao",*/
-                alertMsg = "Something went wrong!. Please try again after sometime.",
+                //alertMsg = "Something  just went wrong!. Please try again after sometime.",
+                alertMsg="Error Code: ${serverError.statusCode}, Message: ${serverError.toString()}",
+                //we would log the server error to see ther error
                 buttonTitle = getStringResource(R.string.retry)
             )
         }

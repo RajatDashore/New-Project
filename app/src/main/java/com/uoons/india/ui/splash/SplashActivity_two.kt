@@ -101,7 +101,7 @@ class SplashActivity_two : Activity() {
                 intent = Intent(applicationContext, HomeActivity::class.java)
                 startActivity(intent)
             }
-        }, 3000)
+        }, 5000)
     }
 
 

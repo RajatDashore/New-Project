@@ -268,18 +268,18 @@ interface ApiServiceInterface {
     @POST(ADD_RATING_REVIEW)
     suspend fun uploadReview(@Header("Channel-Code") ChannelCode: String, @PartMap partMap: HashMap<String, RequestBody>, @Part product_image: ArrayList<MultipartBody.Part>): RatingAndReviewModel
 
-/*    @Multipart
-    @POST(PROFILE_IMAGE_SAVE)
-    suspend fun profileImageSave(@Header("Channel-Code") ChannelCode: String,@Part profile_image : MultipartBody.Part): ProfileImageModel*/
+  //  @Multipart
+  //  @POST(PROFILE_IMAGE_SAVE)
+   // suspend fun profileImageSave(@Header("Channel-Code") ChannelCode: String,@Part profile_image : MultipartBody.Part): ProfileImageModel // Uncommented
 
-/*    @Multipart
+    @Multipart
     @POST(ADD_RATING_REVIEW)
-    fun uploadReview(@Header("Channel-Code") ChannelCode: String, @PartMap map: HashMap<String, RequestBody>): RatingAndReviewModel*/
+    fun uploadReview(@Header("Channel-Code") ChannelCode: String, @PartMap map: HashMap<String, RequestBody>): RatingAndReviewModel
 
     @POST(CHECKOUT)
     suspend fun getToken(@Header("Channel-Code") ChannelCode: String,@Body body: HashMap<String, Any>) : TokenModel
 
-//    @POST(PROFILE_IMAGE_SAVE)
-//    suspend fun profileImageSave(@Header("Authorization") authorizationToken: String, @Body body: HashMap<String, Any>): ProfileImageModel
+     @POST(PROFILE_IMAGE_SAVE) // Uncommented
+     suspend fun profileImageSave(@Header("Authorization") authorizationToken: String, @Body body: HashMap<String, Any>): ProfileImageModel
 
 }

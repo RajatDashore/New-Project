@@ -76,7 +76,7 @@ class PriceStoreItemRecyclerAdapter :
         }
     }
 
-    companion object {
+   /* companion object {
         @JvmStatic
         @BindingAdapter("loadImage")
         fun loadImage(thubmImage: ImageView, url: String) {
@@ -89,4 +89,6 @@ class PriceStoreItemRecyclerAdapter :
             }
         }
     }
+
+    */
 }

@@ -71,6 +71,7 @@ class NewArrivalsItemRecyclerAdapter :
             binding.recyclerDataItems = data
         }
     }
+    /*
    @Suppress
     companion object {
         @JvmStatic
@@ -84,4 +85,5 @@ class NewArrivalsItemRecyclerAdapter :
             }
         }
     }
+     */
 }

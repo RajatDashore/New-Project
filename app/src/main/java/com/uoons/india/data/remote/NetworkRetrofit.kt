@@ -57,6 +57,7 @@ import com.uoons.india.utils.AppConstants
 import com.uoons.india.utils.ParserUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import okhttp3.CertificatePinner
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
@@ -84,15 +85,15 @@ open class NetworkRetrofit : Repository() {
         apiService = retrofit.create(ApiServiceInterface::class.java)
         if (apiService != null) {
             Log.d("rajat", "The response from api service"+apiService.toString())
-            //did this log above show the response?
+            //did this log above show the response?yes
 
         }
     }
 
     private fun getHttpClient(): OkHttpClient {
-        /*val  certPinner = CertificatePinner.Builder()
+        val  certPinner = CertificatePinner.Builder()
        .add("uoons.com","sha256/ReEGXY0pnGBAqrASIqBCmOjSELZno6Vv++TuaIekQ9s=")
-       .build()*/
+       .build() // uncommented
 
         val httpClientBuilder = OkHttpClient.Builder()
         httpClientBuilder.addInterceptor { chain ->

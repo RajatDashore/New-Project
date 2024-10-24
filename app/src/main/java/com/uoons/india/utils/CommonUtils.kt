@@ -168,7 +168,7 @@ object CommonUtils {
         }
     }
 
-    internal fun loadImage(view: ImageView?, imageURL: String?, placeError: Int) {
+   internal fun loadImage(view: ImageView?, imageURL: String?, placeError: Int) {
         Log.d("ImageLoader", "Load function called")
         try {
 
@@ -190,6 +190,7 @@ object CommonUtils {
             e.printStackTrace()
         }
     }
+
 
     internal fun catIoadImage(view: ImageView?, imageURL: String?, placeError: Int) {
         try {

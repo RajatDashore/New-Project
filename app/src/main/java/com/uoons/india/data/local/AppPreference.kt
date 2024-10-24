@@ -8,7 +8,6 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.uoons.india.utils.CommonUtils
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import java.util.*
 
@@ -189,40 +188,39 @@ object AppPreference {
         val value = getValue(key) ?: return null
         //if the value is null return null
         //convert value to string
-        val jsonString=value.toString()
+        //  val jsonString=value.toString()
 
         //JSON String was found which means object can be read.
         //We convert this JSON String to model object. Parameter "c" (of
         //type “T” is used to cast.
         // Create Gson instance
         return try {
-        when (T::class) {
-            String::class -> value as T
-            else -> {
-                val type = object : TypeToken<T>() {}.type
-                val gson = GsonBuilder().create()
-                gson.fromJson(jsonString, type)
+            when (T::class) {
+                String::class -> value as T
+                else -> {
+                    val type = object : TypeToken<T>() {}.type
+                    val gson = GsonBuilder().create()
+                    gson.fromJson<T>(value, type)
+                }
             }
-        }}
-        catch (e:Exception){
+        } catch (e: Exception) {
             null
         }
     }
 
     fun getArrayList(key: Preferences.Key<String>): ArrayList<Any>? {
-        val gson = Gson()
-        val json: String? = getValue(key).toString()
-        val type = object : TypeToken<ArrayList<Any?>?>() {}.type
-        return  gson.fromJson<ArrayList<Any>>(json, type)
+       val json= getValue(key) ?: return null
+        val gson = GsonBuilder()
+            .setLenient()
+            .create()
+        val type =object : TypeToken<ArrayList<Any>>() {}.type
+        return gson.fromJson(json, type)
     }
 
 
-    fun clearSharedPreference(){
+    fun clearSharedPreference() {
         clearDataStore()
     }
-
-
-
 
 
     /*private const val prefName = "ridepro_student"
@@ -288,7 +286,8 @@ object AppPreference {
         return gson.fromJson<ArrayList<Any>>(json, type)
     }
 
-    *//**
+    */
+    /**
      * Saves object into the Preferences.
      *
      * @param `object` Object of model class (of type [T]) to save
@@ -301,7 +300,8 @@ object AppPreference {
         sharedPreferences!!.edit().putString(key, jsonString).apply()
     }
 
-    *//**
+    */
+    /**
      * Used to retrieve object from the Preferences.
      *
      * @param key Shared Preference key with which object was saved.

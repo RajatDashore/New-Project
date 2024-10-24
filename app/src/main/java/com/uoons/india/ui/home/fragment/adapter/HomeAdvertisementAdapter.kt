@@ -61,6 +61,7 @@ class HomeAdvertisementAdapter : BaseRecyclerAdapter<RowHomeAdvertisementBinding
     companion object {
         @JvmStatic
         @BindingAdapter("loadImage")
+        //the problem with that woarning is that this function is defined in another file
         fun loadImage(thubmImage: ImageView, url: String) {
             if (url.isEmpty()){
                 CommonUtils.loadImage(thubmImage, "", thubmImage.id)

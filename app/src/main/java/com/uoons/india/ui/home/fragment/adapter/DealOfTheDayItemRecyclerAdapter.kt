@@ -58,7 +58,7 @@ class DealOfTheDayItemRecyclerAdapter: BaseRecyclerAdapter<RowHomeDealOfTheDayBi
         }
     }
 
-    companion object {
+   /* companion object {
         @JvmStatic
         @BindingAdapter("loadImage")
         fun loadImage(thubmImage: ImageView, url: String) {
@@ -69,4 +69,6 @@ class DealOfTheDayItemRecyclerAdapter: BaseRecyclerAdapter<RowHomeDealOfTheDayBi
             }
         }
     }
+why is this commented out?showing waring cause it is overriding
+    */
 }
